@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="sidebar"
+    class="sidebar lg:top-4 lg:bottom-4 lg:left-4 lg:h-[calc(100vh-2rem)] lg:rounded-3xl lg:border lg:border-white/80 lg:shadow-glass dark:lg:border-white/[0.08]"
     :class="[
       sidebarCollapsed ? 'w-[72px]' : 'w-64',
       { '-translate-x-full lg:translate-x-0': !mobileOpen }
@@ -11,28 +11,58 @@
       <!-- Custom Logo or Default Logo -->
       <router-link
         :to="homePath"
-        class="sidebar-logo flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl shadow-glow transition-opacity hover:opacity-80"
+        class="sidebar-logo flex h-10 w-10 items-center justify-center overflow-hidden rounded-[14px] bg-white/80 p-0.5 shadow-glow ring-1 ring-primary-500/20 transition-all duration-200 hover:scale-105 hover:opacity-95 dark:bg-dark-800/80 dark:ring-white/10"
         @click="handleMenuItemClick(homePath)"
       >
-        <img v-if="settingsLoaded" :src="siteLogo || '/logo.svg'" alt="Logo" class="h-full w-full object-contain" />
+        <img v-if="settingsLoaded" :src="siteLogo || '/logo.svg'" alt="Logo" class="h-full w-full rounded-[12px] object-contain" />
       </router-link>
       <div class="sidebar-brand" :class="{ 'sidebar-brand-collapsed': sidebarCollapsed }" :aria-hidden="sidebarCollapsed ? 'true' : 'false'">
         <router-link
           :to="homePath"
-          class="sidebar-brand-title text-lg font-bold text-gray-900 transition-colors hover:text-primary-600 dark:text-white dark:hover:text-primary-400"
+          class="sidebar-brand-title text-lg font-bold tracking-tight text-gray-900 transition-colors hover:text-primary-600 dark:text-white dark:hover:text-primary-400"
           @click="handleMenuItemClick(homePath)"
         >
           {{ siteName }}
         </router-link>
-        <!-- Version Badge -->
-        <VersionBadge :version="siteVersion" />
+        <!-- Version (static, online update removed) -->
+        <span v-if="siteVersion" class="text-xs text-gray-500 dark:text-dark-400">v{{ siteVersion }}</span>
+      </div>
+    </div>
+
+    <!-- Admin / User Workspace Switcher Pill -->
+    <div v-if="isAdmin && !sidebarCollapsed" class="px-3 pt-3">
+      <div class="grid grid-cols-2 rounded-2xl border border-black/[0.05] bg-gray-100/80 p-1 dark:border-white/[0.06] dark:bg-dark-800/80">
+        <button
+          type="button"
+          class="rounded-xl py-1.5 text-xs font-semibold transition-all duration-200"
+          :class="
+            !isUserWorkspace
+              ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-sm'
+              : 'text-gray-600 hover:text-gray-900 dark:text-dark-300 dark:hover:text-white'
+          "
+          @click="router.push('/admin/dashboard')"
+        >
+          管理后台
+        </button>
+        <button
+          type="button"
+          class="rounded-xl py-1.5 text-xs font-semibold transition-all duration-200"
+          :class="
+            isUserWorkspace
+              ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-sm'
+              : 'text-gray-600 hover:text-gray-900 dark:text-dark-300 dark:hover:text-white'
+          "
+          @click="router.push('/dashboard')"
+        >
+          用户工作台
+        </button>
       </div>
     </div>
 
     <!-- Navigation -->
     <nav ref="sidebarNavRef" class="sidebar-nav scrollbar-hide">
-      <!-- Admin View: Admin menu first, then personal menu -->
-      <template v-if="isAdmin">
+      <!-- Admin View -->
+      <template v-if="isAdmin && !isUserWorkspace">
         <!-- Admin Section -->
         <div class="sidebar-section">
           <template v-for="item in adminNavItems" :key="item.path">
@@ -100,34 +130,10 @@
             </router-link>
           </template>
         </div>
-
-        <!-- Personal Section for Admin (hidden in simple mode) -->
-        <div v-if="!authStore.isSimpleMode" class="sidebar-section">
-          <div class="sidebar-section-title" :class="{ 'sidebar-section-title-collapsed': sidebarCollapsed }" :aria-hidden="sidebarCollapsed ? 'true' : 'false'">
-            <span class="sidebar-section-title-text" :class="{ 'sidebar-section-title-text-collapsed': sidebarCollapsed }">
-              {{ t('nav.myAccount') }}
-            </span>
-          </div>
-
-          <router-link
-            v-for="item in personalNavItems"
-            :key="item.path"
-            :to="item.path"
-            class="sidebar-link mb-1"
-            :class="{ 'sidebar-link-active': isActive(item.path), 'sidebar-link-collapsed': sidebarCollapsed }"
-            :title="sidebarCollapsed ? item.label : undefined"
-            :data-tour="item.path === '/keys' ? 'sidebar-my-keys' : undefined"
-            @click="handleMenuItemClick(item.path)"
-          >
-            <span v-if="item.iconSvg" class="h-5 w-5 flex-shrink-0 sidebar-svg-icon" v-html="sanitizeSvg(item.iconSvg)"></span>
-            <component v-else :is="item.icon" class="h-5 w-5 flex-shrink-0" />
-            <span class="sidebar-label" :class="{ 'sidebar-label-collapsed': sidebarCollapsed }" :aria-hidden="sidebarCollapsed ? 'true' : 'false'">{{ item.label }}</span>
-          </router-link>
-        </div>
       </template>
 
-      <!-- Regular User View -->
-      <template v-else-if="!appStore.backendModeEnabled">
+      <!-- Streamlined User Workspace View -->
+      <template v-else-if="!appStore.backendModeEnabled || isAdmin">
         <div class="sidebar-section">
           <router-link
             v-for="item in userNavItems"
@@ -192,10 +198,10 @@ import { computed, h, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'v
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useAdminSettingsStore, useAppStore, useAuthStore, useOnboardingStore } from '@/stores'
-import VersionBadge from '@/components/common/VersionBadge.vue'
 import Icon from '@/components/icons/Icon.vue'
 import { sanitizeSvg } from '@/utils/sanitize'
 import { sanitizeUrl } from '@/utils/url'
+import { resolveBrandName } from '@/utils/branding'
 import { FeatureFlags, makeSidebarFlag } from '@/utils/featureFlags'
 import { resolveSiteBillingMode } from '@/utils/siteBillingMode'
 import { useBatchImageAccess } from '@/composables/useBatchImageAccess'
@@ -249,6 +255,7 @@ const { canUseBatchImage, refreshBatchImageAccess } = useBatchImageAccess()
 const sidebarCollapsed = computed(() => appStore.sidebarCollapsed)
 const mobileOpen = computed(() => appStore.mobileOpen)
 const isAdmin = computed(() => authStore.isAdmin)
+const isUserWorkspace = computed(() => !route.path.startsWith('/admin'))
 const sidebarNavRef = ref<HTMLElement | null>(null)
 const isDark = ref(document.documentElement.classList.contains('dark'))
 
@@ -261,7 +268,7 @@ const homePath = computed(() => (isAdmin.value ? '/admin/dashboard' : '/dashboar
 const groupExpandOverrides = ref<Map<string, boolean>>(new Map())
 
 // Site settings from appStore (cached, no flicker)
-const siteName = computed(() => appStore.siteName)
+const siteName = computed(() => resolveBrandName(appStore.siteName))
 const siteLogo = computed(() => sanitizeUrl(appStore.siteLogo || '', { allowRelative: true, allowDataUrl: true }))
 const siteVersion = computed(() => appStore.siteVersion)
 const settingsLoaded = computed(() => appStore.publicSettingsLoaded)
@@ -717,6 +724,20 @@ const flagOpsMonitoring = () => adminSettingsStore.opsMonitoringEnabled
 const flagAdminPayment = () => adminSettingsStore.paymentEnabled
 const flagBatchImageAccess = () => canUseBatchImage.value
 
+// Custom menu items filtered by visibility
+const customMenuItemsForUser = computed(() => {
+  const items = appStore.cachedPublicSettings?.custom_menu_items ?? []
+  return items
+    .filter((item) => item.visibility === 'user')
+    .sort((a, b) => a.sort_order - b.sort_order)
+})
+
+const customMenuItemsForAdmin = computed(() => {
+  return adminSettingsStore.customMenuItems
+    .filter((item) => item.visibility === 'admin')
+    .sort((a, b) => a.sort_order - b.sort_order)
+})
+
 // buildSelfNavItems 构造用户自己的导航项（用户端主菜单和管理员的"我的账户"子菜单共享这组声明）。
 // withDashboard=true 时包含仪表盘（用户端），false 时不含（管理员的个人区已经有独立仪表盘入口）。
 //
@@ -747,7 +768,8 @@ function buildSelfNavItems(withDashboard: boolean): NavItem[] {
       iconSvg: item.icon_svg,
     })),
   )
-  return items
+  const streamlinedPaths = new Set(['/dashboard', '/keys', '/usage', '/purchase', '/redeem'])
+  return items.filter((item) => streamlinedPaths.has(item.path) || item.path.startsWith('/custom/'))
 }
 
 // finalizeNav 合并三重过滤：featureFlag 过滤 + simple 模式过滤。
@@ -758,25 +780,6 @@ function finalizeNav(items: NavItem[]): NavItem[] {
 
 // User navigation items (for regular users)
 const userNavItems = computed((): NavItem[] => finalizeNav(buildSelfNavItems(true)))
-
-// Personal navigation items (for admin's "My Account" section, without Dashboard).
-// Admins access 可用渠道 from this section just like regular users — there is no
-// separate admin entry, since the page is purely a user-facing view.
-const personalNavItems = computed((): NavItem[] => finalizeNav(buildSelfNavItems(false)))
-
-// Custom menu items filtered by visibility
-const customMenuItemsForUser = computed(() => {
-  const items = appStore.cachedPublicSettings?.custom_menu_items ?? []
-  return items
-    .filter((item) => item.visibility === 'user')
-    .sort((a, b) => a.sort_order - b.sort_order)
-})
-
-const customMenuItemsForAdmin = computed(() => {
-  return adminSettingsStore.customMenuItems
-    .filter((item) => item.visibility === 'admin')
-    .sort((a, b) => a.sort_order - b.sort_order)
-})
 
 // Admin navigation items
 const adminNavItems = computed((): NavItem[] => {

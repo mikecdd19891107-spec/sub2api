@@ -7,341 +7,264 @@
       </div>
 
       <template v-else-if="stats">
-        <!-- Row 1: Core Stats -->
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          <!-- Total API Keys -->
-          <div class="card p-4">
-            <div class="flex items-center gap-3">
-              <div class="rounded-lg bg-blue-100 p-2 dark:bg-blue-900/30">
-                <Icon name="key" size="md" class="text-blue-600 dark:text-blue-400" :stroke-width="2" />
-              </div>
-              <div>
-                <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
-                  {{ t('admin.dashboard.apiKeys') }}
-                </p>
-                <p class="text-xl font-bold text-gray-900 dark:text-white">
-                  {{ stats.total_api_keys }}
-                </p>
-                <p class="text-xs text-green-600 dark:text-green-400">
-                  {{ stats.active_api_keys }} {{ t('common.active') }}
-                </p>
-              </div>
-            </div>
-          </div>
+        <!-- VisionOS Bento 便当盒管理中枢 -->
+        <!-- Top Bento Grid: 5-col Hero Gateway Card + 7-col 2x2 Core Metrics -->
+        <div class="grid grid-cols-1 gap-5 lg:grid-cols-12">
+            <!-- Left 5 Cols: Gateway Live Command Hero Card -->
+            <div
+              class="relative flex flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br from-dark-900 via-dark-800 to-dark-950 p-6 text-white shadow-glass ring-1 ring-amber-500/25 lg:col-span-5"
+            >
+              <div class="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-amber-500/20 blur-3xl"></div>
+              <div class="pointer-events-none absolute -bottom-14 -left-14 h-44 w-44 rounded-full bg-orange-500/15 blur-3xl"></div>
 
-          <!-- Service Accounts -->
-          <div class="card p-4">
-            <div class="flex items-center gap-3">
-              <div class="rounded-lg bg-purple-100 p-2 dark:bg-purple-900/30">
-                <Icon name="server" size="md" class="text-purple-600 dark:text-purple-400" :stroke-width="2" />
+              <div class="relative z-10">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center gap-2 rounded-full bg-amber-500/15 px-3 py-1 text-xs font-semibold text-amber-300 ring-1 ring-amber-400/25">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    AgentByte Gateway Core
+                  </span>
+                  <div class="flex items-center gap-2 rounded-full bg-white/[0.06] px-3 py-1 text-xs font-medium text-amber-200 ring-1 ring-white/10">
+                    <Icon name="bolt" size="xs" class="text-amber-400" />
+                    <span>{{ formatTokens(stats.rpm) }} RPM</span>
+                    <span class="text-white/30">·</span>
+                    <span>{{ formatTokens(stats.tpm) }} TPM</span>
+                  </div>
+                </div>
+
+                <!-- Today Core Volume & Actual Cost -->
+                <div class="mt-5 grid grid-cols-3 gap-3">
+                  <div class="rounded-2xl bg-white/[0.05] p-3.5 ring-1 ring-white/[0.08]">
+                    <p class="text-[11px] font-medium text-gray-400">{{ t('admin.dashboard.todayRequests') }}</p>
+                    <p class="mt-1 text-2xl font-extrabold tracking-tight text-white">
+                      {{ formatNumber(stats.today_requests) }}
+                    </p>
+                    <p class="mt-0.5 text-[11px] text-gray-400">
+                      {{ t('common.total') }} {{ formatNumber(stats.total_requests) }}
+                    </p>
+                  </div>
+                  <div class="rounded-2xl bg-white/[0.05] p-3.5 ring-1 ring-white/[0.08]">
+                    <p class="text-[11px] font-medium text-gray-400">{{ t('admin.dashboard.todayTokens') }}</p>
+                    <p class="mt-1 text-2xl font-extrabold tracking-tight text-amber-400">
+                      {{ formatTokens(stats.today_tokens) }}
+                    </p>
+                    <p class="mt-0.5 text-[11px] text-gray-400">
+                      {{ t('common.total') }} {{ formatTokens(stats.total_tokens) }}
+                    </p>
+                  </div>
+                  <div class="rounded-2xl bg-white/[0.05] p-3.5 ring-1 ring-white/[0.08]">
+                    <p class="text-[11px] font-medium text-gray-400">{{ t('admin.dashboard.actual') }}</p>
+                    <p class="mt-1 text-2xl font-extrabold tracking-tight text-emerald-400">
+                      ${{ formatCost(stats.today_actual_cost) }}
+                    </p>
+                    <p class="mt-0.5 text-[11px] text-gray-400">
+                      {{ t('common.total') }} ${{ formatCost(stats.total_actual_cost) }}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
+
+              <!-- Quick Gateway Shortcuts inside Hero Bento -->
+              <div class="relative z-10 mt-5 flex flex-wrap items-center gap-2.5 border-t border-white/10 pt-4">
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-1.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 px-3.5 py-2 text-xs font-semibold text-white shadow-md shadow-amber-500/25 transition-all hover:-translate-y-0.5"
+                  @click="router.push('/admin/accounts')"
+                >
+                  <Icon name="server" size="sm" :stroke-width="2" />
                   {{ t('admin.dashboard.accounts') }}
-                </p>
-                <p class="text-xl font-bold text-gray-900 dark:text-white">
-                  {{ stats.total_accounts }}
-                </p>
-                <p class="text-xs">
-                  <span class="text-green-600 dark:text-green-400"
-                    >{{ stats.normal_accounts }} {{ t('common.active') }}</span
-                  >
-                  <span v-if="stats.error_accounts > 0" class="ml-1 text-red-500"
-                    >{{ stats.error_accounts }} {{ t('common.error') }}</span
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Today Requests -->
-          <div class="card p-4">
-            <div class="flex items-center gap-3">
-              <div class="rounded-lg bg-green-100 p-2 dark:bg-green-900/30">
-                <Icon name="chart" size="md" class="text-green-600 dark:text-green-400" :stroke-width="2" />
-              </div>
-              <div>
-                <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
-                  {{ t('admin.dashboard.todayRequests') }}
-                </p>
-                <p class="text-xl font-bold text-gray-900 dark:text-white">
-                  {{ stats.today_requests }}
-                </p>
-                <p class="text-xs text-gray-500 dark:text-gray-400">
-                  {{ t('common.total') }}: {{ formatNumber(stats.total_requests) }}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- New Users Today -->
-          <div class="card p-4">
-            <div class="flex items-center gap-3">
-              <div class="rounded-lg bg-emerald-100 p-2 dark:bg-emerald-900/30">
-                <Icon name="userPlus" size="md" class="text-emerald-600 dark:text-emerald-400" :stroke-width="2" />
-              </div>
-              <div>
-                <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
-                  {{ t('admin.dashboard.users') }}
-                </p>
-                <p class="text-xl font-bold text-emerald-600 dark:text-emerald-400">
-                  +{{ stats.today_new_users }}
-                </p>
-                <p class="text-xs text-gray-500 dark:text-gray-400">
-                  {{ t('common.total') }}: {{ formatNumber(stats.total_users) }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 2: Token Stats -->
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          <!-- Today Tokens -->
-          <div class="card p-4">
-            <div class="flex items-center gap-3">
-              <div class="rounded-lg bg-amber-100 p-2 dark:bg-amber-900/30">
-                <Icon name="cube" size="md" class="text-amber-600 dark:text-amber-400" :stroke-width="2" />
-              </div>
-              <div>
-                <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
-                  {{ t('admin.dashboard.todayTokens') }}
-                </p>
-                <p class="text-xl font-bold text-gray-900 dark:text-white">
-                  {{ formatTokens(stats.today_tokens) }}
-                </p>
-                <p class="text-xs">
-                  <span
-                    class="text-green-600 dark:text-green-400"
-                    :title="t('admin.dashboard.actual')"
-                    >${{ formatCost(stats.today_actual_cost) }}</span
-                  >
-                  <span class="text-gray-400 dark:text-gray-500"> / </span>
-                  <span
-                    class="text-orange-500 dark:text-orange-400"
-                    :title="t('admin.dashboard.accountCost')"
-                    >${{ formatCost(stats.today_account_cost) }}</span
-                  >
-                  <span class="text-gray-400 dark:text-gray-500"> / </span>
-                  <span
-                    class="text-gray-400 dark:text-gray-500"
-                    :title="t('admin.dashboard.standard')"
-                    >${{ formatCost(stats.today_cost) }}</span
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Total Tokens -->
-          <div class="card p-4">
-            <div class="flex items-center gap-3">
-              <div class="rounded-lg bg-indigo-100 p-2 dark:bg-indigo-900/30">
-                <Icon name="database" size="md" class="text-indigo-600 dark:text-indigo-400" :stroke-width="2" />
-              </div>
-              <div>
-                <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
-                  {{ t('admin.dashboard.totalTokens') }}
-                </p>
-                <p class="text-xl font-bold text-gray-900 dark:text-white">
-                  {{ formatTokens(stats.total_tokens) }}
-                </p>
-                <p class="text-xs">
-                  <span
-                    class="text-green-600 dark:text-green-400"
-                    :title="t('admin.dashboard.actual')"
-                    >${{ formatCost(stats.total_actual_cost) }}</span
-                  >
-                  <span class="text-gray-400 dark:text-gray-500"> / </span>
-                  <span
-                    class="text-orange-500 dark:text-orange-400"
-                    :title="t('admin.dashboard.accountCost')"
-                    >${{ formatCost(stats.total_account_cost) }}</span
-                  >
-                  <span class="text-gray-400 dark:text-gray-500"> / </span>
-                  <span
-                    class="text-gray-400 dark:text-gray-500"
-                    :title="t('admin.dashboard.standard')"
-                    >${{ formatCost(stats.total_cost) }}</span
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Performance (RPM/TPM) -->
-          <div class="card p-4">
-            <div class="flex items-center gap-3">
-              <div class="rounded-lg bg-violet-100 p-2 dark:bg-violet-900/30">
-                <Icon name="bolt" size="md" class="text-violet-600 dark:text-violet-400" :stroke-width="2" />
-              </div>
-              <div class="flex-1">
-                <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
-                  {{ t('admin.dashboard.performance') }}
-                </p>
-                <div class="flex items-baseline gap-2">
-                  <p class="text-xl font-bold text-gray-900 dark:text-white">
-                    {{ formatTokens(stats.rpm) }}
-                  </p>
-                  <span class="text-xs text-gray-500 dark:text-gray-400">RPM</span>
-                </div>
-                <div class="flex items-baseline gap-2">
-                  <p class="text-sm font-semibold text-violet-600 dark:text-violet-400">
-                    {{ formatTokens(stats.tpm) }}
-                  </p>
-                  <span class="text-xs text-gray-500 dark:text-gray-400">TPM</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Avg Response Time -->
-          <div class="card p-4">
-            <div class="flex items-center gap-3">
-              <div class="rounded-lg bg-rose-100 p-2 dark:bg-rose-900/30">
-                <Icon name="clock" size="md" class="text-rose-600 dark:text-rose-400" :stroke-width="2" />
-              </div>
-              <div>
-                <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
-                  {{ t('admin.dashboard.avgResponse') }}
-                </p>
-                <p class="text-xl font-bold text-gray-900 dark:text-white">
-                  {{ formatDuration(stats.average_duration_ms) }}
-                </p>
-                <p class="text-xs text-gray-500 dark:text-gray-400">
-                  {{ stats.active_users }} {{ t('admin.dashboard.activeUsers') }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Quick Actions -->
-        <div class="card p-4">
-          <div class="mb-3 flex items-center justify-between">
-            <h2 class="text-sm font-semibold text-gray-900 dark:text-white">
-              {{ t('admin.dashboard.quickActions') }}
-            </h2>
-          </div>
-          <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
-            <button
-              v-if="canUseBatchImage"
-              type="button"
-              class="group flex items-center gap-3 rounded-lg bg-gray-50 p-3 text-left transition-colors hover:bg-sky-50 dark:bg-dark-800/50 dark:hover:bg-sky-900/20"
-              @click="router.push('/batch-image')"
-            >
-              <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-sky-100 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400">
-                <Icon name="sparkles" size="md" :stroke-width="2" />
-              </span>
-              <span class="min-w-0 flex-1">
-                <span class="block text-sm font-medium text-gray-900 dark:text-white">
-                  {{ t('admin.dashboard.batchImage') }}
-                </span>
-                <span class="block text-xs text-gray-500 dark:text-gray-400">
-                  {{ t('admin.dashboard.batchImageDesc') }}
-                </span>
-              </span>
-              <Icon name="chevronRight" size="sm" class="text-gray-400 group-hover:text-sky-500" />
-            </button>
-            <button
-              type="button"
-              class="group flex items-center gap-3 rounded-lg bg-gray-50 p-3 text-left transition-colors hover:bg-emerald-50 dark:bg-dark-800/50 dark:hover:bg-emerald-900/20"
-              @click="router.push('/admin/groups')"
-            >
-              <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400">
-                <Icon name="grid" size="md" :stroke-width="2" />
-              </span>
-              <span class="min-w-0 flex-1">
-                <span class="block text-sm font-medium text-gray-900 dark:text-white">
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-1.5 rounded-2xl bg-white/10 px-3.5 py-2 text-xs font-semibold text-white ring-1 ring-white/15 backdrop-blur-md transition-all hover:bg-white/15"
+                  @click="router.push('/admin/groups')"
+                >
+                  <Icon name="grid" size="sm" :stroke-width="2" />
                   {{ t('admin.dashboard.groupPricing') }}
-                </span>
-                <span class="block text-xs text-gray-500 dark:text-gray-400">
-                  {{ t('admin.dashboard.groupPricingDesc') }}
-                </span>
-              </span>
-              <Icon name="chevronRight" size="sm" class="text-gray-400 group-hover:text-emerald-500" />
-            </button>
-          </div>
-        </div>
-
-        <!-- Charts Section -->
-        <div class="space-y-6">
-          <!-- Date Range Filter -->
-          <div class="card p-4">
-            <div class="flex flex-wrap items-center gap-4">
-              <div class="flex items-center gap-2">
-                <span class="text-sm font-medium text-gray-700 dark:text-gray-300"
-                  >{{ t('admin.dashboard.timeRange') }}:</span
+                </button>
+                <button
+                  v-if="canUseBatchImage"
+                  type="button"
+                  class="inline-flex items-center gap-1.5 rounded-2xl bg-white/10 px-3.5 py-2 text-xs font-semibold text-amber-200 ring-1 ring-white/15 backdrop-blur-md transition-all hover:bg-white/15"
+                  @click="router.push('/batch-image')"
                 >
-                <DateRangePicker
-                  v-model:start-date="startDate"
-                  v-model:end-date="endDate"
-                  @change="onDateRangeChange"
-                />
-              </div>
-              <button @click="loadDashboardStats" :disabled="chartsLoading" class="btn btn-secondary">
-                {{ t('common.refresh') }}
-              </button>
-              <div class="ml-auto flex items-center gap-2">
-                <span class="text-sm font-medium text-gray-700 dark:text-gray-300"
-                  >{{ t('admin.dashboard.granularity') }}:</span
-                >
-                <div class="w-28">
-                  <Select
-                    v-model="granularity"
-                    :options="granularityOptions"
-                    @change="loadChartData"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Charts Grid -->
-          <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <ModelDistributionChart
-              :model-stats="modelStats"
-              :enable-ranking-view="true"
-              :ranking-items="rankingItems"
-              :ranking-total-actual-cost="rankingTotalActualCost"
-              :ranking-total-requests="rankingTotalRequests"
-              :ranking-total-tokens="rankingTotalTokens"
-              :loading="chartsLoading"
-              :ranking-loading="rankingLoading"
-              :ranking-error="rankingError"
-              :start-date="startDate"
-              :end-date="endDate"
-              @ranking-click="goToUserUsage"
-            />
-            <TokenUsageTrend :trend-data="trendData" :loading="chartsLoading" />
-          </div>
-
-          <!-- User Usage Trend (Full Width) -->
-          <div class="card p-4">
-            <div class="mb-4 flex items-center justify-between gap-3">
-              <h3 class="text-sm font-semibold text-gray-900 dark:text-white">{{ t('admin.dashboard.recentUsage') }} (Top 12)</h3>
-              <div class="flex gap-1" role="group" :aria-label="t('admin.dashboard.recentUsage')">
-                <button v-for="metric in (['tokens', 'actual_cost'] as const)" :key="metric" type="button"
-                  class="rounded px-2 py-1 text-xs" :class="userTrendMetric === metric ? 'bg-blue-600 text-white' : 'text-gray-600 dark:text-gray-300'"
-                  :aria-pressed="userTrendMetric === metric" @click="setUserTrendMetric(metric)">
-                  {{ t(metric === 'tokens' ? 'admin.dashboard.tokens' : 'admin.dashboard.actualSpending') }}
+                  <Icon name="sparkles" size="sm" :stroke-width="2" />
+                  {{ t('admin.dashboard.batchImage') }}
                 </button>
               </div>
             </div>
-            <div class="h-64">
-              <div v-if="userTrendLoading" class="flex h-full items-center justify-center">
-                <LoadingSpinner size="md" />
+
+            <!-- Right 7 Cols: 2x2 Bento Stat Grid -->
+            <div class="grid grid-cols-2 gap-4 lg:col-span-7">
+              <!-- Service Accounts Pool -->
+              <div class="card flex flex-col justify-between p-5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-dark-400">
+                    {{ t('admin.dashboard.accounts') }}
+                  </span>
+                  <div class="rounded-2xl bg-gradient-to-br from-orange-500/15 to-amber-500/10 p-2.5 text-orange-600 ring-1 ring-orange-500/20 dark:text-orange-400">
+                    <Icon name="server" size="md" :stroke-width="2" />
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <p class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                    {{ stats.total_accounts }}
+                  </p>
+                  <p class="mt-1.5 text-xs">
+                    <span class="font-semibold text-emerald-600 dark:text-emerald-400">
+                      {{ stats.normal_accounts }} {{ t('common.active') }}
+                    </span>
+                    <span v-if="stats.error_accounts > 0" class="ml-1.5 font-semibold text-red-500">
+                      · {{ stats.error_accounts }} {{ t('common.error') }}
+                    </span>
+                  </p>
+                </div>
               </div>
-              <Line v-else-if="userTrendChartData" :data="userTrendChartData" :options="lineOptions" />
-              <div
-                v-else
-                class="flex h-full items-center justify-center text-sm text-gray-500 dark:text-gray-400"
-              >
-                {{ t('admin.dashboard.noDataAvailable') }}
+
+              <!-- Total API Keys -->
+              <div class="card flex flex-col justify-between p-5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-dark-400">
+                    {{ t('admin.dashboard.apiKeys') }}
+                  </span>
+                  <div class="rounded-2xl bg-gradient-to-br from-amber-500/15 to-orange-500/10 p-2.5 text-amber-600 ring-1 ring-amber-500/20 dark:text-amber-400">
+                    <Icon name="key" size="md" :stroke-width="2" />
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <p class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                    {{ stats.total_api_keys }}
+                  </p>
+                  <p class="mt-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                    {{ stats.active_api_keys }} {{ t('common.active') }}
+                  </p>
+                </div>
+              </div>
+
+              <!-- Users & Active Users -->
+              <div class="card flex flex-col justify-between p-5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-dark-400">
+                    {{ t('admin.dashboard.users') }}
+                  </span>
+                  <div class="rounded-2xl bg-gradient-to-br from-amber-500/15 to-yellow-500/10 p-2.5 text-amber-600 ring-1 ring-amber-500/20 dark:text-amber-400">
+                    <Icon name="userPlus" size="md" :stroke-width="2" />
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <div class="flex items-baseline gap-2">
+                    <p class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                      {{ formatNumber(stats.total_users) }}
+                    </p>
+                    <span class="rounded-full bg-amber-500/15 px-2 py-0.5 text-xs font-bold text-amber-600 dark:text-amber-400">
+                      +{{ stats.today_new_users }}
+                    </span>
+                  </div>
+                  <p class="mt-1.5 text-xs text-gray-500 dark:text-dark-400">
+                    {{ stats.active_users }} {{ t('admin.dashboard.activeUsers') }}
+                  </p>
+                </div>
+              </div>
+
+              <!-- Avg Response Time & Cost Breakdown -->
+              <div class="card flex flex-col justify-between p-5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-dark-400">
+                    {{ t('admin.dashboard.avgResponse') }}
+                  </span>
+                  <div class="rounded-2xl bg-gradient-to-br from-emerald-500/15 to-teal-500/10 p-2.5 text-emerald-600 ring-1 ring-emerald-500/20 dark:text-emerald-400">
+                    <Icon name="clock" size="md" :stroke-width="2" />
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <p class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                    {{ formatDuration(stats.average_duration_ms) }}
+                  </p>
+                  <p class="mt-1.5 text-xs text-gray-500 dark:text-dark-400">
+                    {{ t('admin.dashboard.accountCost') }} ${{ formatCost(stats.today_account_cost) }} · {{ t('admin.dashboard.standard') }} ${{ formatCost(stats.today_cost) }}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+
+          <!-- Charts Section (Layout A) -->
+          <div class="space-y-6">
+            <!-- Date Range Filter -->
+            <div class="card p-4">
+              <div class="flex flex-wrap items-center gap-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >{{ t('admin.dashboard.timeRange') }}:</span
+                  >
+                  <DateRangePicker
+                    v-model:start-date="startDate"
+                    v-model:end-date="endDate"
+                    @change="onDateRangeChange"
+                  />
+                </div>
+                <button @click="loadDashboardStats" :disabled="chartsLoading" class="btn btn-secondary">
+                  {{ t('common.refresh') }}
+                </button>
+                <div class="ml-auto flex items-center gap-2">
+                  <span class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >{{ t('admin.dashboard.granularity') }}:</span
+                  >
+                  <div class="w-28">
+                    <Select
+                      v-model="granularity"
+                      :options="granularityOptions"
+                      @change="loadChartData"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Charts Grid (2 Columns) -->
+            <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <ModelDistributionChart
+                :model-stats="modelStats"
+                :enable-ranking-view="true"
+                :ranking-items="rankingItems"
+                :ranking-total-actual-cost="rankingTotalActualCost"
+                :ranking-total-requests="rankingTotalRequests"
+                :ranking-total-tokens="rankingTotalTokens"
+                :loading="chartsLoading"
+                :ranking-loading="rankingLoading"
+                :ranking-error="rankingError"
+                :start-date="startDate"
+                :end-date="endDate"
+                @ranking-click="goToUserUsage"
+              />
+              <TokenUsageTrend :trend-data="trendData" :loading="chartsLoading" />
+            </div>
+
+            <!-- User Usage Trend (Full Width) -->
+            <div class="card p-5">
+              <div class="mb-4 flex items-center justify-between gap-3">
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white">{{ t('admin.dashboard.recentUsage') }} (Top 12)</h3>
+                <div class="flex gap-1 rounded-xl border border-black/[0.06] bg-gray-100/70 p-0.5 dark:border-white/[0.08] dark:bg-dark-800/70" role="group" :aria-label="t('admin.dashboard.recentUsage')">
+                  <button v-for="metric in (['tokens', 'actual_cost'] as const)" :key="metric" type="button"
+                    class="rounded-lg px-2.5 py-1 text-xs font-medium transition-all" :class="userTrendMetric === metric ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-sm' : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'"
+                    :aria-pressed="userTrendMetric === metric" @click="setUserTrendMetric(metric)">
+                    {{ t(metric === 'tokens' ? 'admin.dashboard.tokens' : 'admin.dashboard.actualSpending') }}
+                  </button>
+                </div>
+              </div>
+              <div class="h-64">
+                <div v-if="userTrendLoading" class="flex h-full items-center justify-center">
+                  <LoadingSpinner size="md" />
+                </div>
+                <Line v-else-if="userTrendChartData" :data="userTrendChartData" :options="lineOptions" />
+                <div
+                  v-else
+                  class="flex h-full items-center justify-center text-sm text-gray-500 dark:text-gray-400"
+                >
+                  {{ t('admin.dashboard.noDataAvailable') }}
+                </div>
+              </div>
+            </div>
+          </div>
       </template>
     </div>
   </AppLayout>
@@ -549,18 +472,18 @@ const userTrendChartData = computed(() => {
 
   const sortedDates = Array.from(allDates).sort()
   const colors = [
-    '#3b82f6',
-    '#10b981',
     '#f59e0b',
-    '#ef4444',
+    '#ea580c',
+    '#10b981',
+    '#fbbf24',
+    '#f97316',
     '#8b5cf6',
     '#ec4899',
     '#14b8a6',
-    '#f97316',
+    '#ef4444',
     '#6366f1',
     '#84cc16',
-    '#06b6d4',
-    '#a855f7'
+    '#06b6d4'
   ]
 
   const datasets = Array.from(userGroups.values()).map((group, idx) => ({

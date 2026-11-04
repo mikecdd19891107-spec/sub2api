@@ -8,11 +8,12 @@ import { ref, computed } from 'vue'
 import type { Toast, ToastType, PublicSettings } from '@/types'
 import { i18n } from '@/i18n'
 import {
-  checkUpdates as checkUpdatesAPI,
+  getVersion as getVersionAPI,
   type VersionInfo,
   type ReleaseInfo
 } from '@/api/admin/system'
 import { getPublicSettings as fetchPublicSettingsAPI } from '@/api/auth'
+import { DEFAULT_BRAND_NAME, resolveBrandName } from '@/utils/branding'
 
 export const useAppStore = defineStore('app', () => {
   // ==================== State ====================
@@ -26,7 +27,7 @@ export const useAppStore = defineStore('app', () => {
   // Public settings cache state
   const publicSettingsLoaded = ref<boolean>(false)
   const publicSettingsLoading = ref<boolean>(false)
-  const siteName = ref<string>('Sub2API')
+  const siteName = ref<string>(DEFAULT_BRAND_NAME)
   const siteLogo = ref<string>('')
   const siteVersion = ref<string>('')
   const contactInfo = ref<string>('')
@@ -260,12 +261,20 @@ export const useAppStore = defineStore('app', () => {
 
     versionLoading.value = true
     try {
-      const data = await checkUpdatesAPI(force)
+      // 在线更新功能已移除：仅读取当前版本，不再向上游检查新版本
+      const { version } = await getVersionAPI()
+      const data: VersionInfo = {
+        current_version: version,
+        latest_version: version,
+        has_update: false,
+        build_type: 'source',
+        cached: false
+      }
       currentVersion.value = data.current_version
       latestVersion.value = data.latest_version
-      hasUpdate.value = data.has_update
-      buildType.value = data.build_type || 'source'
-      releaseInfo.value = data.release_info || null
+      hasUpdate.value = false
+      buildType.value = data.build_type
+      releaseInfo.value = null
       versionLoaded.value = true
       return data
     } catch (error) {
@@ -294,7 +303,7 @@ export const useAppStore = defineStore('app', () => {
       window.__APP_CONFIG__ = { ...config }
     }
     cachedPublicSettings.value = config
-    siteName.value = config.site_name || 'Sub2API'
+    siteName.value = resolveBrandName(config.site_name)
     siteLogo.value = config.site_logo || ''
     siteVersion.value = config.version || ''
     contactInfo.value = config.contact_info || ''

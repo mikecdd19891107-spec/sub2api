@@ -673,10 +673,8 @@ func registerSystemRoutes(admin *gin.RouterGroup, h *handler.Handlers) {
 	system := admin.Group("/system")
 	{
 		system.GET("/version", h.Admin.System.GetVersion)
-		system.GET("/check-updates", h.Admin.System.CheckUpdates)
-		system.GET("/rollback-versions", h.Admin.System.GetRollbackVersions)
-		system.POST("/update", h.Admin.System.PerformUpdate)
-		system.POST("/rollback", h.Admin.System.Rollback)
+		// 在线更新 / 版本回退 / 检查更新接口已移除：避免从上游仓库下载并替换运行中的二进制，
+		// 同时防止覆盖本 fork 的定制界面与品牌。
 		system.POST("/restart", h.Admin.System.RestartService)
 	}
 }

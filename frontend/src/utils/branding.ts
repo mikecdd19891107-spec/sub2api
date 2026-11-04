@@ -1,5 +1,19 @@
 import { sanitizeUrl } from '@/utils/url'
 
+export const DEFAULT_BRAND_NAME = 'AgentByte'
+
+/**
+ * Resolves the display brand name, replacing empty or uncustomized stock "Sub2API"
+ * values with "AgentByte" while preserving any custom site name.
+ */
+export function resolveBrandName(name?: string | null): string {
+  const trimmed = typeof name === 'string' ? name.trim() : ''
+  if (!trimmed || trimmed.toLowerCase() === 'sub2api') {
+    return DEFAULT_BRAND_NAME
+  }
+  return trimmed
+}
+
 export function updateFavicon(logoUrl: string): void {
   const sanitizedLogoUrl = sanitizeUrl(logoUrl, {
     allowRelative: true,

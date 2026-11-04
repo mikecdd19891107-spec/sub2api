@@ -59,13 +59,13 @@ const isDarkMode = computed(() => {
 })
 
 const chartColors = computed(() => ({
-  text: isDarkMode.value ? '#e5e7eb' : '#374151',
-  grid: isDarkMode.value ? '#374151' : '#e5e7eb',
-  input: '#3b82f6',
-  output: '#10b981',
-  cacheCreation: '#f59e0b',
-  cacheRead: '#06b6d4',
-  cacheHitRate: '#8b5cf6'
+  text: isDarkMode.value ? '#e7e5e4' : '#44403c',
+  grid: isDarkMode.value ? '#292524' : '#e7e5e4',
+  input: '#f59e0b',
+  output: '#ea580c',
+  cacheCreation: '#10b981',
+  cacheRead: '#fbbf24',
+  cacheHitRate: '#f97316'
 }))
 
 const chartData = computed(() => {

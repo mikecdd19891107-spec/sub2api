@@ -1,32 +1,99 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
-  <title id="title">Sub2API</title>
-  <desc id="desc">An interlocking S symbol representing subscription routing into APIs.</desc>
+  <title id="title">AgentByte</title>
+  <desc id="desc">AgentByte emblem: a glassmorphic neural prism and byte stream in warm amber and liquid gold.</desc>
   <defs>
-    <linearGradient id="s2a-bg" x1="72" y1="44" x2="442" y2="478" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#142B56"/>
-      <stop offset=".52" stop-color="#0A1A39"/>
-      <stop offset="1" stop-color="#061127"/>
+    <!-- Deep Warm Obsidian Glass Base -->
+    <linearGradient id="ab-bg" x1="64" y1="32" x2="448" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#23160C"/>
+      <stop offset="0.48" stop-color="#140D07"/>
+      <stop offset="1" stop-color="#090604"/>
     </linearGradient>
-    <radialGradient id="s2a-ambient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(168 92) rotate(51) scale(342 382)">
-      <stop stop-color="#3E68B0" stop-opacity=".28"/>
-      <stop offset="1" stop-color="#3E68B0" stop-opacity="0"/>
+
+    <!-- Top-Left Ambient Amber Glow -->
+    <radialGradient id="ab-ambient-top" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(156 96) rotate(48) scale(340 360)">
+      <stop offset="0" stop-color="#F59E0B" stop-opacity="0.34"/>
+      <stop offset="0.55" stop-color="#EA580C" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#EA580C" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="s2a-brand" x1="4" y1="4" x2="20" y2="20" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#79F4BD"/>
-      <stop offset=".48" stop-color="#39D9E7"/>
-      <stop offset="1" stop-color="#3875F6"/>
+
+    <!-- Bottom-Right Warm Ember Glow -->
+    <radialGradient id="ab-ambient-bottom" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(384 410) rotate(-135) scale(280 280)">
+      <stop offset="0" stop-color="#FB923C" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#FB923C" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Specular Glass Border Rim -->
+    <linearGradient id="ab-rim" x1="60" y1="24" x2="440" y2="488" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FDE68A" stop-opacity="0.45"/>
+      <stop offset="0.35" stop-color="#F59E0B" stop-opacity="0.20"/>
+      <stop offset="0.7" stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#EA580C" stop-opacity="0.28"/>
     </linearGradient>
-    <filter id="s2a-shadow" x="-25%" y="-25%" width="150%" height="165%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy=".55" stdDeviation=".65" flood-color="#020817" flood-opacity=".34"/>
+
+    <!-- Liquid Gold-Amber Primary Gradient (A-Prism) -->
+    <linearGradient id="ab-gold" x1="116" y1="108" x2="364" y2="404" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FEF08A"/>
+      <stop offset="0.32" stop-color="#FBBF24"/>
+      <stop offset="0.7" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#EA580C"/>
+    </linearGradient>
+
+    <!-- Warm Orange-Amber Secondary Gradient (Byte Blocks) -->
+    <linearGradient id="ab-orange" x1="256" y1="124" x2="412" y2="396" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FDE68A"/>
+      <stop offset="0.45" stop-color="#FB923C"/>
+      <stop offset="1" stop-color="#C2410C"/>
+    </linearGradient>
+
+    <!-- Frosted Glass Overlay Ribbon -->
+    <linearGradient id="ab-glass" x1="160" y1="240" x2="388" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.92"/>
+      <stop offset="0.5" stop-color="#FEF3C7" stop-opacity="0.78"/>
+      <stop offset="1" stop-color="#FBBF24" stop-opacity="0.55"/>
+    </linearGradient>
+
+    <!-- Soft Elevation Shadow -->
+    <filter id="ab-shadow" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.55"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#F59E0B" flood-opacity="0.22"/>
     </filter>
   </defs>
 
-  <rect x="16" y="16" width="480" height="480" rx="120" fill="url(#s2a-bg)"/>
-  <rect x="16" y="16" width="480" height="480" rx="120" fill="url(#s2a-ambient)"/>
-  <rect x="16.75" y="16.75" width="478.5" height="478.5" rx="119.25" fill="none" stroke="#A5BFFF" stroke-opacity=".16" stroke-width="1.5"/>
+  <!-- Apple Squircle Base -->
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#ab-bg)"/>
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#ab-ambient-top)"/>
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#ab-ambient-bottom)"/>
 
-  <g transform="translate(52 52) scale(17)" fill="none" stroke="url(#s2a-brand)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" filter="url(#s2a-shadow)">
-    <path d="m19.25 7.65-2.55-3.2a1.33 1.33 0 0 0-1.03-.5H8.58c-.34 0-.67.13-.91.37L4.15 7.65c-.93.88-.6 1.52.65 2.3l9.55 5.97"/>
-    <path d="m4.75 16.35 2.55 3.2c.25.31.63.5 1.03.5h7.09c.34 0 .67-.13.91-.37l3.52-3.33c.93-.88.6-1.52-.65-2.3L9.65 8.08"/>
+  <!-- Subtle Inner Glass Sheen Arc -->
+  <path d="M132 16h248c64.065 0 116 51.935 116 116v44C412 122 316 96 204 114 118 128 52 172 16 226v-94C16 67.935 67.935 16 132 16Z" fill="#FFFFFF" fill-opacity="0.035"/>
+
+  <!-- Specular Hairline Rim -->
+  <rect x="17" y="17" width="478" height="478" rx="115" fill="none" stroke="url(#ab-rim)" stroke-width="2"/>
+
+  <!-- Main AgentByte ("AB") Emblem -->
+  <g filter="url(#ab-shadow)">
+    <!-- Left/Center "A" Agent Apex & Pillar -->
+    <path
+      d="M226 112c8.5-16.5 31.5-16.5 40 0l96 188c6.2 12.1-2.6 26.5-16.2 26.5h-36.6c-7.4 0-14.2-4.2-17.5-10.8L246 224l-58.7 115.2c-3.3 6.6-10.1 10.8-17.5 10.8h-39.6c-13.6 0-22.4-14.4-16.2-26.5L226 112Z"
+      fill="url(#ab-gold)"
+    />
+
+    <!-- Right "B" Byte Stream Nodes (3 Stacked Glass-Gold Byte Capsules) -->
+    <!-- Top Byte Node -->
+    <rect x="304" y="128" width="92" height="44" rx="22" fill="url(#ab-orange)"/>
+    <circle cx="374" cy="150" r="8" fill="#FFFBEB" fill-opacity="0.9"/>
+
+    <!-- Middle Byte Node (Bridging A & B like a data bus) -->
+    <rect x="192" y="246" width="212" height="46" rx="23" fill="url(#ab-glass)"/>
+    <circle cx="380" cy="269" r="9" fill="#EA580C"/>
+    <circle cx="352" cy="269" r="5" fill="#F59E0B" fill-opacity="0.8"/>
+
+    <!-- Bottom Byte Node -->
+    <rect x="268" y="348" width="128" height="46" rx="23" fill="url(#ab-gold)"/>
+    <circle cx="372" cy="371" r="8.5" fill="#FFFBEB" fill-opacity="0.92"/>
+
+    <!-- Left Agent Anchor Node (Completing the A-base symmetry) -->
+    <circle cx="136" cy="371" r="23" fill="url(#ab-orange)"/>
+    <circle cx="136" cy="371" r="8" fill="#FFFBEB" fill-opacity="0.9"/>
   </g>
 </svg>

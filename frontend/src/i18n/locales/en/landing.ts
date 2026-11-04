@@ -192,8 +192,8 @@ export default {
 
   // Setup Wizard
   setup: {
-    title: 'Sub2API Setup',
-    description: 'Configure your Sub2API instance',
+    title: 'AgentByte Setup',
+    description: 'Configure your AgentByte instance',
     database: {
       title: 'Database Configuration',
       description: 'Connect to your PostgreSQL database',

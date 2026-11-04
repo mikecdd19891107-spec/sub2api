@@ -26,7 +26,7 @@ server:
   # Frontend base URL used to generate external links in emails (e.g. password reset)
   # 用于生成邮件中的外部链接（例如：重置密码链接）的前端基础地址
   # Example: "https://example.com"
-  frontend_url: ""
+  frontend_url: "https://api.agentbyte.com"
   # Maximum time to receive complete request headers. Does not limit response streams.
   # 完整读取请求头的最大时间；不限制响应流持续时间。
   read_header_timeout: 10
@@ -42,6 +42,7 @@ server:
   # security.trust_forwarded_ip_for_api_key_acl=false 时使用的可信代理。
   # 只填写直接连接 Sub2API 的精确代理地址；显式设置 [] 可在高安全模式下
   # 禁用转发 IP 信任。
+  # 仅信任本机反向代理（Nginx/Caddy 与本服务同机部署）。若代理在其他机器，请改为其精确 IP。
   trusted_proxies:
     - 127.0.0.1/32
     - ::1/128
@@ -82,10 +83,10 @@ server:
 # 填写浏览器访问使用的完整 Origin。
 webauthn:
   enabled: false
-  rp_display_name: "Sub2API"
-  # Example / 示例: "sub2api.example.com"
+  rp_display_name: "AgentByte"
+  # Example / 示例: "api.agentbyte.com"
   rp_id: ""
-  # Example / 示例: ["https://sub2api.example.com"]
+  # Example / 示例: ["https://api.agentbyte.com"]
   rp_origins: []
 
 # =============================================================================
@@ -115,7 +116,9 @@ simple_mode_key_rate_limit_enabled: false
 cors:
   # Allowed origins list. Leave empty to disable cross-origin requests.
   # 允许的来源列表。留空则禁用跨域请求。
-  allowed_origins: []
+  # 仅允许自有域名跨域；不要使用 "*"
+  allowed_origins:
+    - "https://api.agentbyte.com"
   # Allow credentials (cookies/authorization headers). Cannot be used with "*".
   # 允许携带凭证（cookies/授权头）。不能与 "*" 通配符同时使用。
   allow_credentials: true

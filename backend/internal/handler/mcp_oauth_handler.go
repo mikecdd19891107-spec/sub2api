@@ -66,7 +66,7 @@ func (h *MCPOAuthHandler) ResourceMetadata(c *gin.Context) {
 	c.JSON(http.StatusOK, oauthex.ProtectedResourceMetadata{
 		Resource: resource, AuthorizationServers: []string{issuer},
 		ScopesSupported: []string{service.MCPOAuthScope}, BearerMethodsSupported: []string{"header"},
-		ResourceName: "Sub2API management",
+		ResourceName: "AgentByte management",
 	})
 }
 
