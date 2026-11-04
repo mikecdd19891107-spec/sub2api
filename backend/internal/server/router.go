@@ -6,12 +6,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/handler"
-	middleware2 "github.com/Wei-Shaw/sub2api/internal/server/middleware"
-	"github.com/Wei-Shaw/sub2api/internal/server/routes"
-	"github.com/Wei-Shaw/sub2api/internal/service"
-	"github.com/Wei-Shaw/sub2api/internal/web"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/handler"
+	middleware2 "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/server/routes"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/web"
 
 	"github.com/gin-gonic/gin"
 	"github.com/redis/go-redis/v9"

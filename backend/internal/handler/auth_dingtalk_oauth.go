@@ -10,13 +10,13 @@ import (
 	"strings"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	dbuser "github.com/Wei-Shaw/sub2api/ent/user"
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/oauth"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/response"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	dbuser "github.com/mikecdd19891107-spec/agentbyte/ent/user"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/oauth"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/response"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 
 	"github.com/gin-gonic/gin"
 )

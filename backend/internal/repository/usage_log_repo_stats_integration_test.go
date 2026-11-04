@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/usagestats"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/usagestats"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
 )
 

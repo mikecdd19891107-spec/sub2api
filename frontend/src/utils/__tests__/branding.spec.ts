@@ -2,13 +2,13 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { DEFAULT_BRAND_NAME, resolveBrandName, updateFavicon } from '@/utils/branding'
 
 describe('resolveBrandName', () => {
-  it('returns AgentByte for empty or stock Sub2API names', () => {
+  it('returns AgentByte for empty or stock AgentByte names', () => {
     expect(DEFAULT_BRAND_NAME).toBe('AgentByte')
     expect(resolveBrandName('')).toBe('AgentByte')
     expect(resolveBrandName('   ')).toBe('AgentByte')
     expect(resolveBrandName(undefined)).toBe('AgentByte')
-    expect(resolveBrandName('Sub2API')).toBe('AgentByte')
-    expect(resolveBrandName('sub2api')).toBe('AgentByte')
+    expect(resolveBrandName('AgentByte')).toBe('AgentByte')
+    expect(resolveBrandName('agentbyte')).toBe('AgentByte')
   })
 
   it('preserves custom site names', () => {

@@ -163,6 +163,13 @@ export default {
 
   // Navigation
   nav: {
+    groupWorkspace: '工作台',
+    groupModels: '模型',
+    groupAccount: '账户',
+    groupSettings: '设置',
+    adminWorkspace: '管理后台',
+    userWorkspace: '用户工作台',
+    workspaceSwitch: '切换工作区',
     dashboard: '仪表盘',
     announcements: '公告',
     apiKeys: 'API 密钥',

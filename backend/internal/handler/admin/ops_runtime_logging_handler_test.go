@@ -8,11 +8,11 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	"github.com/Wei-Shaw/sub2api/internal/server/middleware"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 type testSettingRepo struct {
@@ -88,7 +88,7 @@ func newRuntimeOpsService(t *testing.T) *service.OpsService {
 	if err := logger.Init(logger.InitOptions{
 		Level:       "info",
 		Format:      "json",
-		ServiceName: "sub2api",
+		ServiceName: "agentbyte",
 		Environment: "test",
 		Output: logger.OutputOptions{
 			ToStdout: false,

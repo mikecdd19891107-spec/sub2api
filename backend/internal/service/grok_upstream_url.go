@@ -7,9 +7,9 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/xai"
-	"github.com/Wei-Shaw/sub2api/internal/util/urlvalidator"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/xai"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/util/urlvalidator"
 )
 
 func grokBaseURLValidator(account *Account, cfg *config.Config) (xai.BaseURLValidator, error) {

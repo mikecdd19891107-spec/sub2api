@@ -9,11 +9,11 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/internal/domain"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/adminaccess"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/adminaccess"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 )
 
 // ScopedAdminAccounts 只提供受限管理密钥需要的窄接口。

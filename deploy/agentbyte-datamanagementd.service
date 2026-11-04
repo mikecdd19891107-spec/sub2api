@@ -1,0 +1,22 @@
+[Unit]
+Description=AgentByte Data Management Daemon
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=agentbyte
+Group=agentbyte
+WorkingDirectory=/opt/agentbyte
+ExecStart=/opt/agentbyte/datamanagementd \
+  -socket-path /tmp/agentbyte-datamanagement.sock \
+  -sqlite-path /var/lib/agentbyte/datamanagement/datamanagementd.db \
+  -version 1.0.0
+Restart=always
+RestartSec=5s
+LimitNOFILE=100000
+NoNewPrivileges=true
+PrivateTmp=false
+
+[Install]
+WantedBy=multi-user.target

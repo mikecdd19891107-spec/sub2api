@@ -3,10 +3,10 @@ package repository
 import (
 	"context"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/userattributedefinition"
-	"github.com/Wei-Shaw/sub2api/ent/userattributevalue"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/userattributedefinition"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/userattributevalue"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 // UserAttributeDefinitionRepository implementation

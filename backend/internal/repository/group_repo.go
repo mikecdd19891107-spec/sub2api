@@ -9,12 +9,12 @@ import (
 	"sort"
 	"strings"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/group"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/lib/pq"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/group"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 
 	entsql "entgo.io/ent/dialect/sql"
 )

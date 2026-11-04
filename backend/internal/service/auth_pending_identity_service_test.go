@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/enttest"
-	"github.com/Wei-Shaw/sub2api/ent/identityadoptiondecision"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/enttest"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/identityadoptiondecision"
 	"github.com/stretchr/testify/require"
 
 	"entgo.io/ent/dialect"

@@ -13,12 +13,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/domain"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/geminicli"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/openai_compat"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/typesafe"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/xai"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/geminicli"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai_compat"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/typesafe"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/xai"
 )
 
 type Account struct {

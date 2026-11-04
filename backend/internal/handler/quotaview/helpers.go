@@ -5,8 +5,8 @@ package quotaview
 import (
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/timezone"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/timezone"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 // LazyZeroQuotaForResponse 按 D14 规则把过期档位归零（不写 DB）。

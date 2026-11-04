@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/ip"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/response"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ip"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/response"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 type oauthStartCaptchaRequest struct {

@@ -1,0 +1,7 @@
+interface:
+  display_name: "AgentByte Admin"
+  short_description: "Manage AgentByte admin accounts and settings"
+  default_prompt: "Use $agentbyte-admin to inspect and manage AgentByte backend accounts safely."
+
+policy:
+  allow_implicit_invocation: true

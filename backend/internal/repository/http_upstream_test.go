@@ -15,10 +15,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/tlsfingerprint"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/xai"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/tlsfingerprint"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/xai"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 )

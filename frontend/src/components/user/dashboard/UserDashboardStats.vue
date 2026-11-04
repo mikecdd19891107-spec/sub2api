@@ -1,4 +1,5 @@
 <template>
+  <template v-if="!platformsOnly">
   <!-- Row 1: Core Stats -->
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
     <!-- Balance -->
@@ -132,8 +133,10 @@
     </div>
   </div>
 
+  </template>
+
   <!-- Row 3: Per-platform breakdown -->
-  <div v-if="!isSimple && platformCards.length > 0" class="card p-4">
+  <div v-if="!isSimple && platformCards.length > 0" class="card p-5">
     <div class="mb-3 flex items-center justify-between">
       <h3 class="text-sm font-semibold text-gray-900 dark:text-white">{{ t('dashboard.platformBreakdown') }}</h3>
       <span class="text-xs text-gray-500 dark:text-gray-400">
@@ -150,14 +153,14 @@
           'rounded-lg border p-3',
           item.isOther
             ? 'border-dashed border-gray-300 bg-gray-50 dark:border-dark-500 dark:bg-dark-700/30'
-            : 'border-gray-200 dark:border-dark-600'
+            : 'border-gray-200 dark:border-dark-800'
         ]"
       >
         <div class="flex items-center justify-between">
           <span class="text-sm font-semibold text-gray-900 dark:text-white">
             {{ item.isOther ? t('dashboard.platformOther') : platformLabel(item.platform) }}
           </span>
-          <span class="font-mono text-sm text-purple-600 dark:text-purple-400" :title="t('dashboard.actual')">
+          <span class="font-mono text-sm font-semibold text-gray-950 dark:text-white" :title="t('dashboard.actual')">
             ${{ formatCost(item.total_actual_cost) }}
           </span>
         </div>
@@ -246,6 +249,8 @@ const props = defineProps<{
   balance: number
   isSimple: boolean
   platformQuotas?: PlatformQuotaItem[] | null
+  /** 只渲染「按平台拆分」区块（新版用户控制台使用） */
+  platformsOnly?: boolean
 }>()
 const { t } = useI18n()
 
@@ -356,9 +361,9 @@ function calcPercent(usage: number, limit: number): number {
 }
 
 function quotaBarClass(p: number): string {
-  if (p >= 95) return 'bg-red-500'
+  if (p >= 95) return 'bg-red-600'
   if (p >= 75) return 'bg-amber-500'
-  return 'bg-green-500'
+  return 'bg-gray-950 dark:bg-gray-200'
 }
 
 // 与 formatBalance 一致使用 Intl.NumberFormat 做半偶舍入，避免 toFixed 在不同 JS 引擎
@@ -392,7 +397,7 @@ const formatBalance = (b: number) =>
   }).format(b)
 
 const formatNumber = (n: number) => n.toLocaleString()
-const formatCost = (c: number) => c.toFixed(4)
+const formatCost = (c: number) => { const n = Number(c || 0); return n === 0 ? '0.00' : n < 0.01 ? n.toFixed(4) : n.toFixed(2) }
 const formatTokens = (t: number) => {
   if (t >= 1_000_000) return `${(t / 1_000_000).toFixed(1)}M`
   if (t >= 1000) return `${(t / 1000).toFixed(1)}K`

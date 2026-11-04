@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 type authCacheInvalidationOutboxRepository struct {

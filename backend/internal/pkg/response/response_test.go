@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
-	errors2 "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
 	"github.com/gin-gonic/gin"
+	errors2 "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/stretchr/testify/require"
 )
 

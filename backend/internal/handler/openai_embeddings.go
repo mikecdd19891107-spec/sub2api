@@ -8,12 +8,12 @@ import (
 	"strings"
 	"time"
 
-	pkghttputil "github.com/Wei-Shaw/sub2api/internal/pkg/httputil"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/ip"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	middleware2 "github.com/Wei-Shaw/sub2api/internal/server/middleware"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	pkghttputil "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/httputil"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ip"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+	middleware2 "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/tidwall/gjson"
 	"go.uber.org/zap"
 )

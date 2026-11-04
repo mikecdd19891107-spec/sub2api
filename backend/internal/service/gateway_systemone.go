@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/typesafe"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/typesafe"
 )
 
 type SystemOneForwardResult struct {

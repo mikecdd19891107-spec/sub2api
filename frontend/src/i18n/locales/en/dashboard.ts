@@ -1,5 +1,44 @@
 export default {
   dashboard: {
+    usageTrend: 'Usage trend',
+    getStarted: {
+      title: 'Get started with {name}',
+      progress: '{done} of {total} done. This card hides itself once everything is done',
+      dismiss: 'Dismiss',
+      step1Title: 'Create an API key',
+      step1Desc: 'One key per project, each with its own quota and expiry',
+      step1Done: '{count} created',
+      step2Title: 'Configure your client',
+      step2Desc: 'Copy the config from Quick connect',
+      step3Title: 'Send your first request',
+      step3Desc: 'This is checked off automatically once a request succeeds',
+      step3Done: 'Requests received. See details in Usage'
+    },
+    kpi: {
+      keysActive: '{active} / {total} keys active',
+      costSub: 'Total ${total} · List price ${standard}',
+      requestsSub: 'Total {total} · {rpm} RPM now',
+      tokensSub: 'Total {total} · Avg {avg}'
+    },
+    quickConnect: {
+      title: 'Quick connect',
+      baseUrl: 'Base URL',
+      key: 'API key',
+      copy: 'Copy',
+      copied: 'Copied',
+      copyConfig: 'Copy config',
+      fullConfig: 'Full config',
+      openaiCompatible: 'OpenAI compatible',
+      shellHint: 'Set the key in your shell',
+      noKey: 'You have no active API key yet. Create one, then copy the config here.',
+      createKey: 'Create API key'
+    },
+    recent: {
+      time: 'Time',
+      tokensInOut: 'Tokens in / out',
+      duration: 'Duration',
+      cost: 'Cost'
+    },
     title: 'Dashboard',
     welcomeMessage: "Welcome back! Here's an overview of your account.",
     balance: 'Balance',
@@ -217,32 +256,32 @@ export default {
         claudeNote:
           'Choose one method: terminal env for this session, or ~/.claude/settings.json for persistence. Do not commit files that contain your API key.',
         codexNote:
-          'Export SUB2API_API_KEY, save config.toml under ~/.codex (mkdir -p ~/.codex). Prefer env_key auth; do not commit secrets.',
+          'Export {envKey}, save config.toml under ~/.codex (mkdir -p ~/.codex). Prefer env_key auth; do not commit secrets.',
         codexNoteWindows:
-          'Set $env:SUB2API_API_KEY, save config.toml under %USERPROFILE%\\.codex. Prefer env_key auth; do not commit secrets.',
+          'Set $env:{envKey}, save config.toml under %USERPROFILE%\\.codex. Prefer env_key auth; do not commit secrets.',
       },
       deepseek: {
         description: 'Configure Claude Code, Codex, or OpenCode through the current DeepSeek group.',
         codexDescription: 'Configure Codex with API key authentication through the current DeepSeek group.',
         codexConfigTomlHint: 'Save config.toml and restart Codex to load the remote catalog. In local file mode, also download the catalog to the configured path.',
-        codexNote: 'Export SUB2API_API_KEY before starting Codex. The downloaded catalog contains model metadata only, not your API key.',
+        codexNote: 'Export {envKey} before starting Codex. The downloaded catalog contains model metadata only, not your API key.',
       },
       minimax: {
         description: 'Configure Claude Code, Codex, or OpenCode through the current MiniMax group.',
         codexDescription: 'Configure Codex with API key authentication through the current MiniMax group.',
         codexConfigTomlHint: 'Save config.toml and restart Codex to load the remote catalog. In local file mode, also download the catalog to the configured path.',
-        codexNote: 'Export SUB2API_API_KEY before starting Codex. The downloaded catalog contains model metadata only, not your API key.',
+        codexNote: 'Export {envKey} before starting Codex. The downloaded catalog contains model metadata only, not your API key.',
       },
       composite: {
         description: 'Configure supported clients through the current Composite routing group.',
         codexDescription: 'Configure Codex with API key authentication and the complete model catalog for this Composite group.',
         codexConfigTomlHint: 'Save config.toml and restart Codex to load the remote catalog. In local file mode, also download the catalog to the configured path.',
-        codexNote: 'Export SUB2API_API_KEY before starting Codex. Model requests are routed by the selected catalog slug.',
+        codexNote: 'Export {envKey} before starting Codex. Model requests are routed by the selected catalog slug.',
       },
       routedCodex: {
         description: 'Configure Codex with the complete model catalog for the current routed group.',
         configTomlHint: 'Save config.toml and restart Codex to load the remote catalog. In local file mode, also download the catalog to the configured path.',
-        note: 'Export SUB2API_API_KEY before starting Codex. The downloaded catalog contains model metadata only, not your API key.',
+        note: 'Export {envKey} before starting Codex. The downloaded catalog contains model metadata only, not your API key.',
       },
       codexModelCatalog: {
         mode: 'Catalog source',

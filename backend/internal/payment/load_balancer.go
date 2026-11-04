@@ -9,9 +9,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/paymentorder"
-	"github.com/Wei-Shaw/sub2api/ent/paymentproviderinstance"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/paymentorder"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/paymentproviderinstance"
 )
 
 // Strategy represents a load balancing strategy for provider instance selection.

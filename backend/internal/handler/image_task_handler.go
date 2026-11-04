@@ -11,12 +11,12 @@ import (
 	"strings"
 	"time"
 
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	pkghttputil "github.com/Wei-Shaw/sub2api/internal/pkg/httputil"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	middleware2 "github.com/Wei-Shaw/sub2api/internal/server/middleware"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	pkghttputil "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/httputil"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+	middleware2 "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"go.uber.org/zap"
 )
 

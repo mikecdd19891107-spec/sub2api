@@ -11,12 +11,12 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/Wei-Shaw/sub2api/ent/account"
-	"github.com/Wei-Shaw/sub2api/ent/apikey"
-	"github.com/Wei-Shaw/sub2api/ent/group"
-	"github.com/Wei-Shaw/sub2api/ent/usagelog"
-	"github.com/Wei-Shaw/sub2api/ent/user"
-	"github.com/Wei-Shaw/sub2api/ent/usersubscription"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/account"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/apikey"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/group"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/usagelog"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/user"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/usersubscription"
 )
 
 // UsageLogCreate is the builder for creating a UsageLog entity.

@@ -6,9 +6,9 @@ import (
 	"errors"
 	"strings"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 type usageBillingRepository struct {

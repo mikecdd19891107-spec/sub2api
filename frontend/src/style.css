@@ -19,13 +19,15 @@
   }
 
   body {
-    @apply bg-[#FAF8F5] text-gray-900 dark:bg-dark-950 dark:text-gray-100;
+    @apply bg-gray-50 text-gray-950 dark:bg-dark-950 dark:text-gray-100;
     @apply min-h-screen;
-    background-image:
-      radial-gradient(at 15% 10%, rgba(245, 158, 11, 0.08) 0px, transparent 45%),
-      radial-gradient(at 85% 15%, rgba(234, 88, 12, 0.06) 0px, transparent 45%),
-      radial-gradient(at 50% 90%, rgba(251, 191, 36, 0.05) 0px, transparent 50%);
-    background-attachment: fixed;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  /* 数字统一用等宽数字，金额、Token 列对齐 */
+  .tabular-nums,
+  .font-mono {
+    font-variant-numeric: tabular-nums;
   }
 
   /* 自定义滚动条 - 仅针对 Firefox，避免 Chrome 取消 webkit 的全局定制 */
@@ -69,7 +71,7 @@
 
   /* 选中文本样式 */
   ::selection {
-    @apply bg-primary-500/20 text-primary-900 dark:text-primary-100;
+    @apply bg-primary-200 text-gray-950 dark:bg-primary-800 dark:text-white;
   }
 }
 
@@ -77,54 +79,44 @@
   /* ============ 按钮样式 (Apple Glassmorphic Pill/Squircle) ============ */
   .btn {
     @apply inline-flex items-center justify-center gap-2;
-    @apply rounded-2xl px-4 py-2.5 text-sm font-medium;
-    @apply transition-all duration-200 ease-out;
-    @apply focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:ring-offset-2 dark:focus:ring-offset-dark-950;
-    @apply disabled:transform-none disabled:cursor-not-allowed disabled:opacity-50;
-    @apply active:scale-[0.97];
+    @apply rounded-lg px-4 py-2 text-sm font-medium;
+    @apply transition-colors duration-150 ease-out;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/50 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-dark-950;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
   }
 
+  /* 主操作：近黑（深色模式下近白），品牌橙不用于大面积按钮 */
   .btn-primary {
-    @apply bg-gradient-to-r from-primary-500 via-primary-500 to-primary-600;
-    @apply text-white shadow-md shadow-primary-500/25;
-    @apply hover:from-primary-500 hover:to-primary-700 hover:shadow-lg hover:shadow-primary-500/35;
-    @apply dark:shadow-primary-500/20;
-    box-shadow:
-      0 6px 20px -3px rgba(245, 158, 11, 0.32),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.28);
+    @apply bg-ink text-white hover:bg-ink-hover;
+    @apply dark:bg-ink-inverse dark:text-gray-950 dark:hover:bg-white;
   }
 
   .btn-secondary {
-    @apply bg-white/80 dark:bg-dark-800/80 backdrop-blur-xl;
-    @apply text-gray-700 dark:text-gray-200;
-    @apply border border-white/70 dark:border-white/10;
-    @apply shadow-sm hover:bg-white dark:hover:bg-dark-700/90;
-    @apply hover:border-primary-200/70 dark:hover:border-primary-500/30;
+    @apply bg-white text-gray-800 dark:bg-dark-900 dark:text-gray-200;
+    @apply border border-gray-300 dark:border-dark-700;
+    @apply hover:bg-gray-100 dark:hover:bg-dark-800;
   }
 
   .btn-ghost {
     @apply bg-transparent text-gray-600 dark:text-gray-300;
-    @apply hover:bg-gray-200/50 dark:hover:bg-white/[0.06] backdrop-blur-sm;
+    @apply hover:bg-gray-100 hover:text-gray-950 dark:hover:bg-dark-800 dark:hover:text-white;
   }
 
   .btn-danger {
-    @apply bg-gradient-to-r from-red-500 to-red-600;
-    @apply text-white shadow-md shadow-red-500/25;
-    @apply hover:from-red-600 hover:to-red-700 hover:shadow-lg hover:shadow-red-500/30;
+    @apply bg-red-600 text-white hover:bg-red-700;
   }
 
   .btn-success {
-    @apply bg-gradient-to-r from-emerald-500 to-emerald-600;
-    @apply text-white shadow-md shadow-emerald-500/25;
-    @apply hover:from-emerald-600 hover:to-emerald-700 hover:shadow-lg hover:shadow-emerald-500/30;
-    @apply dark:shadow-emerald-500/20;
+    @apply bg-emerald-700 text-white hover:bg-emerald-800;
   }
 
   .btn-warning {
-    @apply bg-gradient-to-r from-amber-500 to-amber-600;
-    @apply text-white shadow-md shadow-amber-500/25;
-    @apply hover:from-amber-600 hover:to-amber-700 hover:shadow-lg hover:shadow-amber-500/30;
-    @apply dark:shadow-amber-500/20;
+    @apply bg-amber-600 text-white hover:bg-amber-700;
+  }
+
+  /* 品牌强调按钮：只在少数需要突出的位置使用 */
+  .btn-accent {
+    @apply bg-primary-600 text-white hover:bg-primary-700;
   }
 
   .btn-stripe {
@@ -156,31 +148,31 @@
   }
 
   .btn-sm {
-    @apply rounded-xl px-3 py-1.5 text-xs;
+    @apply rounded-md px-3 py-1.5 text-xs;
   }
 
   .btn-md {
-    @apply rounded-2xl px-4 py-2 text-sm;
+    @apply rounded-lg px-4 py-2 text-sm;
   }
 
   .btn-lg {
-    @apply rounded-2xl px-6 py-3 text-base;
+    @apply rounded-lg px-5 py-2.5 text-base;
   }
 
   .btn-icon {
-    @apply rounded-2xl p-2.5;
+    @apply rounded-lg p-2;
   }
 
   /* ============ 输入框样式 (Apple Frosted Field) ============ */
   .input {
-    @apply w-full rounded-2xl px-4 py-2.5 text-sm;
-    @apply bg-white/80 dark:bg-dark-800/75 backdrop-blur-md;
-    @apply border border-gray-200/80 dark:border-white/10;
-    @apply text-gray-900 dark:text-gray-100;
-    @apply placeholder:text-gray-400 dark:placeholder:text-dark-400;
-    @apply transition-all duration-200;
-    @apply focus:border-primary-500 focus:bg-white dark:focus:bg-dark-800 focus:outline-none focus:ring-4 focus:ring-primary-500/15;
-    @apply disabled:cursor-not-allowed disabled:bg-gray-100/70 dark:disabled:bg-dark-900/70;
+    @apply w-full rounded-lg px-3 py-2 text-sm;
+    @apply bg-white dark:bg-dark-900;
+    @apply border border-gray-300 dark:border-dark-700;
+    @apply text-gray-950 dark:text-gray-100;
+    @apply placeholder:text-gray-500 dark:placeholder:text-dark-400;
+    @apply transition-colors duration-150;
+    @apply focus:border-gray-950 focus:outline-none focus:ring-2 focus:ring-gray-950/10 dark:focus:border-gray-300 dark:focus:ring-white/10;
+    @apply disabled:cursor-not-allowed disabled:bg-gray-100 dark:disabled:bg-dark-800;
   }
 
   .dark .input[type='date'],
@@ -220,57 +212,43 @@
 
   /* ============ 玻璃效果 (Apple Spatial Glass) ============ */
   .glass {
-    @apply bg-white/75 backdrop-blur-2xl dark:bg-dark-900/75;
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.45);
-  }
-
-  .dark .glass {
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+    @apply bg-white dark:bg-dark-900;
   }
 
   .glass-card {
-    @apply bg-white/75 dark:bg-dark-800/70;
-    @apply backdrop-blur-2xl;
-    @apply rounded-3xl;
-    @apply border border-white/70 dark:border-white/[0.08];
-    @apply shadow-glass;
-    @apply transition-all duration-300;
+    @apply bg-white dark:bg-dark-900;
+    @apply rounded-xl;
+    @apply border border-gray-200 dark:border-dark-800;
   }
 
-  /* ============ 卡片样式 (Apple Rounded Spatial Cards) ============ */
+  /* ============ 卡片：白底 + 1px 边框，不再用毛玻璃 ============ */
   .card {
-    @apply bg-white/80 dark:bg-dark-800/65;
-    @apply backdrop-blur-2xl;
-    @apply rounded-3xl;
-    @apply border border-white/80 dark:border-white/[0.08];
-    @apply shadow-card;
-    @apply transition-all duration-300;
+    @apply bg-white dark:bg-dark-900;
+    @apply rounded-xl;
+    @apply border border-gray-200 dark:border-dark-800;
   }
 
   .card-hover {
-    @apply hover:-translate-y-0.5 hover:shadow-card-hover;
-    @apply hover:border-primary-200/70 dark:hover:border-primary-500/25;
+    @apply transition-colors duration-150 hover:border-gray-300 dark:hover:border-dark-700;
   }
 
   .card-glass {
-    @apply bg-white/75 dark:bg-dark-800/70;
-    @apply backdrop-blur-2xl;
-    @apply border border-white/75 dark:border-white/[0.08];
-    @apply shadow-glass;
+    @apply bg-white dark:bg-dark-900;
+    @apply border border-gray-200 dark:border-dark-800;
   }
 
   .card-header {
-    @apply border-b border-gray-200/60 dark:border-white/[0.07];
-    @apply px-6 py-4;
+    @apply border-b border-gray-200 dark:border-dark-800;
+    @apply px-5 py-4;
   }
 
   .card-body {
-    @apply p-6;
+    @apply p-5;
   }
 
   .card-footer {
-    @apply border-t border-gray-200/60 dark:border-white/[0.07];
-    @apply px-6 py-4;
+    @apply border-t border-gray-200 dark:border-dark-800;
+    @apply px-5 py-4;
   }
 
   /* ============ 统计卡片 ============ */
@@ -280,30 +258,29 @@
   }
 
   .stat-icon {
-    @apply h-12 w-12 rounded-2xl;
+    @apply h-10 w-10 rounded-lg;
     @apply flex items-center justify-center;
-    @apply text-xl;
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+    @apply text-lg;
   }
 
   .stat-icon-primary {
-    @apply bg-gradient-to-br from-primary-100 to-primary-200/70 text-primary-600 dark:from-primary-900/40 dark:to-primary-800/20 dark:text-primary-400;
+    @apply bg-primary-50 text-primary-600 dark:bg-primary-950/50 dark:text-primary-400;
   }
 
   .stat-icon-success {
-    @apply bg-gradient-to-br from-emerald-100 to-emerald-200/70 text-emerald-600 dark:from-emerald-900/40 dark:to-emerald-800/20 dark:text-emerald-400;
+    @apply bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400;
   }
 
   .stat-icon-warning {
-    @apply bg-gradient-to-br from-amber-100 to-amber-200/70 text-amber-600 dark:from-amber-900/40 dark:to-amber-800/20 dark:text-amber-400;
+    @apply bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400;
   }
 
   .stat-icon-danger {
-    @apply bg-gradient-to-br from-red-100 to-red-200/70 text-red-600 dark:from-red-900/40 dark:to-red-800/20 dark:text-red-400;
+    @apply bg-red-50 text-red-700 dark:bg-red-950/50 dark:text-red-400;
   }
 
   .stat-value {
-    @apply text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate;
+    @apply text-2xl font-semibold tracking-tight text-gray-950 dark:text-white truncate tabular-nums;
   }
 
   .stat-label {
@@ -324,7 +301,7 @@
 
   /* ============ 表格样式 ============ */
   .table-container {
-    @apply overflow-x-auto rounded-2xl border border-white/80 bg-white/70 backdrop-blur-xl dark:border-white/[0.08] dark:bg-dark-800/60;
+    @apply overflow-x-auto rounded-xl border border-gray-200 bg-white dark:border-dark-800 dark:bg-dark-900;
   }
 
   .table {
@@ -332,16 +309,16 @@
   }
 
   .table th {
-    @apply px-4 py-3.5 text-left font-semibold;
-    @apply text-gray-600 dark:text-dark-300;
-    @apply bg-gray-100/60 dark:bg-dark-800/60;
-    @apply border-b border-gray-200/70 dark:border-white/[0.07];
+    @apply px-4 py-2.5 text-left text-xs font-medium;
+    @apply text-gray-600 dark:text-dark-400;
+    @apply bg-gray-50 dark:bg-dark-900;
+    @apply border-b border-gray-200 dark:border-dark-800;
   }
 
   .table td {
-    @apply px-4 py-3.5;
-    @apply text-gray-700 dark:text-gray-300;
-    @apply border-b border-gray-100/80 dark:border-white/[0.05];
+    @apply px-4 py-3;
+    @apply text-gray-800 dark:text-gray-300;
+    @apply border-b border-gray-200 dark:border-dark-800;
   }
 
   .table tr:last-child td {
@@ -349,14 +326,14 @@
   }
 
   .table tbody tr {
-    @apply transition-colors duration-150;
-    @apply hover:bg-primary-50/40 dark:hover:bg-primary-950/20;
+    @apply transition-colors duration-100;
+    @apply hover:bg-gray-50 dark:hover:bg-dark-800/60;
   }
 
   /* ============ 徽章样式 ============ */
   .badge {
     @apply inline-flex items-center gap-1;
-    @apply rounded-full px-2.5 py-0.5 text-xs font-medium backdrop-blur-sm;
+    @apply rounded-md px-2 py-0.5 text-xs font-medium;
   }
 
   .badge-primary {
@@ -386,18 +363,18 @@
   /* ============ 下拉菜单 ============ */
   .dropdown {
     @apply absolute z-50;
-    @apply bg-white/85 dark:bg-dark-800/90 backdrop-blur-2xl;
-    @apply rounded-2xl;
-    @apply border border-white/75 dark:border-white/10;
-    @apply shadow-glass;
-    @apply py-1.5;
+    @apply bg-white dark:bg-dark-900;
+    @apply rounded-lg;
+    @apply border border-gray-200 dark:border-dark-700;
+    @apply shadow-lg;
+    @apply py-1;
     @apply origin-top-right animate-scale-in;
   }
 
   .dropdown-item {
-    @apply mx-1.5 rounded-xl px-3.5 py-2 text-sm;
-    @apply text-gray-700 dark:text-gray-200;
-    @apply hover:bg-primary-500/10 hover:text-primary-700 dark:hover:bg-primary-500/15 dark:hover:text-primary-300;
+    @apply mx-1 rounded-md px-3 py-2 text-sm;
+    @apply text-gray-800 dark:text-gray-200;
+    @apply hover:bg-gray-100 hover:text-gray-950 dark:hover:bg-dark-800 dark:hover:text-white;
     @apply cursor-pointer transition-colors;
     @apply flex items-center gap-2;
   }
@@ -405,21 +382,21 @@
   /* ============ 模态框 ============ */
   .modal-overlay {
     @apply fixed inset-0 z-50;
-    @apply bg-black/40 backdrop-blur-md;
+    @apply bg-black/50;
     @apply flex items-center justify-center p-2 sm:p-4;
   }
 
   .modal-content {
     @apply w-full;
     @apply max-h-[95vh] sm:max-h-[90vh];
-    @apply bg-white/90 dark:bg-dark-800/90 backdrop-blur-2xl;
-    @apply rounded-3xl shadow-2xl;
-    @apply border border-white/75 dark:border-white/10;
+    @apply bg-white dark:bg-dark-900;
+    @apply rounded-xl shadow-2xl;
+    @apply border border-gray-200 dark:border-dark-700;
     @apply flex flex-col;
   }
 
   .modal-header {
-    @apply border-b border-gray-200/60 px-4 py-3.5 dark:border-white/[0.08];
+    @apply border-b border-gray-200 px-4 py-3.5 dark:border-dark-800;
     @apply sm:px-6 sm:py-4;
     @apply flex items-center justify-between;
     @apply flex-shrink-0;
@@ -436,7 +413,7 @@
   }
 
   .modal-footer {
-    @apply border-t border-gray-200/60 px-4 py-3.5 dark:border-white/[0.08];
+    @apply border-t border-gray-200 px-4 py-3.5 dark:border-dark-800;
     @apply sm:px-6 sm:py-4;
     @apply flex items-center justify-end gap-3;
     @apply flex-shrink-0;
@@ -498,20 +475,20 @@
   /* ============ Dialog ============ */
   .dialog-overlay {
     @apply fixed inset-0 z-50;
-    @apply bg-black/40 backdrop-blur-md dark:bg-black/60;
+    @apply bg-black/50 dark:bg-black/70;
     @apply flex items-center justify-center p-4;
   }
 
   .dialog-container {
     @apply flex w-full flex-col;
     @apply max-h-[90vh];
-    @apply rounded-3xl bg-white/90 dark:bg-dark-800/90 backdrop-blur-2xl;
-    @apply border border-white/75 dark:border-white/10;
+    @apply rounded-xl bg-white dark:bg-dark-900;
+    @apply border border-gray-200 dark:border-dark-700;
     @apply shadow-2xl;
   }
 
   .dialog-header {
-    @apply border-b border-gray-200/60 px-6 py-4 dark:border-white/[0.08];
+    @apply border-b border-gray-200 px-6 py-4 dark:border-dark-800;
     @apply flex items-center justify-between;
   }
 
@@ -520,8 +497,8 @@
   }
 
   .dialog-footer {
-    @apply border-t border-gray-200/60 px-6 py-4 dark:border-white/[0.08];
-    @apply bg-gray-50/50 dark:bg-dark-900/40;
+    @apply border-t border-gray-200 px-6 py-4 dark:border-dark-800;
+    @apply bg-gray-50 dark:bg-dark-900;
     @apply flex items-center justify-end gap-3;
   }
 
@@ -529,9 +506,9 @@
   .toast {
     @apply fixed right-4 top-4 z-[100];
     @apply min-w-[320px] max-w-md;
-    @apply bg-white/85 dark:bg-dark-800/90 backdrop-blur-2xl;
-    @apply rounded-2xl shadow-glass;
-    @apply border border-white/70 dark:border-white/10 border-l-4;
+    @apply bg-white dark:bg-dark-900;
+    @apply rounded-lg shadow-lg;
+    @apply border border-gray-200 dark:border-dark-700 border-l-4;
     @apply p-4;
     @apply animate-slide-in-right;
   }
@@ -555,55 +532,50 @@
   /* ============ 侧边栏 (Apple Frosted Glass Sidebar) ============ */
   .sidebar {
     @apply fixed inset-y-0 left-0 z-40;
-    @apply w-64 bg-white/75 dark:bg-dark-900/75 backdrop-blur-2xl;
-    @apply border-r border-white/80 dark:border-white/[0.07];
+    @apply w-60 bg-white dark:bg-dark-950;
+    @apply border-r border-gray-200 dark:border-dark-800;
     @apply flex flex-col;
-    @apply transition-transform duration-300;
+    @apply transition-transform duration-200;
     transition-property: width, transform;
-    box-shadow: 4px 0 32px -8px rgba(15, 10, 5, 0.05);
   }
 
   .sidebar-header {
-    @apply h-16 px-6;
+    @apply h-16 px-5;
     @apply flex items-center gap-3;
-    @apply border-b border-gray-200/50 dark:border-white/[0.06];
     transition:
       padding 0.2s ease,
       gap 0.2s ease;
   }
 
   .sidebar-nav {
-    @apply flex-1 overflow-y-auto px-3 py-4;
+    @apply flex-1 overflow-y-auto px-3 pb-4;
   }
 
   .sidebar-link {
-    @apply flex items-center gap-3 rounded-2xl py-2.5;
+    @apply flex items-center gap-3 rounded-md py-[7px];
     @apply overflow-hidden;
-    @apply text-sm font-medium;
-    @apply text-gray-600 dark:text-dark-300;
-    @apply transition-all duration-200;
-    @apply hover:bg-gray-200/45 dark:hover:bg-white/[0.06];
-    @apply hover:text-gray-900 dark:hover:text-white;
-    padding-left: 1.0625rem;
-    padding-right: 0.875rem;
+    @apply text-sm;
+    @apply text-gray-600 dark:text-dark-400;
+    @apply transition-colors duration-100;
+    @apply hover:bg-gray-100 dark:hover:bg-dark-800;
+    @apply hover:text-gray-950 dark:hover:text-white;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 
   .sidebar-link-active {
-    @apply bg-gradient-to-r from-primary-500/15 via-primary-500/10 to-primary-500/5 dark:from-primary-500/25 dark:via-primary-500/15 dark:to-transparent;
-    @apply text-primary-600 dark:text-primary-400 font-semibold;
-    @apply ring-1 ring-primary-500/25 dark:ring-primary-400/25;
-    @apply hover:from-primary-500/20 hover:to-primary-500/10 dark:hover:from-primary-500/30;
-    box-shadow: 0 4px 14px -4px rgba(245, 158, 11, 0.18);
+    @apply bg-gray-100 dark:bg-dark-800;
+    @apply text-gray-950 dark:text-white font-semibold;
   }
 
   .sidebar-section {
-    @apply mb-6;
+    @apply mb-2;
   }
 
   .sidebar-section-title {
-    @apply mb-2 px-3;
-    @apply text-xs font-semibold uppercase tracking-wider;
-    @apply text-gray-400 dark:text-dark-500;
+    @apply mb-1 mt-4 px-3;
+    @apply text-xs font-medium;
+    @apply text-gray-500 dark:text-dark-400;
   }
 
   /* ============ 页面头部 ============ */
@@ -612,7 +584,7 @@
   }
 
   .page-title {
-    @apply text-2xl font-bold tracking-tight text-gray-900 dark:text-white;
+    @apply text-xl font-semibold tracking-tight text-gray-950 dark:text-white;
   }
 
   .page-description {
@@ -627,7 +599,7 @@
 
   .empty-state-icon {
     @apply mb-4 h-16 w-16;
-    @apply text-gray-300 dark:text-dark-600;
+    @apply text-gray-400 dark:text-dark-600;
   }
 
   .empty-state-title {
@@ -645,22 +617,22 @@
   }
 
   .skeleton {
-    @apply animate-pulse rounded-xl bg-gray-200/80 dark:bg-dark-700/80;
+    @apply animate-pulse rounded-md bg-gray-200 dark:bg-dark-800;
   }
 
   /* ============ 分隔线 ============ */
   .divider {
-    @apply my-4 h-px bg-gray-200/70 dark:bg-white/[0.08];
+    @apply my-4 h-px bg-gray-200 dark:bg-dark-800;
   }
 
   /* ============ 标签页 (Apple Segmented Control) ============ */
   .tabs {
-    @apply flex gap-1 p-1;
-    @apply rounded-2xl bg-gray-200/60 dark:bg-dark-800/80 backdrop-blur-md;
+    @apply flex gap-1 p-[3px];
+    @apply rounded-lg bg-gray-100 dark:bg-dark-800;
   }
 
   .tab {
-    @apply rounded-xl px-4 py-2 text-sm font-medium;
+    @apply rounded-md px-3 py-1.5 text-sm font-medium;
     @apply text-gray-600 dark:text-dark-400;
     @apply transition-all duration-200;
     @apply hover:text-gray-900 dark:hover:text-white;
@@ -674,11 +646,11 @@
 
   /* ============ 进度条 ============ */
   .progress {
-    @apply h-2 overflow-hidden rounded-full bg-gray-200/80 dark:bg-dark-700;
+    @apply h-1.5 overflow-hidden rounded-full bg-gray-200 dark:bg-dark-800;
   }
 
   .progress-bar {
-    @apply h-full bg-gradient-to-r from-primary-500 to-primary-400;
+    @apply h-full bg-primary-500;
     @apply transition-all duration-300;
   }
 
@@ -690,7 +662,7 @@
   }
 
   .switch-active {
-    @apply bg-primary-500;
+    @apply bg-gray-950 dark:bg-white;
   }
 
   .switch-thumb {
@@ -706,15 +678,15 @@
   /* ============ 代码块 ============ */
   .code {
     @apply font-mono text-sm;
-    @apply bg-primary-50/80 dark:bg-dark-800;
-    @apply rounded-lg px-1.5 py-0.5;
-    @apply text-primary-600 dark:text-primary-400;
+    @apply bg-gray-100 dark:bg-dark-800;
+    @apply rounded px-1.5 py-0.5;
+    @apply text-gray-800 dark:text-gray-200;
   }
 
   .code-block {
     @apply font-mono text-sm;
-    @apply bg-dark-900 text-gray-100;
-    @apply overflow-x-auto rounded-2xl p-4;
+    @apply bg-dark-950 text-gray-100;
+    @apply overflow-x-auto rounded-lg p-4;
   }
 
   /* ============ Tour Description ============ */
@@ -769,12 +741,12 @@
 @layer utilities {
   /* 文字渐变 */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-500 via-primary-600 to-amber-500 bg-clip-text text-transparent;
+    @apply text-gray-950 dark:text-white;
   }
 
   /* 玻璃效果 */
   .glass {
-    @apply bg-white/75 backdrop-blur-2xl dark:bg-dark-900/75;
+    @apply bg-white dark:bg-dark-900;
   }
 
   /* 隐藏滚动条 */

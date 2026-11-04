@@ -1,10 +1,10 @@
 package admin
 
 import (
-	"github.com/Wei-Shaw/sub2api/internal/handler/dto"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/adminaccess"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/handler/dto"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/adminaccess"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 // scopedAdminUsageLogResponse 仅公开该次请求的用量、计费快照和请求元数据。

@@ -7,8 +7,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 )
 
 const (

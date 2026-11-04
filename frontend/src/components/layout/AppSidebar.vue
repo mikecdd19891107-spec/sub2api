@@ -1,8 +1,8 @@
 <template>
   <aside
-    class="sidebar lg:top-4 lg:bottom-4 lg:left-4 lg:h-[calc(100vh-2rem)] lg:rounded-3xl lg:border lg:border-white/80 lg:shadow-glass dark:lg:border-white/[0.08]"
+    class="sidebar"
     :class="[
-      sidebarCollapsed ? 'w-[72px]' : 'w-64',
+      sidebarCollapsed ? 'w-[72px]' : 'w-60',
       { '-translate-x-full lg:translate-x-0': !mobileOpen }
     ]"
   >
@@ -11,52 +11,21 @@
       <!-- Custom Logo or Default Logo -->
       <router-link
         :to="homePath"
-        class="sidebar-logo flex h-10 w-10 items-center justify-center overflow-hidden rounded-[14px] bg-white/80 p-0.5 shadow-glow ring-1 ring-primary-500/20 transition-all duration-200 hover:scale-105 hover:opacity-95 dark:bg-dark-800/80 dark:ring-white/10"
+        class="sidebar-logo flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg transition-opacity hover:opacity-80"
         @click="handleMenuItemClick(homePath)"
       >
-        <img v-if="settingsLoaded" :src="siteLogo || '/logo.svg'" alt="Logo" class="h-full w-full rounded-[12px] object-contain" />
+        <img v-if="settingsLoaded" :src="siteLogo || '/logo.svg'" alt="Logo" class="h-full w-full object-contain" />
       </router-link>
       <div class="sidebar-brand" :class="{ 'sidebar-brand-collapsed': sidebarCollapsed }" :aria-hidden="sidebarCollapsed ? 'true' : 'false'">
         <router-link
           :to="homePath"
-          class="sidebar-brand-title text-lg font-bold tracking-tight text-gray-900 transition-colors hover:text-primary-600 dark:text-white dark:hover:text-primary-400"
+          class="sidebar-brand-title text-base font-semibold tracking-tight text-gray-950 dark:text-white"
           @click="handleMenuItemClick(homePath)"
         >
           {{ siteName }}
         </router-link>
         <!-- Version (static, online update removed) -->
-        <span v-if="siteVersion" class="text-xs text-gray-500 dark:text-dark-400">v{{ siteVersion }}</span>
-      </div>
-    </div>
-
-    <!-- Admin / User Workspace Switcher Pill -->
-    <div v-if="isAdmin && !sidebarCollapsed" class="px-3 pt-3">
-      <div class="grid grid-cols-2 rounded-2xl border border-black/[0.05] bg-gray-100/80 p-1 dark:border-white/[0.06] dark:bg-dark-800/80">
-        <button
-          type="button"
-          class="rounded-xl py-1.5 text-xs font-semibold transition-all duration-200"
-          :class="
-            !isUserWorkspace
-              ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-sm'
-              : 'text-gray-600 hover:text-gray-900 dark:text-dark-300 dark:hover:text-white'
-          "
-          @click="router.push('/admin/dashboard')"
-        >
-          管理后台
-        </button>
-        <button
-          type="button"
-          class="rounded-xl py-1.5 text-xs font-semibold transition-all duration-200"
-          :class="
-            isUserWorkspace
-              ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-sm'
-              : 'text-gray-600 hover:text-gray-900 dark:text-dark-300 dark:hover:text-white'
-          "
-          @click="router.push('/dashboard')"
-        >
-          用户工作台
-        </button>
-      </div>
+              </div>
     </div>
 
     <!-- Navigation -->
@@ -132,21 +101,28 @@
         </div>
       </template>
 
-      <!-- Streamlined User Workspace View -->
+      <!-- User Workspace View: grouped sections -->
       <template v-else-if="!appStore.backendModeEnabled || isAdmin">
-        <div class="sidebar-section">
+        <div v-for="group in userNavGroups" :key="group.key" class="sidebar-section">
+          <div
+            v-if="group.title && !sidebarCollapsed"
+            class="sidebar-section-title"
+          >
+            {{ group.title }}
+          </div>
+          <div v-else-if="group.title" class="mx-3 my-3 h-px bg-gray-200 dark:bg-dark-800" aria-hidden="true"></div>
           <router-link
-            v-for="item in userNavItems"
+            v-for="item in group.items"
             :key="item.path"
             :to="item.path"
-            class="sidebar-link mb-1"
+            class="sidebar-link mb-0.5"
             :class="{ 'sidebar-link-active': isActive(item.path), 'sidebar-link-collapsed': sidebarCollapsed }"
             :title="sidebarCollapsed ? item.label : undefined"
             :data-tour="item.path === '/keys' ? 'sidebar-my-keys' : undefined"
             @click="handleMenuItemClick(item.path)"
           >
-            <span v-if="item.iconSvg" class="h-5 w-5 flex-shrink-0 sidebar-svg-icon" v-html="sanitizeSvg(item.iconSvg)"></span>
-            <component v-else :is="item.icon" class="h-5 w-5 flex-shrink-0" />
+            <span v-if="item.iconSvg" class="h-[18px] w-[18px] flex-shrink-0 sidebar-svg-icon" v-html="sanitizeSvg(item.iconSvg)"></span>
+            <component v-else :is="item.icon" class="h-[18px] w-[18px] flex-shrink-0" />
             <span class="sidebar-label" :class="{ 'sidebar-label-collapsed': sidebarCollapsed }" :aria-hidden="sidebarCollapsed ? 'true' : 'false'">{{ item.label }}</span>
           </router-link>
         </div>
@@ -154,7 +130,7 @@
     </nav>
 
     <!-- Bottom Section -->
-    <div class="mt-auto border-t border-gray-100 p-3 dark:border-dark-800">
+    <div class="mt-auto border-t border-gray-200 p-3 dark:border-dark-800">
       <!-- Theme Toggle -->
       <button
         @click="toggleTheme"
@@ -162,8 +138,8 @@
         :class="{ 'sidebar-link-collapsed': sidebarCollapsed }"
         :title="sidebarCollapsed ? (isDark ? t('nav.lightMode') : t('nav.darkMode')) : undefined"
       >
-        <SunIcon v-if="isDark" class="h-5 w-5 flex-shrink-0 text-amber-500" />
-        <MoonIcon v-else class="h-5 w-5 flex-shrink-0" />
+        <SunIcon v-if="isDark" class="h-[18px] w-[18px] flex-shrink-0" />
+        <MoonIcon v-else class="h-[18px] w-[18px] flex-shrink-0" />
         <span class="sidebar-label" :class="{ 'sidebar-label-collapsed': sidebarCollapsed }" :aria-hidden="sidebarCollapsed ? 'true' : 'false'">{{
           isDark ? t('nav.lightMode') : t('nav.darkMode')
         }}</span>
@@ -176,10 +152,11 @@
         :class="{ 'sidebar-link-collapsed': sidebarCollapsed }"
         :title="sidebarCollapsed ? t('nav.expand') : t('nav.collapse')"
       >
-        <ChevronDoubleLeftIcon v-if="!sidebarCollapsed" class="h-5 w-5 flex-shrink-0" />
-        <ChevronDoubleRightIcon v-else class="h-5 w-5 flex-shrink-0" />
+        <ChevronDoubleLeftIcon v-if="!sidebarCollapsed" class="h-[18px] w-[18px] flex-shrink-0" />
+        <ChevronDoubleRightIcon v-else class="h-[18px] w-[18px] flex-shrink-0" />
         <span class="sidebar-label" :class="{ 'sidebar-label-collapsed': sidebarCollapsed }" :aria-hidden="sidebarCollapsed ? 'true' : 'false'">{{ t('nav.collapse') }}</span>
       </button>
+      <div v-if="siteVersion && !sidebarCollapsed" class="px-3 pt-2 font-mono text-[11px] text-gray-500 dark:text-dark-400">v{{ siteVersion }}</div>
     </div>
   </aside>
 
@@ -768,8 +745,7 @@ function buildSelfNavItems(withDashboard: boolean): NavItem[] {
       iconSvg: item.icon_svg,
     })),
   )
-  const streamlinedPaths = new Set(['/dashboard', '/keys', '/usage', '/purchase', '/redeem'])
-  return items.filter((item) => streamlinedPaths.has(item.path) || item.path.startsWith('/custom/'))
+  return items
 }
 
 // finalizeNav 合并三重过滤：featureFlag 过滤 + simple 模式过滤。
@@ -780,6 +756,29 @@ function finalizeNav(items: NavItem[]): NavItem[] {
 
 // User navigation items (for regular users)
 const userNavItems = computed((): NavItem[] => finalizeNav(buildSelfNavItems(true)))
+
+// 用户端菜单分组：工作台 / 模型 / 账户 / 设置。未列入的路径（如自定义菜单）归入「设置」之后的最后一组。
+const USER_NAV_GROUPS: Array<{ key: string; titleKey: string | null; paths: string[] }> = [
+  { key: 'workspace', titleKey: null, paths: ['/dashboard', '/keys', '/usage', '/batch-image'] },
+  { key: 'models', titleKey: 'nav.groupModels', paths: ['/available-channels', '/monitor'] },
+  { key: 'account', titleKey: 'nav.groupAccount', paths: ['/purchase', '/subscriptions', '/orders', '/redeem', '/affiliate'] },
+  { key: 'settings', titleKey: 'nav.groupSettings', paths: ['/profile', '/settings/mcp'] },
+]
+
+const userNavGroups = computed(() => {
+  const items = userNavItems.value
+  const used = new Set<string>()
+  const groups = USER_NAV_GROUPS.map((g) => {
+    const groupItems = g.paths
+      .map((p) => items.find((item) => item.path === p))
+      .filter((item): item is NavItem => !!item)
+    groupItems.forEach((item) => used.add(item.path))
+    return { key: g.key, title: g.titleKey ? t(g.titleKey) : '', items: groupItems }
+  })
+  const rest = items.filter((item) => !used.has(item.path))
+  if (rest.length) groups.push({ key: 'custom', title: '', items: rest })
+  return groups.filter((g) => g.items.length > 0)
+})
 
 // Admin navigation items
 const adminNavItems = computed((): NavItem[] => {

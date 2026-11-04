@@ -3,10 +3,10 @@ package admin
 import (
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/handler/dto"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/adminaccess"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/handler/dto"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/adminaccess"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 // 受限密钥仅接收记录自身字段；不嵌入完整用户资料或实时财务数据。

@@ -10,9 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/tlsfingerprint"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/tlsfingerprint"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
 )
@@ -220,7 +220,7 @@ func TestForwardGrokMediaContentFetchesValidatedSignedURLWithoutCredentials(t *t
 	require.True(t, HTTPUpstreamRedirectsDisabled(upstream.requests[1].Context()))
 }
 
-func TestForwardGrokMediaContentFollowsAuthenticatedSub2APIRelay(t *testing.T) {
+func TestForwardGrokMediaContentFollowsAuthenticatedAgentByteRelay(t *testing.T) {
 	for _, statusURL := range []string{
 		`/v1/videos/task-1/content`,
 		`https://relay.example/v1/videos/task-1/content`,

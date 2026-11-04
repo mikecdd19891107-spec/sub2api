@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/geminicli"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/geminicli"
 	"github.com/stretchr/testify/require"
 )
 

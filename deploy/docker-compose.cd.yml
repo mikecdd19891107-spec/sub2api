@@ -1,9 +1,9 @@
-# CD override: build & run the fork checkout instead of Hub weishaw/sub2api:latest.
-# Usage (from /srv/sub2api/deploy):
+# CD override: build & run the fork checkout instead of Hub ghcr.io/mikecdd19891107-spec/agentbyte:latest.
+# Usage (from /srv/agentbyte/deploy):
 #   docker compose -f docker-compose.local.yml -f docker-compose.cd.yml up -d --build
 services:
-  sub2api:
-    image: sub2api:cd
+  agentbyte:
+    image: agentbyte:cd
     build:
       context: ..
       dockerfile: Dockerfile

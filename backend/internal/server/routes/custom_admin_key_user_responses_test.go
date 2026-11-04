@@ -9,12 +9,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/handler"
-	adminhandler "github.com/Wei-Shaw/sub2api/internal/handler/admin"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/adminaccess"
-	"github.com/Wei-Shaw/sub2api/internal/server/middleware"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/handler"
+	adminhandler "github.com/mikecdd19891107-spec/agentbyte/internal/handler/admin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/adminaccess"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
 )
 

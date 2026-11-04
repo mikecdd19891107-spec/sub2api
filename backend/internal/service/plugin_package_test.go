@@ -15,8 +15,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	pluginv1 "github.com/Wei-Shaw/sub2api/pkg/pluginapi/v1"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	pluginv1 "github.com/mikecdd19891107-spec/agentbyte/pkg/pluginapi/v1"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -175,12 +175,12 @@ func testPluginManifest(files map[string][]byte) PluginManifest {
 		Name:          "测试 OpenAI Transport",
 		Version:       "0.1.0",
 		Requires: PluginRequirements{
-			Sub2API:                   ">=0.1.170 <0.2.0",
-			RecommendedSub2APIVersion: "0.1.179",
-			TestedSub2APIVersions:     []string{"0.1.179"},
-			PluginProtocol:            pluginv1.ProtocolVersion,
-			TransportAPI:              pluginv1.TransportAPIVersion,
-			UIBridge:                  pluginv1.UIBridgeVersion,
+			AgentByte:                   ">=0.1.170 <0.2.0",
+			RecommendedAgentByteVersion: "0.1.179",
+			TestedAgentByteVersions:     []string{"0.1.179"},
+			PluginProtocol:              pluginv1.ProtocolVersion,
+			TransportAPI:                pluginv1.TransportAPIVersion,
+			UIBridge:                    pluginv1.UIBridgeVersion,
 		},
 		Capabilities: []PluginCapability{{
 			ID:          PluginCapabilityOpenAIOAuthOutbound,

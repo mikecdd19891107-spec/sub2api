@@ -1,8 +1,6 @@
 <template>
-  <header
-    class="glass sticky top-4 z-30 mx-4 mt-4 rounded-3xl border border-white/80 shadow-glass transition-all duration-300 lg:mx-8 dark:border-white/[0.08]"
-  >
-    <div class="flex h-16 items-center justify-between gap-2 px-3 sm:px-5 md:px-6">
+  <header class="sticky top-0 z-30 border-b border-gray-200 bg-white/95 dark:border-dark-800 dark:bg-dark-950/95">
+    <div class="flex h-16 items-center justify-between gap-2 px-3 sm:px-5 md:px-8">
       <!-- Left: Mobile Menu Toggle + Page Title -->
       <div class="flex shrink-0 items-center gap-2 sm:gap-4">
         <button
@@ -14,13 +12,36 @@
         </button>
 
         <!-- Page Title (Desktop) -->
-        <div class="hidden lg:block">
-          <h1 class="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
+        <div class="hidden min-w-0 lg:block">
+          <h1 class="truncate text-base font-semibold tracking-tight text-gray-950 dark:text-white">
             {{ pageTitle }}
           </h1>
-          <p v-if="pageDescription" class="text-xs text-gray-500 dark:text-dark-400">
+          <p v-if="pageDescription" class="truncate text-xs text-gray-500 dark:text-dark-400">
             {{ pageDescription }}
           </p>
+        </div>
+
+        <!-- Admin / User workspace switch (admins only) -->
+        <div
+          v-if="authStore.isAdmin"
+          role="group"
+          :aria-label="t('nav.workspaceSwitch')"
+          class="hidden rounded-lg bg-gray-100 p-[3px] dark:bg-dark-800 md:flex"
+        >
+          <router-link
+            to="/admin/dashboard"
+            class="rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
+            :class="isAdminWorkspace ? 'bg-white text-gray-950 shadow-sm dark:bg-dark-950 dark:text-white' : 'text-gray-600 hover:text-gray-950 dark:text-dark-400 dark:hover:text-white'"
+          >
+            {{ t('nav.adminWorkspace') }}
+          </router-link>
+          <router-link
+            to="/dashboard"
+            class="rounded-md px-2.5 py-1 text-xs font-medium transition-colors"
+            :class="!isAdminWorkspace ? 'bg-white text-gray-950 shadow-sm dark:bg-dark-950 dark:text-white' : 'text-gray-600 hover:text-gray-950 dark:text-dark-400 dark:hover:text-white'"
+          >
+            {{ t('nav.userWorkspace') }}
+          </router-link>
         </div>
       </div>
 
@@ -29,13 +50,25 @@
         <!-- Announcement Bell -->
         <AnnouncementBell v-if="user" />
 
+        <!-- Docs Link -->
+        <a
+          v-if="docUrl"
+          :href="docUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-950 dark:text-dark-400 dark:hover:bg-dark-800 dark:hover:text-white sm:flex"
+        >
+          <Icon name="book" size="sm" />
+          <span>{{ t('nav.docs') }}</span>
+        </a>
+
         <!-- Model Plaza Entry (icon only below sm) -->
         <router-link
           v-if="user && modelPlazaEnabled"
           :to="{ path: '/model-plaza', query: { embedded: '1' } }"
           :title="t('nav.modelPlaza')"
           :aria-label="t('nav.modelPlaza')"
-          class="flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-sm font-medium text-gray-600 transition-all hover:bg-gray-200/50 hover:text-gray-900 dark:text-dark-300 dark:hover:bg-white/[0.06] dark:hover:text-white"
+          class="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-950 dark:text-dark-400 dark:hover:bg-dark-800 dark:hover:text-white"
         >
           <Icon name="grid" size="sm" />
           <span class="hidden sm:inline">{{ t('nav.modelPlaza') }}</span>
@@ -50,32 +83,34 @@
         <!-- Balance Display -->
         <div
           v-if="user"
-          class="group relative hidden items-center gap-2 rounded-2xl border border-primary-200/70 bg-gradient-to-r from-primary-50/90 to-amber-50/70 px-3.5 py-1.5 shadow-sm backdrop-blur-md dark:border-primary-500/20 dark:from-primary-900/25 dark:to-amber-900/15 sm:flex"
+          class="group relative hidden items-center gap-2 rounded-lg border border-gray-200 py-1 pl-3 pr-1 dark:border-dark-700 sm:flex"
         >
-          <svg
-            class="h-4 w-4 text-primary-600 dark:text-primary-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
-            />
-          </svg>
-          <span class="text-sm font-semibold tabular-nums text-primary-700 dark:text-primary-300">
+          <span class="text-xs text-gray-500 dark:text-dark-400">{{ t('common.balance') }}</span>
+          <span class="font-mono text-sm font-semibold tabular-nums text-gray-950 dark:text-white">
             {{ formatHeaderMoney(availableBalance) }}
           </span>
           <span
             v-if="frozenBalance > 0"
-            class="rounded-full bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-700 dark:bg-amber-900/40 dark:text-amber-200"
+            class="rounded-md bg-amber-50 px-1.5 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900/40 dark:text-amber-200"
           >
             {{ balanceFrozenLabel }}
           </span>
+          <router-link
+            v-if="!authStore.isSimpleMode"
+            to="/redeem"
+            class="rounded-md px-2 py-1 text-xs font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-950 dark:text-dark-300 dark:hover:bg-dark-800 dark:hover:text-white"
+          >
+            {{ t('nav.redeem') }}
+          </router-link>
+          <router-link
+            v-if="paymentEnabled"
+            to="/purchase"
+            class="rounded-md bg-gray-950 px-2.5 py-1 text-xs font-semibold text-white hover:bg-gray-700 dark:bg-white dark:text-gray-950 dark:hover:bg-gray-200"
+          >
+            {{ t('nav.recharge') }}
+          </router-link>
           <div
-            class="pointer-events-none absolute right-0 top-full mt-2 hidden w-56 rounded-2xl border border-white/75 bg-white/90 p-3.5 text-xs shadow-glass backdrop-blur-2xl group-hover:block dark:border-white/10 dark:bg-dark-800/90"
+            class="pointer-events-none absolute right-0 top-full mt-2 hidden w-56 rounded-lg border border-gray-200 bg-white p-3 text-xs shadow-lg group-hover:block dark:border-dark-700 dark:bg-dark-900"
           >
             <div class="flex items-center justify-between">
               <span class="text-gray-500 dark:text-dark-400">{{ balanceAvailableText }}</span>
@@ -85,7 +120,7 @@
               <span class="text-gray-500 dark:text-dark-400">{{ balanceFrozenText }}</span>
               <span class="font-medium text-amber-700 dark:text-amber-200">{{ formatHeaderMoney(frozenBalance) }}</span>
             </div>
-            <div class="mt-2 border-t border-gray-100 pt-2 dark:border-dark-700">
+            <div class="mt-2 border-t border-gray-200 pt-2 dark:border-dark-700">
               <div class="flex items-center justify-between">
                 <span class="text-gray-500 dark:text-dark-400">{{ balanceTotalText }}</span>
                 <span class="font-semibold text-gray-900 dark:text-white">{{ formatHeaderMoney(totalBalance) }}</span>
@@ -98,10 +133,10 @@
         <div v-if="user" class="relative" ref="dropdownRef">
           <button
             @click="toggleDropdown"
-            class="flex items-center gap-2.5 rounded-2xl p-1.5 transition-all hover:bg-gray-200/50 dark:hover:bg-white/[0.06]"
+            class="flex items-center gap-2 rounded-lg p-1 transition-colors hover:bg-gray-100 dark:hover:bg-dark-800"
             :aria-label="t('common.userMenu')"
           >
-            <div class="flex h-8 w-8 items-center justify-center overflow-hidden rounded-[12px] bg-gradient-to-br from-primary-400 via-primary-500 to-primary-600 text-sm font-semibold text-white shadow-sm shadow-primary-500/25 ring-1 ring-white/40">
+            <div class="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-gray-200 text-sm font-semibold text-gray-800 dark:bg-dark-700 dark:text-gray-100">
               <img
                 v-if="avatarUrl"
                 :src="avatarUrl"
@@ -125,7 +160,7 @@
           <transition name="dropdown">
             <div v-if="dropdownOpen" class="dropdown right-0 mt-2 w-56">
               <!-- User Info -->
-              <div class="border-b border-gray-100 px-4 py-3 dark:border-dark-700">
+              <div class="border-b border-gray-200 px-4 py-3 dark:border-dark-700">
                 <div class="text-sm font-medium text-gray-900 dark:text-white">
                   {{ displayName }}
                 </div>
@@ -133,11 +168,11 @@
               </div>
 
               <!-- Balance (mobile only) -->
-              <div class="border-b border-gray-100 px-4 py-2 dark:border-dark-700 sm:hidden">
+              <div class="border-b border-gray-200 px-4 py-2 dark:border-dark-700 sm:hidden">
                 <div class="text-xs text-gray-500 dark:text-dark-400">
                   {{ t('common.balance') }}
                 </div>
-                <div class="text-sm font-semibold text-primary-600 dark:text-primary-400">
+                <div class="font-mono text-sm font-semibold text-gray-950 dark:text-white">
                   {{ formatHeaderMoney(availableBalance) }}
                 </div>
                 <div v-if="frozenBalance > 0" class="mt-1 text-xs text-amber-600 dark:text-amber-300">
@@ -161,7 +196,7 @@
               <!-- Contact Support (only show if configured) -->
               <div
                 v-if="contactInfo"
-                class="border-t border-gray-100 px-4 py-2.5 dark:border-dark-700"
+                class="border-t border-gray-200 px-4 py-2.5 dark:border-dark-700"
               >
                 <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
                   <svg
@@ -184,7 +219,7 @@
                 </div>
               </div>
 
-              <div v-if="showOnboardingButton" class="border-t border-gray-100 py-1 dark:border-dark-700">
+              <div v-if="showOnboardingButton" class="border-t border-gray-200 py-1 dark:border-dark-700">
                 <button @click="handleReplayGuide" class="dropdown-item w-full">
                   <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                     <path
@@ -195,7 +230,7 @@
                 </button>
               </div>
 
-              <div class="border-t border-gray-100 py-1 dark:border-dark-700">
+              <div class="border-t border-gray-200 py-1 dark:border-dark-700">
                 <button
                   @click="handleLogout"
                   class="dropdown-item w-full text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20"
@@ -252,7 +287,8 @@ const dropdownOpen = ref(false)
 const dropdownRef = ref<HTMLElement | null>(null)
 const contactInfo = computed(() => appStore.contactInfo)
 const docUrl = computed(() => sanitizeUrl(appStore.docUrl))
-void docUrl.value
+const paymentEnabled = computed(() => isFeatureFlagEnabled(FeatureFlags.payment) && !authStore.isSimpleMode)
+const isAdminWorkspace = computed(() => route.path.startsWith('/admin'))
 const modelPlazaEnabled = computed(() => isFeatureFlagEnabled(FeatureFlags.modelPlaza))
 const avatarUrl = computed(() => user.value?.avatar_url?.trim() || '')
 const availableBalance = computed(() => Number(user.value?.balance || 0))

@@ -6,10 +6,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/handler"
-	adminhandler "github.com/Wei-Shaw/sub2api/internal/handler/admin"
-	"github.com/Wei-Shaw/sub2api/internal/server/middleware"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/handler"
+	adminhandler "github.com/mikecdd19891107-spec/agentbyte/internal/handler/admin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/stretchr/testify/require"
 )
 

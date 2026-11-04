@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/openai"
 	"github.com/imroc/req/v3"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/stretchr/testify/require"
 )
 

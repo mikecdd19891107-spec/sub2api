@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Idempotent CD deploy for /srv/sub2api on jp-app-01.
+# Idempotent CD deploy for /srv/agentbyte on jp-app-01.
 # Syncs origin/main, rebuilds from local Dockerfile via compose CD override, health-checks.
 set -euo pipefail
 
-REPO_DIR="${REPO_DIR:-/srv/sub2api}"
+REPO_DIR="${REPO_DIR:-/srv/agentbyte}"
 DEPLOY_DIR="${DEPLOY_DIR:-$REPO_DIR/deploy}"
 BRANCH="${BRANCH:-main}"
 REMOTE="${REMOTE:-origin}"
@@ -61,16 +61,16 @@ compose_base() {
 
 if [ "$SKIP_BUILD" = "1" ]; then
   log "SKIP_BUILD=1 — restarting without rebuild"
-  if "${DOCKER[@]}" image inspect sub2api:cd >/dev/null 2>&1; then
+  if "${DOCKER[@]}" image inspect agentbyte:cd >/dev/null 2>&1; then
     compose up -d --remove-orphans
   else
-    log "sub2api:cd not built yet; using base compose (Hub image weishaw/sub2api)"
+    log "agentbyte:cd not built yet; using base compose (Hub image ghcr.io/mikecdd19891107-spec/agentbyte)"
     compose_base up -d --remove-orphans
   fi
 else
   [ -f "$COMPOSE_CD" ] || die "missing $COMPOSE_CD — commit/push docker-compose.cd.yml first"
-  log "build + up from local Dockerfile (tag sub2api:cd)"
-  compose build sub2api
+  log "build + up from local Dockerfile (tag agentbyte:cd)"
+  compose build agentbyte
   compose up -d --remove-orphans
 fi
 
@@ -78,7 +78,7 @@ log "waiting for health: $HEALTH_URL"
 ok=0
 code=""
 for i in $(seq 1 "$MAX_WAIT"); do
-  code=$(curl -sS -o /tmp/sub2api-health.body -w '%{http_code}' "$HEALTH_URL" || true)
+  code=$(curl -sS -o /tmp/agentbyte-health.body -w '%{http_code}' "$HEALTH_URL" || true)
   if [ "$code" = "200" ]; then
     ok=1
     break
@@ -86,6 +86,6 @@ for i in $(seq 1 "$MAX_WAIT"); do
   sleep 1
 done
 [ "$ok" = "1" ] || die "health check failed after ${MAX_WAIT}s (last HTTP ${code:-none})"
-log "health OK: $(cat /tmp/sub2api-health.body 2>/dev/null || true)"
+log "health OK: $(cat /tmp/agentbyte-health.body 2>/dev/null || true)"
 log "containers:"
-"${DOCKER[@]}" ps --filter name=sub2api --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'
+"${DOCKER[@]}" ps --filter name=agentbyte --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'

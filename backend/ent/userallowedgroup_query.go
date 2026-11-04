@@ -11,10 +11,10 @@ import (
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
-	"github.com/Wei-Shaw/sub2api/ent/group"
-	"github.com/Wei-Shaw/sub2api/ent/predicate"
-	"github.com/Wei-Shaw/sub2api/ent/user"
-	"github.com/Wei-Shaw/sub2api/ent/userallowedgroup"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/group"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/predicate"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/user"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/userallowedgroup"
 )
 
 // UserAllowedGroupQuery is the builder for querying UserAllowedGroup entities.

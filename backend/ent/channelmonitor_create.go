@@ -11,10 +11,10 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/Wei-Shaw/sub2api/ent/channelmonitor"
-	"github.com/Wei-Shaw/sub2api/ent/channelmonitordailyrollup"
-	"github.com/Wei-Shaw/sub2api/ent/channelmonitorhistory"
-	"github.com/Wei-Shaw/sub2api/ent/channelmonitorrequesttemplate"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/channelmonitor"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/channelmonitordailyrollup"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/channelmonitorhistory"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/channelmonitorrequesttemplate"
 )
 
 // ChannelMonitorCreate is the builder for creating a ChannelMonitor entity.

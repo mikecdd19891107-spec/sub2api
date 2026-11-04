@@ -7,10 +7,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 
-	middleware2 "github.com/Wei-Shaw/sub2api/internal/server/middleware"
 	"github.com/gin-gonic/gin"
+	middleware2 "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/stretchr/testify/require"
 )
 

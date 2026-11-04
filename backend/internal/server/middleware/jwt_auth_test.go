@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
 )
 
@@ -275,7 +275,7 @@ func TestJWTAuth_UserLookupErrors(t *testing.T) {
 					if route.websocket {
 						req.Header.Set("Upgrade", "websocket")
 						req.Header.Set("Connection", "Upgrade")
-						req.Header.Set("Sec-WebSocket-Protocol", "sub2api-admin, jwt."+token)
+						req.Header.Set("Sec-WebSocket-Protocol", "agentbyte-admin, jwt."+token)
 					} else {
 						req.Header.Set("Authorization", "Bearer "+token)
 					}

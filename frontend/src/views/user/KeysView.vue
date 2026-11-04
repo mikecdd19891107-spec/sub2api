@@ -1199,6 +1199,7 @@
 </template>
 
 <script setup lang="ts">
+import { resolveBrandName } from '@/utils/branding'
 	import { ref, reactive, computed, watch, onMounted, onUnmounted, type ComponentPublicInstance } from 'vue'
 	import { useI18n } from 'vue-i18n'
 	import { useAppStore } from '@/stores/app'
@@ -2028,8 +2029,7 @@ const executeCcsImport = (row: ApiKey, clientType: CcSwitchClientType) => {
   const platform = row.group?.platform || 'anthropic'
 
   const usageScript = CC_SWITCH_USAGE_SCRIPT
-  const rawSiteName = (publicSettings.value?.site_name || '').trim()
-  const providerName = (!rawSiteName || rawSiteName.toLowerCase() === 'sub2api') ? 'AgentByte' : rawSiteName
+  const providerName = resolveBrandName(publicSettings.value?.site_name)
   const deeplink = buildCcSwitchImportDeeplink({
     baseUrl,
     platform,

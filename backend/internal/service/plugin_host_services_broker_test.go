@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	pluginv1 "github.com/Wei-Shaw/sub2api/pkg/pluginapi/v1"
 	hcplugin "github.com/hashicorp/go-plugin"
+	pluginv1 "github.com/mikecdd19891107-spec/agentbyte/pkg/pluginapi/v1"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

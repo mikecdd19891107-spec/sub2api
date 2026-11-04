@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"github.com/Wei-Shaw/sub2api/internal/handler"
-	"github.com/Wei-Shaw/sub2api/internal/server/middleware"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/handler"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 )
 
 // 管理密钥生命周期只接受管理员会话；写操作沿用二次验证。

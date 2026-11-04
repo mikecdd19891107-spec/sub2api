@@ -13,10 +13,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	"github.com/Wei-Shaw/sub2api/internal/repository"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/repository"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 
 	"github.com/lib/pq"
 	"github.com/redis/go-redis/v9"
@@ -517,7 +517,7 @@ func generateAdminEmail() (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("failed to generate admin email: %w", err)
 	}
-	return fmt.Sprintf("admin-%s@sub2api.local", suffix), nil
+	return fmt.Sprintf("admin-%s@agentbyte.local", suffix), nil
 }
 
 func writeConfigFile(cfg *SetupConfig) error {
@@ -631,7 +631,7 @@ func AutoSetupFromEnv() error {
 			Port:     getEnvIntOrDefault("DATABASE_PORT", 5432),
 			User:     getEnvOrDefault("DATABASE_USER", "postgres"),
 			Password: getEnvOrDefault("DATABASE_PASSWORD", ""),
-			DBName:   getEnvOrDefault("DATABASE_DBNAME", "sub2api"),
+			DBName:   getEnvOrDefault("DATABASE_DBNAME", "agentbyte"),
 			SSLMode:  getEnvOrDefault("DATABASE_SSLMODE", "disable"),
 		},
 		Redis: RedisConfig{

@@ -20,10 +20,10 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/geminicli"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/geminicli"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 )

@@ -12,9 +12,9 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/Wei-Shaw/sub2api/ent/channelmonitor"
-	"github.com/Wei-Shaw/sub2api/ent/channelmonitordailyrollup"
-	"github.com/Wei-Shaw/sub2api/ent/predicate"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/channelmonitor"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/channelmonitordailyrollup"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/predicate"
 )
 
 // ChannelMonitorDailyRollupQuery is the builder for querying ChannelMonitorDailyRollup entities.

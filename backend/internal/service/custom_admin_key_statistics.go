@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/adminaccess"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/adminaccess"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 )
 
 type scopedAccountOperationKey struct{}

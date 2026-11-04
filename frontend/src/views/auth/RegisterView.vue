@@ -365,6 +365,7 @@
 </template>
 
 <script setup lang="ts">
+import { resolveBrandName } from '@/utils/branding'
 import { computed, ref, reactive, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
@@ -401,7 +402,7 @@ import {
 import type { LoginAgreementDocument } from '@/types'
 
 const { t, locale } = useI18n()
-const LOGIN_AGREEMENT_STORAGE_KEY = 'sub2api_login_agreement_consent'
+const LOGIN_AGREEMENT_STORAGE_KEY = 'agentbyte_login_agreement_consent'
 
 // ==================== Router & Stores ====================
 
@@ -577,7 +578,7 @@ onMounted(async () => {
     aliyunCaptchaSceneId.value = settings.aliyun_captcha_scene_id || ''
     aliyunCaptchaPrefix.value = settings.aliyun_captcha_prefix || ''
     aliyunCaptchaRegion.value = settings.aliyun_captcha_region || 'cn'
-    siteName.value = settings.site_name && settings.site_name.toLowerCase() !== 'sub2api' ? settings.site_name : 'AgentByte'
+    siteName.value = resolveBrandName(settings.site_name)
     linuxdoOAuthEnabled.value = settings.linuxdo_oauth_enabled
     wechatOAuthEnabled.value = isWeChatWebOAuthEnabled(settings)
     oidcOAuthEnabled.value = settings.oidc_oauth_enabled

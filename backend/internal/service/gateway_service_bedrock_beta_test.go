@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 )
 
 type betaPolicySettingRepoStub struct {

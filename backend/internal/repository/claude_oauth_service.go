@@ -9,11 +9,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/oauth"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/proxyurl"
-	"github.com/Wei-Shaw/sub2api/internal/service"
-	"github.com/Wei-Shaw/sub2api/internal/util/logredact"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/oauth"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/proxyurl"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/util/logredact"
 
 	"github.com/imroc/req/v3"
 )

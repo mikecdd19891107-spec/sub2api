@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/lib/pq"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 // auditLogRepository 审计日志仓储（raw SQL，append-only）。

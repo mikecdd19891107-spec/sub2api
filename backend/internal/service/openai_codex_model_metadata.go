@@ -3,7 +3,7 @@ package service
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/openai"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"net/url"
 	"strings"
 )

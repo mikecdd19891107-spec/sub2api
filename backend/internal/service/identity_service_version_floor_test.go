@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/claude"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/claude"
 )
 
 // floorClaudeCLIUserAgentVersion 单元测试：版本下限抬升的各种形态。

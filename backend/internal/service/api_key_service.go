@@ -14,12 +14,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/ip"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/timezone"
 	"github.com/dgraph-io/ristretto"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ip"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/timezone"
 	"golang.org/x/sync/singleflight"
 )
 

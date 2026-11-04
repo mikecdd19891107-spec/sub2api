@@ -10,8 +10,8 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"github.com/Wei-Shaw/sub2api/ent/account"
-	"github.com/Wei-Shaw/sub2api/ent/proxy"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/account"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/proxy"
 )
 
 // Account is the model entity for the Account schema.

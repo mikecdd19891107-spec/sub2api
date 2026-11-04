@@ -163,6 +163,13 @@ export default {
 
   // Navigation
   nav: {
+    groupWorkspace: 'Workspace',
+    groupModels: 'Models',
+    groupAccount: 'Account',
+    groupSettings: 'Settings',
+    adminWorkspace: 'Admin',
+    userWorkspace: 'Workspace',
+    workspaceSwitch: 'Switch workspace',
     dashboard: 'Dashboard',
     announcements: 'Announcements',
     apiKeys: 'API Keys',

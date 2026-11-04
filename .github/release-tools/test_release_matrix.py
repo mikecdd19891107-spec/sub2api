@@ -40,7 +40,7 @@ class ReleaseMatrixTest(unittest.TestCase):
             archive = directory / name
             if target['goos'] == 'linux':
                 with tarfile.open(archive, 'w:gz') as out:
-                    info = tarfile.TarInfo('sub2api')
+                    info = tarfile.TarInfo('agentbyte')
                     info.size = 7
                     info.mode = 0o755
                     out.addfile(info, io.BytesIO(b'fixture'))
@@ -110,14 +110,14 @@ class ReleaseMatrixTest(unittest.TestCase):
 
     def test_linux_context_preserves_binary_executable_mode(self):
         args = self.fixture_artifacts()
-        Path('Dockerfile.goreleaser').write_text('FROM scratch\nCOPY sub2api /sub2api\n')
+        Path('Dockerfile.goreleaser').write_text('FROM scratch\nCOPY agentbyte /agentbyte\n')
         Path('deploy').mkdir()
-        Path('deploy/docker-entrypoint.sh').write_text('#!/bin/sh\nexec /app/sub2api\n')
+        Path('deploy/docker-entrypoint.sh').write_text('#!/bin/sh\nexec /app/agentbyte\n')
         Path('backend/resources').mkdir()
         Path('backend/resources/data').write_text('fixture')
         release.contexts(args)
         for arch in ('amd64', 'arm64'):
-            binary = Path('contexts') / arch / 'sub2api'
+            binary = Path('contexts') / arch / 'agentbyte'
             self.assertEqual(binary.read_bytes(), b'fixture')
             self.assertEqual(binary.stat().st_mode & 0o777, 0o755)
 
@@ -147,7 +147,7 @@ class ReleaseMatrixTest(unittest.TestCase):
         docker.chmod(0o755)
         env = {**os.environ, 'PATH': str(fake_bin.resolve()) + os.pathsep + os.environ['PATH'],
                'DOCKER_LOG': str(Path('docker.log').resolve()), 'RUNNER_TEMP': self.temp.name,
-               'RELEASE_VERSION': '9.8.7', 'RELEASE_SHA': 'a' * 40, 'GITHUB_REPOSITORY': 'ExampleOwner/sub2api',
+               'RELEASE_VERSION': '9.8.7', 'RELEASE_SHA': 'a' * 40, 'GITHUB_REPOSITORY': 'ExampleOwner/agentbyte',
                'DRY_RUN': 'true', 'SIMPLE_RELEASE': 'false', 'DOCKERHUB_USERNAME': 'skip'}
         subprocess.run(['bash', str(ROOT / '.github/release-tools/release-images.sh')], env=env, check=True)
         log = Path('docker.log').read_text()
@@ -155,8 +155,8 @@ class ReleaseMatrixTest(unittest.TestCase):
         self.assertIn('linux/arm64', log)
         self.assertNotIn('--push', log)
         self.assertNotIn('imagetools', log)
-        self.assertNotIn('skip/sub2api', log)
-        self.assertIn('ghcr.io/exampleowner/sub2api', log)
+        self.assertNotIn('skip/agentbyte', log)
+        self.assertIn('ghcr.io/exampleowner/agentbyte', log)
 
 
     def test_published_full_and_simple_image_tags(self):
@@ -170,7 +170,7 @@ class ReleaseMatrixTest(unittest.TestCase):
                 log_path = Path(f'docker-{simple}.log').resolve()
                 env = {**os.environ, 'PATH': str(fake_bin.resolve()) + os.pathsep + os.environ['PATH'],
                        'DOCKER_LOG': str(log_path), 'RUNNER_TEMP': self.temp.name,
-                       'RELEASE_VERSION': '9.8.7', 'RELEASE_SHA': 'a' * 40, 'GITHUB_REPOSITORY': 'ExampleOwner/sub2api',
+                       'RELEASE_VERSION': '9.8.7', 'RELEASE_SHA': 'a' * 40, 'GITHUB_REPOSITORY': 'ExampleOwner/agentbyte',
                        'DRY_RUN': 'false', 'SIMPLE_RELEASE': str(simple).lower(), 'DOCKERHUB_USERNAME': 'fixturehub'}
                 subprocess.run(['bash', str(ROOT / '.github/release-tools/release-images.sh')], env=env, check=True)
                 log = log_path.read_text()
@@ -179,11 +179,11 @@ class ReleaseMatrixTest(unittest.TestCase):
                 if simple:
                     self.assertNotIn('fixturehub', log)
                     self.assertNotIn('imagetools', log)
-                    self.assertIn('ghcr.io/exampleowner/sub2api:latest', log)
+                    self.assertIn('ghcr.io/exampleowner/agentbyte:latest', log)
                 else:
                     self.assertEqual(log.count('imagetools create'), 2)
-                    self.assertIn('fixturehub/sub2api:9.8', log)
-                    self.assertIn('ghcr.io/exampleowner/sub2api:9', log)
+                    self.assertIn('fixturehub/agentbyte:9.8', log)
+                    self.assertIn('ghcr.io/exampleowner/agentbyte:9', log)
 
 
 

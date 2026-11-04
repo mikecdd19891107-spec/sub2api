@@ -7,10 +7,10 @@ import (
 	"strings"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/userplatformquota"
-	"github.com/Wei-Shaw/sub2api/internal/domain"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/timezone"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/userplatformquota"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/timezone"
 )
 
 // UserPlatformQuotaRecord 是 repository 层的传输结构体，

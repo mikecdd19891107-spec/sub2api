@@ -3,9 +3,9 @@ package admin
 import (
 	"fmt"
 
-	"github.com/Wei-Shaw/sub2api/internal/domain"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator/v10"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
 )
 
 // 平台相关的请求绑定校验标签，由平台清单（domain/platforms.go）驱动，替代在

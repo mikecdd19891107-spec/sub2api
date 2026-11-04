@@ -20,10 +20,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	"github.com/Wei-Shaw/sub2api/internal/util/responseheaders"
 	"github.com/gin-gonic/gin"
 	"github.com/imroc/req/v3"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/util/responseheaders"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 )
@@ -48,7 +48,7 @@ const (
 // of the image_generation tool model. An environment override lets operators
 // recover from upstream model retirement without rebuilding the gateway.
 func openAIImagesResponsesMainModelValue() string {
-	if model := strings.TrimSpace(os.Getenv("SUB2API_IMAGES_MAIN_MODEL")); model != "" {
+	if model := strings.TrimSpace(os.Getenv("AGENTBYTE_IMAGES_MAIN_MODEL")); model != "" {
 		return model
 	}
 	return openAIImagesResponsesMainModel

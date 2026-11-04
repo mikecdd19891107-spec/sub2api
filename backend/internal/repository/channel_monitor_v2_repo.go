@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/lib/pq"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 type channelMonitorV2Repository struct{ db *sql.DB }

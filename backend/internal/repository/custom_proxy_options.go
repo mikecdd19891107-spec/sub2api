@@ -6,10 +6,10 @@ import (
 	"strings"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/proxy"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/proxy"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 // ListOptions 为受限管理密钥在数据库内分页并只投影公开字段。

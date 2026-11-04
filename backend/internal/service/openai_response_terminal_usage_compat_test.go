@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/apicompat"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/apicompat"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
 )

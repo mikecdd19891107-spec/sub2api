@@ -3,10 +3,10 @@ package admin
 import (
 	"slices"
 
-	"github.com/Wei-Shaw/sub2api/internal/handler/dto"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/adminaccess"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/handler/dto"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/adminaccess"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 // adminUserResponse 对受限密钥使用字段白名单，避免完整管理员 DTO 新增字段时隐式扩大授权。

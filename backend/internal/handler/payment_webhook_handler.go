@@ -11,8 +11,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/Wei-Shaw/sub2api/internal/payment"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/payment"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 
 	"github.com/gin-gonic/gin"
 )

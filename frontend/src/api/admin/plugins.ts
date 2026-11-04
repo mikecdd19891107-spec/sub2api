@@ -7,9 +7,9 @@ export interface PluginCapability {
 }
 
 export interface PluginRequirements {
-  sub2api: string
-  recommended_sub2api_version?: string
-  tested_sub2api_versions?: string[]
+  agentbyte: string
+  recommended_agentbyte_version?: string
+  tested_agentbyte_versions?: string[]
   plugin_protocol: number
   transport_api: number
   ui_bridge: number
@@ -32,9 +32,9 @@ export interface PluginCompatibility {
   tested: boolean
   status: 'compatible' | 'untested' | 'incompatible'
   message: string
-  current_sub2api_version: string
-  required_sub2api_version: string
-  recommended_sub2api_version: string
+  current_agentbyte_version: string
+  required_agentbyte_version: string
+  recommended_agentbyte_version: string
   plugin_protocol: number
   transport_api: number
   ui_bridge: number

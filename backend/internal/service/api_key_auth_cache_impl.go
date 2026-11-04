@@ -10,8 +10,8 @@ import (
 	"math/rand/v2"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
 	"github.com/dgraph-io/ristretto"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 )
 
 const apiKeyAuthSnapshotVersion = 25 // v25: group image_count_billing switch (per-image billing on image endpoints)

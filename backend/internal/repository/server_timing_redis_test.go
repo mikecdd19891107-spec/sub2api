@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/servertiming"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/servertiming"
 	"github.com/redis/go-redis/v9"
 )
 

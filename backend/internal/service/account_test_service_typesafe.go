@@ -7,12 +7,12 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/typesafe"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/typesafe"
 )
 
 const (
-	typeSafeTestDefaultState    = "Sub2API connection test"
+	typeSafeTestDefaultState    = "AgentByte connection test"
 	typeSafeTestQuestionID      = "connection_test"
 	typeSafeTestMaxPreviewBytes = 2000
 )

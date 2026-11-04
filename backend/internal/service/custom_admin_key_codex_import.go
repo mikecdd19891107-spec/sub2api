@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/adminaccess"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/adminaccess"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 )
 
 // ScopedCodexIdentity 描述单次导入的身份；不携带刷新令牌或其他待写入凭证。

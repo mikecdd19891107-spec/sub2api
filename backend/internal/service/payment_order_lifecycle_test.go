@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/enttest"
-	"github.com/Wei-Shaw/sub2api/internal/payment"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/enttest"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/payment"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 	"github.com/stretchr/testify/require"
 
 	"entgo.io/ent/dialect"

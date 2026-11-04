@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	pluginv1 "github.com/Wei-Shaw/sub2api/pkg/pluginapi/v1"
+	pluginv1 "github.com/mikecdd19891107-spec/agentbyte/pkg/pluginapi/v1"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

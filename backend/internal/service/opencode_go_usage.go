@@ -18,9 +18,9 @@ import (
 	"sync"
 	"time"
 
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
 	"github.com/google/uuid"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/sync/singleflight"
 )
@@ -760,7 +760,7 @@ func (s *OpenCodeGoUsageService) refreshLoadedAccount(ctx context.Context, accou
 	}
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("Authorization", "Bearer "+apiKey)
-	req.Header.Set("User-Agent", "sub2api-opencode-go-usage/1")
+	req.Header.Set("User-Agent", "agentbyte-opencode-go-usage/1")
 	resp, err := s.httpUpstream.Do(req, proxyURL, account.ID, account.Concurrency)
 	if err != nil {
 		return s.persistFailure(ctx, account, intervalMinutes, now, 0, "request_failed", 0, false)

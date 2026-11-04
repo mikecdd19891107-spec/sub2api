@@ -11,9 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/antigravity"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/antigravity"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
 )
 
 // Forward 转发 Claude 协议请求（Claude → Gemini 转换）

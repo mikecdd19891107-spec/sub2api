@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/usagestats"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/usagestats"
 )
 
 var (

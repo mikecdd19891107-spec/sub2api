@@ -6,10 +6,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/handler"
-	adminhandler "github.com/Wei-Shaw/sub2api/internal/handler/admin"
-	servermiddleware "github.com/Wei-Shaw/sub2api/internal/server/middleware"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/handler"
+	adminhandler "github.com/mikecdd19891107-spec/agentbyte/internal/handler/admin"
+	servermiddleware "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/stretchr/testify/require"
 )
 

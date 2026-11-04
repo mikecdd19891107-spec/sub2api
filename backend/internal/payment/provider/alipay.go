@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/payment"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/payment"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/smartwalle/alipay/v3"
 )
 

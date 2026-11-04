@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/antigravity"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/apicompat"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/antigravity"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/apicompat"
 )
 
 type antigravityCompatProtocol uint8

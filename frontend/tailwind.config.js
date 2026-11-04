@@ -5,96 +5,107 @@ export default {
   theme: {
     extend: {
       colors: {
-        // 主色调 - Amber / Warm Orange 琥珀流光金橙色系 (AgentByte Brand)
+        // 品牌色 - 单一橙色色相，只用于点缀（选中态、链接、图表强调）
+        // 600 起可作白底文字色（对比度 ≥ 4.5:1）
         primary: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
+          50: '#FFF7ED',
+          100: '#FFEDD5',
+          200: '#FED7AA',
+          300: '#FDBA74',
+          400: '#FB923C',
+          500: '#E8590C',
+          600: '#C2410C',
+          700: '#9A3412',
+          800: '#7C2D12',
+          900: '#5C2410',
           950: '#431407'
         },
-        // 辅助色 - 暖曜石中性灰
-        accent: {
-          50: '#fafaf9',
-          100: '#f5f5f4',
-          200: '#e7e5e4',
-          300: '#d6d3d1',
-          400: '#a8a29e',
-          500: '#78716c',
-          600: '#57534e',
-          700: '#332f2c',
-          800: '#211e1b',
-          900: '#141210',
-          950: '#0b0a09'
+        // 中性色 - gray / accent / dark 统一为同一套中性灰
+        gray: {
+          50: '#FAFAF9',
+          100: '#F4F4F2',
+          200: '#EAEAE7',
+          300: '#D6D6D2',
+          400: '#A1A1A8',
+          500: '#6E6E73',
+          600: '#4A4A50',
+          700: '#2E2E33',
+          800: '#1C1C1F',
+          900: '#141416',
+          950: '#0B0B0C'
         },
-        // 深色模式背景 - Apple 曜石暖黑系
+        accent: {
+          50: '#FAFAF9',
+          100: '#F4F4F2',
+          200: '#EAEAE7',
+          300: '#D6D6D2',
+          400: '#A1A1A8',
+          500: '#6E6E73',
+          600: '#4A4A50',
+          700: '#2E2E33',
+          800: '#1C1C1F',
+          900: '#141416',
+          950: '#0B0B0C'
+        },
         dark: {
-          50: '#fafaf9',
-          100: '#f5f5f4',
-          200: '#e7e5e4',
-          300: '#d6d3d1',
-          400: '#a8a29e',
-          500: '#78716c',
-          600: '#57534e',
-          700: '#332f2c',
-          800: '#211e1b',
-          900: '#141210',
-          950: '#0b0a09'
+          50: '#FAFAF9',
+          100: '#F4F4F2',
+          200: '#EAEAE7',
+          300: '#D6D6D2',
+          400: '#A1A1A8',
+          500: '#6E6E73',
+          600: '#4A4A50',
+          700: '#2E2E33',
+          800: '#1C1C1F',
+          900: '#141416',
+          950: '#0B0B0C'
+        },
+        // 主操作色（近黑），深色模式下反转为近白
+        ink: {
+          DEFAULT: '#0B0B0C',
+          hover: '#2E2E33',
+          inverse: '#FAFAF9'
         }
       },
       fontFamily: {
         sans: [
+          'Inter',
           '-apple-system',
           'BlinkMacSystemFont',
-          '"SF Pro Display"',
-          '"SF Pro Text"',
-          'Inter',
           'system-ui',
-          'Segoe UI',
-          'Roboto',
-          'Helvetica Neue',
-          'PingFang SC',
-          'Hiragino Sans GB',
-          'Microsoft YaHei',
+          '"Segoe UI"',
+          '"PingFang SC"',
+          '"Hiragino Sans GB"',
+          '"Microsoft YaHei"',
+          '"Noto Sans SC"',
           'sans-serif'
         ],
         mono: [
-          '"SF Mono"',
           '"JetBrains Mono"',
+          '"SF Mono"',
           'ui-monospace',
           'SFMono-Regular',
           'Menlo',
-          'Monaco',
           'Consolas',
           'monospace'
         ]
       },
       boxShadow: {
-        glass:
-          '0 12px 40px -8px rgba(15, 10, 5, 0.10), 0 4px 16px -4px rgba(15, 10, 5, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.65)',
-        'glass-sm':
-          '0 4px 20px -2px rgba(15, 10, 5, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 0.5)',
-        glow: '0 0 24px rgba(245, 158, 11, 0.30)',
-        'glow-lg': '0 0 48px rgba(245, 158, 11, 0.42)',
-        card: '0 4px 24px -4px rgba(15, 10, 5, 0.05), 0 1px 3px 0 rgba(15, 10, 5, 0.03), inset 0 1px 0 0 rgba(255, 255, 255, 0.6)',
-        'card-hover':
-          '0 16px 48px -8px rgba(245, 158, 11, 0.14), 0 6px 20px -4px rgba(15, 10, 5, 0.08)',
-        'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.18)'
+        // 扁平化：保留旧名称以兼容现有组件，但效果统一为轻阴影
+        glass: '0 1px 2px rgba(11, 11, 12, 0.04), 0 4px 12px -4px rgba(11, 11, 12, 0.06)',
+        'glass-sm': '0 1px 2px rgba(11, 11, 12, 0.04)',
+        glow: 'none',
+        'glow-lg': 'none',
+        card: '0 1px 2px rgba(11, 11, 12, 0.03)',
+        'card-hover': '0 4px 16px -4px rgba(11, 11, 12, 0.10)',
+        'inner-glow': 'none'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-primary': 'linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)',
-        'gradient-dark': 'linear-gradient(135deg, #211e1b 0%, #141210 100%)',
-        'gradient-glass':
-          'linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.05) 100%)',
-        'mesh-gradient':
-          'radial-gradient(at 25% 15%, rgba(245, 158, 11, 0.14) 0px, transparent 52%), radial-gradient(at 85% 5%, rgba(234, 88, 12, 0.10) 0px, transparent 48%), radial-gradient(at 10% 75%, rgba(251, 191, 36, 0.09) 0px, transparent 50%), radial-gradient(at 80% 85%, rgba(249, 115, 22, 0.08) 0px, transparent 50%)'
+        'gradient-primary': 'linear-gradient(0deg, #0B0B0C 0%, #0B0B0C 100%)',
+        'gradient-dark': 'linear-gradient(0deg, #141416 0%, #141416 100%)',
+        'gradient-glass': 'none',
+        'mesh-gradient': 'none'
       },
       animation: {
         'fade-in': 'fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -132,8 +143,8 @@ export default {
           '100%': { backgroundPosition: '200% 0' }
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(245, 158, 11, 0.25)' },
-          '100%': { boxShadow: '0 0 34px rgba(234, 88, 12, 0.42)' }
+          '0%': { boxShadow: '0 0 20px rgba(232, 89, 12, 0.20)' },
+          '100%': { boxShadow: '0 0 34px rgba(232, 89, 12, 0.30)' }
         }
       },
       backdropBlur: {
@@ -142,8 +153,12 @@ export default {
         '3xl': '64px'
       },
       borderRadius: {
-        '4xl': '2rem',
-        '5xl': '2.5rem'
+        // 收紧圆角：现有 rounded-xl/2xl/3xl 用法整体变小
+        xl: '0.625rem',
+        '2xl': '0.75rem',
+        '3xl': '0.875rem',
+        '4xl': '1rem',
+        '5xl': '1.25rem'
       }
     }
   },

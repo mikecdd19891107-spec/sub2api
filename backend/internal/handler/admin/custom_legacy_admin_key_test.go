@@ -14,12 +14,12 @@ import (
 
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	_ "github.com/Wei-Shaw/sub2api/ent/runtime"
-	"github.com/Wei-Shaw/sub2api/internal/repository"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	_ "github.com/mikecdd19891107-spec/agentbyte/ent/runtime"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/repository"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
 )
 

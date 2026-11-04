@@ -8,9 +8,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/ctxkey"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ctxkey"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
 )
 
 type testLogSink struct {
@@ -45,7 +45,7 @@ func initMiddlewareTestLoggerWithLevel(t *testing.T, level string) *testLogSink 
 	if err := logger.Init(logger.InitOptions{
 		Level:       level,
 		Format:      "json",
-		ServiceName: "sub2api",
+		ServiceName: "agentbyte",
 		Environment: "test",
 		Output: logger.OutputOptions{
 			ToStdout: false,

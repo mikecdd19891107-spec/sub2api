@@ -6,10 +6,10 @@ import (
 	"errors"
 
 	entsql "entgo.io/ent/dialect/sql"
-	"github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/google/wire"
+	"github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/redis/go-redis/v9"
 )
 

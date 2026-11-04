@@ -6,8 +6,8 @@ import (
 	"slices"
 	"strings"
 
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
 	"github.com/gin-gonic/gin"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 )
 
 // OpenCode Go 是 OpenCode Zen 的订阅网关：同一 API Key 下按模型分流到

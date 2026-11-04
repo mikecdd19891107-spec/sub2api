@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 // geminiImageGenerationRejected 在选号之前按客户端请求名、渠道映射名与请求体

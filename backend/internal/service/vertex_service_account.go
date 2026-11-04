@@ -16,10 +16,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/proxyurl"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/proxyutil"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/servertiming"
 	"github.com/golang-jwt/jwt/v5"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/proxyurl"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/proxyutil"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/servertiming"
 )
 
 const (

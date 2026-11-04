@@ -4,5 +4,5 @@
 </template>
 
 <script setup lang="ts">
-// Removed external sub2api.io ad banner
+// Removed external agentbyte.io ad banner
 </script>

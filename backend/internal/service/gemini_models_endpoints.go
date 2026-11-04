@@ -11,10 +11,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/gemini"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/geminicli"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/googleapi"
-	"github.com/Wei-Shaw/sub2api/internal/util/responseheaders"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/gemini"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/geminicli"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/googleapi"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/util/responseheaders"
 )
 
 // Gemini 分组对外提供 AI Studio 兼容协议（GET /v1beta/models、/v1beta/models/{model}），

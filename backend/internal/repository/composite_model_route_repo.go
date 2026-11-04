@@ -3,9 +3,9 @@ package repository
 import (
 	"context"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/compositemodelroute"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/compositemodelroute"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 type compositeModelRouteRepository struct {

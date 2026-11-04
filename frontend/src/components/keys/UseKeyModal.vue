@@ -273,6 +273,8 @@ import { saveAs } from 'file-saver'
 import BaseDialog from '@/components/common/BaseDialog.vue'
 import Icon from '@/components/icons/Icon.vue'
 import { useClipboard } from '@/composables/useClipboard'
+import { useAppStore } from '@/stores'
+import { resolveBrandName } from '@/utils/branding'
 import { buildCodexModelCatalogUrl, fetchCodexModelsManifest } from '@/api/codex'
 import type { GroupPlatform } from '@/types'
 import {
@@ -313,6 +315,13 @@ const emit = defineEmits<Emits>()
 
 const { t } = useI18n()
 const { copyToClipboard: clipboardCopy } = useClipboard()
+const appStore = useAppStore()
+
+// 客户端配置里的 provider 名称、显示名、环境变量统一由站点名生成，
+// 例如站点名 AgentByte → agentbyte / AgentByte / AGENTBYTE_API_KEY。
+const brandName = computed(() => resolveBrandName(appStore.siteName))
+const providerId = computed(() => brandName.value.toLowerCase().replace(/[^a-z0-9]+/g, '') || 'gateway')
+const envKeyName = computed(() => `${providerId.value.toUpperCase()}_API_KEY`)
 
 const copiedIndex = ref<number | null>(null)
 const activeTab = ref<string>('unix')
@@ -600,7 +609,7 @@ const platformNote = computed(() => {
     props.platform !== 'deepseek' &&
     props.platform !== 'minimax' &&
     props.platform !== 'composite') {
-    return t('keys.useKeyModal.routedCodex.note')
+    return t('keys.useKeyModal.routedCodex.note', { envKey: envKeyName.value })
   }
   switch (props.platform) {
     case 'openai':
@@ -622,8 +631,8 @@ const platformNote = computed(() => {
       }
       if (activeClientTab.value === 'codex') {
         return activeTab.value === 'windows'
-          ? t('keys.useKeyModal.grok.codexNoteWindows')
-          : t('keys.useKeyModal.grok.codexNote')
+          ? t('keys.useKeyModal.grok.codexNoteWindows', { envKey: envKeyName.value })
+          : t('keys.useKeyModal.grok.codexNote', { envKey: envKeyName.value })
       }
       // Grok CLI: shell-specific path guidance (env + ~/.grok/config.toml).
       if (activeClientTab.value === 'grok' && (activeTab.value === 'cmd' || activeTab.value === 'powershell')) {
@@ -635,15 +644,15 @@ const platformNote = computed(() => {
       return t('keys.useKeyModal.grok.note')
     case 'deepseek':
       return activeClientTab.value === 'codex'
-        ? t('keys.useKeyModal.deepseek.codexNote')
+        ? t('keys.useKeyModal.deepseek.codexNote', { envKey: envKeyName.value })
         : t('keys.useKeyModal.note')
     case 'minimax':
       return activeClientTab.value === 'codex'
-        ? t('keys.useKeyModal.minimax.codexNote')
+        ? t('keys.useKeyModal.minimax.codexNote', { envKey: envKeyName.value })
         : t('keys.useKeyModal.note')
     case 'composite':
       return activeClientTab.value === 'codex'
-        ? t('keys.useKeyModal.composite.codexNote')
+        ? t('keys.useKeyModal.composite.codexNote', { envKey: envKeyName.value })
         : t('keys.useKeyModal.note')
     case 'typesafe':
       return t('keys.useKeyModal.typesafe.note')
@@ -1118,15 +1127,15 @@ $env:XAI_API_KEY="${apiKey}"`
 export XAI_API_KEY="${apiKey}"`
   }
 
-  // Shape follows Grok Build user guide (~/.grok/docs + custom-models) and production-ready Sub2API setups.
+  // Shape follows Grok Build user guide (~/.grok/docs + custom-models) for a custom gateway.
   // Text models only (Responses). Image/video: Imagine model IDs on media endpoints / feature overrides.
   // Credential order: api_key field → env_key → signed-in session → XAI_API_KEY global fallback.
   const modelsListUrl = `${baseUrl.replace(/\/+$/, '')}/models`
-  const configContent = `# Grok Build CLI → Sub2API Grok group (API key auth).
+  const configContent = `# Grok Build CLI → ${brandName.value} Grok group (API key auth).
 # Docs: ~/.grok/docs/user-guide/05-configuration.md + 11-custom-models.md
 # Verify after save: grok inspect
 #
-# IMPORTANT: api_backend must be "responses" for Sub2API Grok (POST /v1/responses).
+# IMPORTANT: api_backend must be "responses" for ${brandName.value} Grok (POST /v1/responses).
 # If omitted, Grok Build defaults to chat_completions (/v1/chat/completions).
 # Keep api_backend = "responses" on every model entry.
 #
@@ -1141,7 +1150,7 @@ models_list_url = "${modelsListUrl}"        # optional override (env: GROK_MODEL
 xai_api_base_url = "${baseUrl}"             # public xAI API base override for gateway routing
 cli_chat_proxy_base_url = "${baseUrl}"      # CLI chat-proxy base (env: GROK_CLI_CHAT_PROXY_BASE_URL)
 
-# Prefer API key when using a custom gateway (matches Sub2API).
+# Prefer API key when using a custom gateway.
 # Requires XAI_API_KEY env or per-model env_key / api_key.
 [auth]
 preferred_method = "api_key"
@@ -1149,7 +1158,7 @@ preferred_method = "api_key"
 [model."grok-4.5"]
 model = "grok-4.5"                          # id sent to the API
 name = "Grok 4.5"                           # shown in /model picker
-description = "Grok 4.5 via Sub2API (Responses)"
+description = "Grok 4.5 via ${brandName.value} (Responses)"
 # base_url inherits from [endpoints].models_base_url; override only if needed:
 # base_url = "${baseUrl}"
 env_key = "XAI_API_KEY"                     # or: api_key = "${apiKey}"  (not recommended)
@@ -1212,7 +1221,7 @@ image_description = "grok-4.5"              # vision/describe-image helper model
 [session]
 auto_compact_threshold_percent = 80         # auto-compact at this % of context_window (default 85)
 
-# Imagine tools: model IDs go to Sub2API media endpoints (not the text [model.*] catalog).
+# Imagine tools: model IDs go to ${brandName.value} media endpoints (not the text [model.*] catalog).
 # Enable only if the Grok group allows image/video generation.
 [features]
 image_gen = true
@@ -1247,25 +1256,25 @@ function generateGrokCodexFiles(baseUrl: string, apiKey: string): FileConfig[] {
   switch (shell) {
     case 'cmd':
       envPath = 'Command Prompt'
-      envContent = `set SUB2API_API_KEY=${apiKey}`
+      envContent = `set ${envKeyName.value}=${apiKey}`
       break
     case 'powershell':
     case 'windows':
       envPath = 'PowerShell'
-      envContent = `$env:SUB2API_API_KEY="${apiKey}"`
+      envContent = `$env:${envKeyName.value}="${apiKey}"`
       break
     default:
       envPath = 'Terminal'
-      envContent = `export SUB2API_API_KEY="${apiKey}"`
+      envContent = `export ${envKeyName.value}="${apiKey}"`
   }
 
-  const configContent = `# Codex CLI → Sub2API Grok group
+  const configContent = `# Codex CLI → ${brandName.value} Grok group
 # Docs: Codex config reference (model_providers.*, wire_api = "responses")
 #
 # Text models only. Image/video: grok-imagine-image / grok-imagine-video on media endpoints.
 # Switch model: grok-4.5 | grok-4.3 | grok-build-0.1 | grok-4.20-multi-agent-0309 (text / web_search)
 
-model_provider = "sub2api"
+model_provider = "${providerId.value}"
 model = "${model}"
 ${codexLocalCatalogToml.value}# Optional:
 # review_model = "${model}"
@@ -1275,17 +1284,17 @@ ${codexLocalCatalogToml.value}# Optional:
 # network_access = "enabled"
 # windows_wsl_setup_acknowledged = true
 
-[model_providers.sub2api]
-name = "Sub2API Grok"
+[model_providers.${providerId.value}]
+name = "${brandName.value} Grok"
 base_url = "${baseUrl}"
 ${codexModelCatalogMode.value === 'remote' ? `model_catalog_url = "${escapeTomlBasicString(buildCodexModelCatalogUrl(baseUrl))}"\n` : ''}# Prefer env_key (variable NAME). Do not combine with experimental_bearer_token.
-env_key = "SUB2API_API_KEY"
+env_key = "${envKeyName.value}"
 # Fallback only if you cannot set env (discouraged — keeps secret on disk):
 # experimental_bearer_token = "${apiKey}"
 wire_api = "responses"
 # API-key providers: do not require ChatGPT OAuth login
 requires_openai_auth = false
-# Grok/Sub2API path is HTTP/SSE; disable WS (Codex may otherwise try WebSocket first)
+# Grok via this gateway is HTTP/SSE; disable WS (Codex may otherwise try WebSocket first)
 supports_websockets = false
 
 ${codexModelCatalogMode.value === 'remote' ? '[features]\napi_key_model_discovery = true\n\n# Optional:' : '# Optional:\n# [features]'}
@@ -1341,19 +1350,19 @@ function generateRoutedCodexFiles(
   }
   const label = labels[platform]
   const envContent = isWindows
-    ? `$env:SUB2API_API_KEY="${apiKey}"`
-    : `export SUB2API_API_KEY="${apiKey}"`
+    ? `$env:${envKeyName.value}="${apiKey}"`
+    : `export ${envKeyName.value}="${apiKey}"`
 
-  const configContent = `# Codex CLI -> Sub2API ${label} group
-model_provider = "sub2api"
+  const configContent = `# Codex CLI -> ${brandName.value} ${label} group
+model_provider = "${providerId.value}"
 model = "${model}"
 review_model = "${model}"
 disable_response_storage = true
 ${codexLocalCatalogToml.value}
-[model_providers.sub2api]
-name = "Sub2API ${label}"
+[model_providers.${providerId.value}]
+name = "${brandName.value} ${label}"
 base_url = "${baseUrl}"
-${codexModelCatalogMode.value === 'remote' ? `model_catalog_url = "${escapeTomlBasicString(buildCodexModelCatalogUrl(baseUrl))}"\n` : ''}env_key = "SUB2API_API_KEY"
+${codexModelCatalogMode.value === 'remote' ? `model_catalog_url = "${escapeTomlBasicString(buildCodexModelCatalogUrl(baseUrl))}"\n` : ''}env_key = "${envKeyName.value}"
 wire_api = "responses"
 requires_openai_auth = false
 supports_websockets = false${codexModelCatalogMode.value === 'remote' ? '\n\n[features]\napi_key_model_discovery = true' : ''}`
@@ -2040,9 +2049,9 @@ function generateOpenCodeConfig(platform: string, baseUrl: string, apiKey: strin
   } else if (platform === 'openai') {
     provider[platform].models = openaiModels
   } else if (platform === 'grok') {
-    // Custom provider pointing at Sub2API OpenAI-compatible Responses/Chat endpoints.
+    // Custom provider pointing at this gateway's OpenAI-compatible Responses/Chat endpoints.
     provider[platform].npm = '@ai-sdk/openai-compatible'
-    provider[platform].name = 'Grok via Sub2API'
+    provider[platform].name = `Grok via ${brandName.value}`
     provider[platform].models = grokModels
   }
 

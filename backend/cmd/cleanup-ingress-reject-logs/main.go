@@ -13,10 +13,10 @@ import (
 	"strings"
 	"time"
 
-	_ "github.com/Wei-Shaw/sub2api/ent/runtime"
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/repository"
 	"github.com/lib/pq"
+	_ "github.com/mikecdd19891107-spec/agentbyte/ent/runtime"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/repository"
 )
 
 const classifierVersion = "ingress-reject-v1"

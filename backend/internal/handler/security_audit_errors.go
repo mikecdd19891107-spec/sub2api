@@ -7,11 +7,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/googleapi"
-	"github.com/Wei-Shaw/sub2api/internal/securityaudit"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	coderws "github.com/coder/websocket"
 	"github.com/gin-gonic/gin"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/googleapi"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/securityaudit"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 func (h *OpenAIGatewayHandler) openAISecurityAuditError(c *gin.Context, decision *securityaudit.Decision) {
@@ -121,7 +121,7 @@ func googleSecurityAuditError(c *gin.Context, decision *securityaudit.Decision) 
 		"code": status, "message": securityAuditMessage(decision), "status": googleStatus,
 		"details": []gin.H{{
 			"@type":  "type.googleapis.com/google.rpc.ErrorInfo",
-			"reason": securityAuditErrorCode(decision), "domain": "sub2api.securityaudit",
+			"reason": securityAuditErrorCode(decision), "domain": "agentbyte.securityaudit",
 			"metadata": gin.H{"request_id": requestID},
 		}},
 	}})

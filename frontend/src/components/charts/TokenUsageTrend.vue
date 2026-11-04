@@ -1,12 +1,12 @@
 <template>
-  <div class="card p-4">
-    <h3 class="mb-4 text-sm font-semibold text-gray-900 dark:text-white">
+  <div :class="bare ? '' : 'card p-4'">
+    <h3 v-if="!bare" class="mb-4 text-sm font-semibold text-gray-900 dark:text-white">
       {{ t('admin.dashboard.tokenUsageTrend') }}
     </h3>
     <div v-if="loading" class="flex h-48 items-center justify-center">
       <LoadingSpinner />
     </div>
-    <div v-else-if="trendData.length > 0 && chartData" class="h-48">
+    <div v-else-if="trendData.length > 0 && chartData" class="h-56">
       <Line :data="chartData" :options="lineOptions" />
     </div>
     <div
@@ -52,6 +52,8 @@ const { t } = useI18n()
 const props = defineProps<{
   trendData: TrendDataPoint[]
   loading?: boolean
+  /** 嵌入其他卡片时不渲染自身卡片外框和标题 */
+  bare?: boolean
 }>()
 
 const isDarkMode = computed(() => {
@@ -59,13 +61,13 @@ const isDarkMode = computed(() => {
 })
 
 const chartColors = computed(() => ({
-  text: isDarkMode.value ? '#e7e5e4' : '#44403c',
-  grid: isDarkMode.value ? '#292524' : '#e7e5e4',
-  input: '#f59e0b',
-  output: '#ea580c',
-  cacheCreation: '#10b981',
-  cacheRead: '#fbbf24',
-  cacheHitRate: '#f97316'
+  text: isDarkMode.value ? '#D6D6D2' : '#4A4A50',
+  grid: isDarkMode.value ? '#1C1C1F' : '#EAEAE7',
+  input: '#E8590C',
+  output: isDarkMode.value ? '#D6D6D2' : '#2E2E33',
+  cacheCreation: '#0F766E',
+  cacheRead: '#A1A1A8',
+  cacheHitRate: '#2563EB'
 }))
 
 const chartData = computed(() => {
@@ -78,7 +80,7 @@ const chartData = computed(() => {
         label: 'Input',
         data: props.trendData.map((d) => d.input_tokens),
         borderColor: chartColors.value.input,
-        backgroundColor: `${chartColors.value.input}20`,
+        backgroundColor: `${chartColors.value.input}14`,
         fill: true,
         tension: 0.3
       },
@@ -87,7 +89,7 @@ const chartData = computed(() => {
         data: props.trendData.map((d) => d.output_tokens),
         borderColor: chartColors.value.output,
         backgroundColor: `${chartColors.value.output}20`,
-        fill: true,
+        fill: false,
         tension: 0.3
       },
       {
@@ -95,7 +97,7 @@ const chartData = computed(() => {
         data: props.trendData.map((d) => d.cache_creation_tokens),
         borderColor: chartColors.value.cacheCreation,
         backgroundColor: `${chartColors.value.cacheCreation}20`,
-        fill: true,
+        fill: false,
         tension: 0.3
       },
       {
@@ -103,7 +105,7 @@ const chartData = computed(() => {
         data: props.trendData.map((d) => d.cache_read_tokens),
         borderColor: chartColors.value.cacheRead,
         backgroundColor: `${chartColors.value.cacheRead}20`,
-        fill: true,
+        fill: false,
         tension: 0.3
       },
       {

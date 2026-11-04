@@ -19,11 +19,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/domain"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/tlsfingerprint"
 	"github.com/google/uuid"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/tlsfingerprint"
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/sync/singleflight"
 )
@@ -807,7 +807,7 @@ func parseUpstreamBillingProbeResponse(body []byte) (map[string]any, error) {
 	if err := json.Unmarshal(body, &response); err != nil {
 		return nil, err
 	}
-	if response.Object != "sub2api.key_billing" || response.SchemaVersion != 1 || response.BillingScope != "token" {
+	if (response.Object != "sub2api.key_billing" && response.Object != "agentbyte.key_billing") || response.SchemaVersion != 1 || response.BillingScope != "token" {
 		return nil, fmt.Errorf("unexpected billing response schema")
 	}
 	if response.GroupRateMultiplier == nil || response.ResolvedRateMultiplier == nil ||

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/usagestats"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/usagestats"
 )
 
 // TrendDataPoint represents a single point in trend data

@@ -12,14 +12,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/geminicli"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/httpclient"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/geminicli"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/httpclient"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
 )
 
 const (
-	// Canonical tier IDs used by sub2api (2026-aligned).
+	// Canonical tier IDs used by agentbyte (2026-aligned).
 	GeminiTierGoogleOneFree    = "google_one_free"
 	GeminiTierGoogleAIPro      = "google_ai_pro"
 	GeminiTierGoogleAIUltra    = "google_ai_ultra"

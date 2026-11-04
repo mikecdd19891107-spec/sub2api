@@ -6,7 +6,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 func TestAccountRepoSparkShadowRoundTrip(t *testing.T) {

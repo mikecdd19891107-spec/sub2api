@@ -19,7 +19,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/Wei-Shaw/sub2api/internal/payment"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/payment"
 )
 
 // EasyPay constants.

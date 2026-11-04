@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/usagestats"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/usagestats"
 )
 
 // Minimal UsageLogRepository stub for batch usage tests (HEAD lacks geminiUsageLogRepoStub).

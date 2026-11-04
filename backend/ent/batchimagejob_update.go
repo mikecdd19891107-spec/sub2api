@@ -11,8 +11,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/Wei-Shaw/sub2api/ent/batchimagejob"
-	"github.com/Wei-Shaw/sub2api/ent/predicate"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/batchimagejob"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/predicate"
 )
 
 // BatchImageJobUpdate is the builder for updating BatchImageJob entities.

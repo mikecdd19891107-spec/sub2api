@@ -1,4 +1,4 @@
-module github.com/Wei-Shaw/sub2api
+module github.com/mikecdd19891107-spec/agentbyte
 
 go 1.27.3
 

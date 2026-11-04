@@ -3,12 +3,12 @@ import { sanitizeUrl } from '@/utils/url'
 export const DEFAULT_BRAND_NAME = 'AgentByte'
 
 /**
- * Resolves the display brand name, replacing empty or uncustomized stock "Sub2API"
+ * Resolves the display brand name, replacing empty or uncustomized stock "AgentByte"
  * values with "AgentByte" while preserving any custom site name.
  */
 export function resolveBrandName(name?: string | null): string {
   const trimmed = typeof name === 'string' ? name.trim() : ''
-  if (!trimmed || trimmed.toLowerCase() === 'sub2api') {
+  if (!trimmed || trimmed.toLowerCase() === 'agentbyte') {
     return DEFAULT_BRAND_NAME
   }
   return trimmed

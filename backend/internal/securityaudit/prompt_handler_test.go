@@ -12,9 +12,9 @@ import (
 	"strings"
 	"testing"
 
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	servermiddleware "github.com/Wei-Shaw/sub2api/internal/server/middleware"
 	"github.com/gin-gonic/gin"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	servermiddleware "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/stretchr/testify/require"
 )
 

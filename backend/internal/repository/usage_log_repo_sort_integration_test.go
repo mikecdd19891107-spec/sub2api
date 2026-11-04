@@ -5,10 +5,10 @@ package repository
 import (
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/usagestats"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/google/uuid"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/usagestats"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 func (s *UsageLogRepoSuite) TestListWithFilters_SortByModelAsc() {

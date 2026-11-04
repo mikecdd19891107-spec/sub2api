@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/domain"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
 )
 
 var (

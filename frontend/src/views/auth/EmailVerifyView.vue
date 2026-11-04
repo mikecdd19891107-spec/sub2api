@@ -178,6 +178,7 @@
 </template>
 
 <script setup lang="ts">
+import { resolveBrandName } from '@/utils/branding'
 import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
@@ -372,7 +373,7 @@ onMounted(async () => {
     aliyunCaptchaSceneId.value = settings.aliyun_captcha_scene_id || ''
     aliyunCaptchaPrefix.value = settings.aliyun_captcha_prefix || ''
     aliyunCaptchaRegion.value = settings.aliyun_captcha_region || 'cn'
-    siteName.value = settings.site_name && settings.site_name.toLowerCase() !== 'sub2api' ? settings.site_name : 'AgentByte'
+    siteName.value = resolveBrandName(settings.site_name)
     registrationEmailSuffixWhitelist.value = normalizeRegistrationEmailSuffixWhitelist(
       settings.registration_email_suffix_whitelist || []
     )

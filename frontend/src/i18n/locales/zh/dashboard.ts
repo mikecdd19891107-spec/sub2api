@@ -1,5 +1,44 @@
 export default {
   dashboard: {
+    usageTrend: '用量趋势',
+    getStarted: {
+      title: '开始使用 {name}',
+      progress: '已完成 {done} / {total}，全部完成后这块会自动收起',
+      dismiss: '不再显示',
+      step1Title: '创建 API Key',
+      step1Desc: '按项目创建 Key，可单独设置额度和过期时间',
+      step1Done: '已创建 {count} 个',
+      step2Title: '配置你的客户端',
+      step2Desc: '复制右侧「快速接入」里的配置',
+      step3Title: '发出第一个请求',
+      step3Desc: '请求成功后这里会自动打勾',
+      step3Done: '已收到请求，可以在使用记录里查看明细'
+    },
+    kpi: {
+      keysActive: '密钥 {active} / {total} 启用',
+      costSub: '累计 ${total} · 标准价 ${standard}',
+      requestsSub: '累计 {total} · 实时 {rpm} RPM',
+      tokensSub: '累计 {total} · 平均响应 {avg}'
+    },
+    quickConnect: {
+      title: '快速接入',
+      baseUrl: 'Base URL',
+      key: '使用的密钥',
+      copy: '复制',
+      copied: '已复制',
+      copyConfig: '复制配置',
+      fullConfig: '完整配置',
+      openaiCompatible: 'OpenAI 兼容',
+      shellHint: '在终端中设置密钥',
+      noKey: '还没有可用的 API Key，先创建一个再来复制配置。',
+      createKey: '创建 API Key'
+    },
+    recent: {
+      time: '时间',
+      tokensInOut: 'Token 入 / 出',
+      duration: '耗时',
+      cost: '费用'
+    },
     title: '仪表盘',
     welcomeMessage: '欢迎回来！这是您账户的概览。',
     balance: '余额',
@@ -221,32 +260,32 @@ export default {
         claudeNote:
           '二选一：终端环境变量仅当前会话；~/.claude/settings.json 可持久化。请勿把含 API Key 的文件提交到仓库。',
         codexNote:
-          '导出 SUB2API_API_KEY，将 config.toml 保存到 ~/.codex（可用 mkdir -p ~/.codex）。优先 env_key，勿提交密钥。',
+          '导出 {envKey}，将 config.toml 保存到 ~/.codex（可用 mkdir -p ~/.codex）。优先 env_key，勿提交密钥。',
         codexNoteWindows:
-          '设置 $env:SUB2API_API_KEY，将 config.toml 保存到 %USERPROFILE%\\.codex。优先 env_key，勿提交密钥。'
+          '设置 $env:{envKey}，将 config.toml 保存到 %USERPROFILE%\\.codex。优先 env_key，勿提交密钥。'
       },
       deepseek: {
         description: '通过当前 DeepSeek 分组配置 Claude Code、Codex 或 OpenCode。',
         codexDescription: '使用 API Key 配置 Codex，并通过当前 DeepSeek 分组发送请求。',
         codexConfigTomlHint: '保存 config.toml 后重启 Codex，客户端会加载远程目录。使用本地文件模式时，还需下载目录并保存到配置中的路径。',
-        codexNote: '启动 Codex 前先导出 SUB2API_API_KEY。下载的目录只包含模型元数据，不包含 API Key。'
+        codexNote: '启动 Codex 前先导出 {envKey}。下载的目录只包含模型元数据，不包含 API Key。'
       },
       minimax: {
         description: '通过当前 MiniMax 分组配置 Claude Code、Codex 或 OpenCode。',
         codexDescription: '使用 API Key 配置 Codex，并通过当前 MiniMax 分组发送请求。',
         codexConfigTomlHint: '保存 config.toml 后重启 Codex，客户端会加载远程目录。使用本地文件模式时，还需下载目录并保存到配置中的路径。',
-        codexNote: '启动 Codex 前先导出 SUB2API_API_KEY。下载的目录只包含模型元数据，不包含 API Key。'
+        codexNote: '启动 Codex 前先导出 {envKey}。下载的目录只包含模型元数据，不包含 API Key。'
       },
       composite: {
         description: '通过当前 Composite 路由分组配置受支持的客户端。',
         codexDescription: '使用 API Key 和当前 Composite 分组的完整模型目录配置 Codex。',
         codexConfigTomlHint: '保存 config.toml 后重启 Codex，客户端会加载远程目录。使用本地文件模式时，还需下载目录并保存到配置中的路径。',
-        codexNote: '启动 Codex 前先导出 SUB2API_API_KEY；分组会根据目录中选中的模型路由请求。'
+        codexNote: '启动 Codex 前先导出 {envKey}；分组会根据目录中选中的模型路由请求。'
       },
       routedCodex: {
         description: '使用当前路由分组的完整模型目录配置 Codex。',
         configTomlHint: '保存 config.toml 后重启 Codex，客户端会加载远程目录。使用本地文件模式时，还需下载目录并保存到配置中的路径。',
-        note: '启动 Codex 前先导出 SUB2API_API_KEY。下载的目录只包含模型元数据，不包含 API Key。'
+        note: '启动 Codex 前先导出 {envKey}。下载的目录只包含模型元数据，不包含 API Key。'
       },
       codexModelCatalog: {
         mode: '目录来源',

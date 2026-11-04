@@ -4,8 +4,8 @@ import (
 	"context"
 	"strings"
 
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 )
 
 // ScopedAdminUpdateGroupModels 仅更新模型白名单；仓储在锁内重新验证分组和平台。

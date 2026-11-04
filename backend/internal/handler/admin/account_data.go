@@ -10,18 +10,21 @@ import (
 
 	"log/slog"
 
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/openai"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/response"
-	"github.com/Wei-Shaw/sub2api/internal/service"
 	"github.com/gin-gonic/gin"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/response"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 )
 
 const (
-	dataType       = "sub2api-data"
-	legacyDataType = "sub2api-bundle"
-	dataVersion    = 1
-	dataPageCap    = 1000
+	dataType       = "agentbyte-data"
+	legacyDataType = "agentbyte-bundle"
+	// 兼容导入从其他 sub2api 部署导出的账号数据
+	legacySub2APIDataType   = "sub2api-data"
+	legacySub2APIBundleType = "sub2api-bundle"
+	dataVersion             = 1
+	dataPageCap             = 1000
 )
 
 type DataPayload struct {
@@ -640,7 +643,8 @@ func parseIncludeProxies(c *gin.Context) (bool, error) {
 }
 
 func validateDataHeader(payload DataPayload) error {
-	if payload.Type != "" && payload.Type != dataType && payload.Type != legacyDataType {
+	if payload.Type != "" && payload.Type != dataType && payload.Type != legacyDataType &&
+		payload.Type != legacySub2APIDataType && payload.Type != legacySub2APIBundleType {
 		return fmt.Errorf("unsupported data type: %s", payload.Type)
 	}
 	if payload.Version != 0 && payload.Version != dataVersion {

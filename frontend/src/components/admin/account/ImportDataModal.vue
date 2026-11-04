@@ -224,7 +224,9 @@ const readFileAsText = async (sourceFile: File): Promise<string> => {
   })
 }
 
-const SUPPORTED_DATA_TYPES = ['sub2api-data', 'sub2api-bundle']
+// 兼容导入从其他 sub2api 部署导出的数据
+const LEGACY_SUB2API_DATA_TYPES = ['sub2api-data', 'sub2api-bundle']
+const SUPPORTED_DATA_TYPES = ['agentbyte-data', 'agentbyte-bundle', ...LEGACY_SUB2API_DATA_TYPES]
 const SUPPORTED_DATA_VERSION = 1
 
 // 与后端 validateDataHeader 对齐:合并前逐文件校验,避免坏文件混入合并 payload 后

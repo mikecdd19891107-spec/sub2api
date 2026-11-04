@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 )
 
 // cnQuotaProber 抽象额度探测（*CNProviderQuotaService 实现，测试可替换）。

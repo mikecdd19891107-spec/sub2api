@@ -11,10 +11,10 @@ import (
 	"strings"
 	"unsafe"
 
-	"github.com/Wei-Shaw/sub2api/internal/domain"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/antigravity"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/claude"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/antigravity"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/claude"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 )

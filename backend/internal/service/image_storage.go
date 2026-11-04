@@ -17,7 +17,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/util/urlvalidator"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/util/urlvalidator"
 )
 
 const defaultImageMaxDownloadBytes int64 = 32 << 20 // 32 MiB

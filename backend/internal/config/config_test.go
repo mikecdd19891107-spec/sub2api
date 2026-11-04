@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/util/urlvalidator"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/util/urlvalidator"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
 )
@@ -1095,8 +1095,8 @@ func TestLoadDefaultDashboardCacheConfig(t *testing.T) {
 	if !cfg.Dashboard.Enabled {
 		t.Fatalf("Dashboard.Enabled = false, want true")
 	}
-	if cfg.Dashboard.KeyPrefix != "sub2api:" {
-		t.Fatalf("Dashboard.KeyPrefix = %q, want %q", cfg.Dashboard.KeyPrefix, "sub2api:")
+	if cfg.Dashboard.KeyPrefix != "agentbyte:" {
+		t.Fatalf("Dashboard.KeyPrefix = %q, want %q", cfg.Dashboard.KeyPrefix, "agentbyte:")
 	}
 	if cfg.Dashboard.StatsFreshTTLSeconds != 15 {
 		t.Fatalf("Dashboard.StatsFreshTTLSeconds = %d, want 15", cfg.Dashboard.StatsFreshTTLSeconds)
@@ -1315,7 +1315,7 @@ func TestConfigAddressHelpers(t *testing.T) {
 		Port:     5432,
 		User:     "postgres",
 		Password: "",
-		DBName:   "sub2api",
+		DBName:   "agentbyte",
 		SSLMode:  "disable",
 	}
 	if !strings.Contains(dbCfg.DSN(), "password=") {

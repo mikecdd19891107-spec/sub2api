@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
+	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
+	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 )
 
 // NormalizeAccountProxyMode 显式模式与旧 proxy_id/random_proxy 互斥，省略时保留原绑定语义。

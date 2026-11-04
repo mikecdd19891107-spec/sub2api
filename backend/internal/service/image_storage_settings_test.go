@@ -10,7 +10,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
+	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
 )
 

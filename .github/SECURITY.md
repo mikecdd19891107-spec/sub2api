@@ -10,11 +10,11 @@
 
 Report them privately through GitHub's private vulnerability reporting:
 
-**[Report a vulnerability](https://github.com/Wei-Shaw/sub2api/security/advisories/new)**
+**[Report a vulnerability](https://github.com/mikecdd19891107-spec/agentbyte/security/advisories/new)**
 
 (Repository → **Security** tab → **Report a vulnerability**.) Only the maintainers can see the report, and the advisory becomes the place to discuss, fix, and eventually publish the issue.
 
-If you cannot use GitHub private vulnerability reporting, email **dev@sub2api.org** instead, with `[Security]` in the subject line.
+If you cannot use GitHub private vulnerability reporting, email **[security@your-domain]** instead, with `[Security]` in the subject line.
 
 A useful report includes:
 
@@ -26,7 +26,7 @@ A useful report includes:
 
 ### Supported Versions
 
-Sub2API releases frequently, and fixes ship in a new release rather than being backported.
+AgentByte releases frequently, and fixes ship in a new release rather than being backported.
 
 | Version | Supported |
 | ------- | --------- |
@@ -37,13 +37,13 @@ Please confirm that the issue reproduces on the latest release or on `main` befo
 
 ### Scope
 
-In scope: the Sub2API backend, frontend, official Docker images, and deployment files in this repository.
+In scope: the AgentByte backend, frontend, official Docker images, and deployment files in this repository.
 
 Usually out of scope:
 
 - Issues that require already-compromised admin credentials or server access
 - Risks arising from explicitly weakening documented security settings (for example, disabling `security.url_allowlist`)
-- Vulnerabilities in upstream AI providers or third-party dependencies with no Sub2API-specific impact (please report those upstream)
+- Vulnerabilities in upstream AI providers or third-party dependencies with no AgentByte-specific impact (please report those upstream)
 - Missing best-practice headers or scanner output without a demonstrated impact
 
 ### Disclosure Process
@@ -62,11 +62,11 @@ Please keep details private until the advisory is published. This is a volunteer
 
 请使用 GitHub 私密漏洞报告功能提交：
 
-**[提交漏洞报告](https://github.com/Wei-Shaw/sub2api/security/advisories/new)**
+**[提交漏洞报告](https://github.com/mikecdd19891107-spec/agentbyte/security/advisories/new)**
 
 （仓库 → **Security** 标签页 → **Report a vulnerability**。）报告仅维护者可见，后续的讨论、修复与公告发布都在该安全公告中进行。
 
-如果无法使用 GitHub 私密漏洞报告，也可以发送邮件至 **dev@sub2api.org**，邮件标题请注明 `[Security]`。
+如果无法使用 GitHub 私密漏洞报告，也可以发送邮件至 **[security@your-domain]**，邮件标题请注明 `[Security]`。
 
 报告中建议包含：
 
@@ -78,7 +78,7 @@ Please keep details private until the advisory is published. This is a volunteer
 
 ### 支持的版本
 
-Sub2API 发版频繁，安全修复随新版本发布，不向旧版本回移。
+AgentByte 发版频繁，安全修复随新版本发布，不向旧版本回移。
 
 | 版本 | 是否支持 |
 | ---- | -------- |
@@ -89,13 +89,13 @@ Sub2API 发版频繁，安全修复随新版本发布，不向旧版本回移。
 
 ### 范围
 
-范围内：本仓库中的 Sub2API 后端、前端、官方 Docker 镜像与部署文件。
+范围内：本仓库中的 AgentByte 后端、前端、官方 Docker 镜像与部署文件。
 
 通常不在范围内：
 
 - 需要事先已掌握管理员凭据或服务器权限才能利用的问题
 - 因主动关闭文档中的安全配置（如关闭 `security.url_allowlist`）而产生的风险
-- 上游 AI 服务商或第三方依赖自身的漏洞，且对 Sub2API 无特定影响（请向上游报告）
+- 上游 AI 服务商或第三方依赖自身的漏洞，且对 AgentByte 无特定影响（请向上游报告）
 - 仅缺少最佳实践响应头或扫描器输出，但未证明实际影响
 
 ### 披露流程

@@ -11,8 +11,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/Wei-Shaw/sub2api/ent/paymentproviderinstance"
-	"github.com/Wei-Shaw/sub2api/ent/predicate"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/paymentproviderinstance"
+	"github.com/mikecdd19891107-spec/agentbyte/ent/predicate"
 )
 
 // PaymentProviderInstanceUpdate is the builder for updating PaymentProviderInstance entities.
