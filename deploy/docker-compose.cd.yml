@@ -21,3 +21,11 @@ services:
       - all_proxy=${ALL_PROXY:-}
       - no_proxy=${NO_PROXY:-}
       - UPDATE_PROXY_URL=${UPDATE_PROXY_URL:-}
+
+    # BusyBox wget ignores NO_PROXY when HTTP_PROXY is set; -Y off keeps health local.
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-Y", "off", "-T", "5", "-O", "/dev/null", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
