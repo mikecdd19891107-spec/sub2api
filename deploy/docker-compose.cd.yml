@@ -11,3 +11,13 @@ services:
         VERSION: cd
         COMMIT: local
     pull_policy: never
+    environment:
+      - HTTP_PROXY=${HTTP_PROXY:-}
+      - HTTPS_PROXY=${HTTPS_PROXY:-}
+      - ALL_PROXY=${ALL_PROXY:-}
+      - NO_PROXY=${NO_PROXY:-}
+      - http_proxy=${HTTP_PROXY:-}
+      - https_proxy=${HTTPS_PROXY:-}
+      - all_proxy=${ALL_PROXY:-}
+      - no_proxy=${NO_PROXY:-}
+      - UPDATE_PROXY_URL=${UPDATE_PROXY_URL:-}
