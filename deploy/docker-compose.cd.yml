@@ -1,0 +1,13 @@
+# CD override: build & run the fork checkout instead of Hub weishaw/sub2api:latest.
+# Usage (from /srv/sub2api/deploy):
+#   docker compose -f docker-compose.local.yml -f docker-compose.cd.yml up -d --build
+services:
+  sub2api:
+    image: sub2api:cd
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        VERSION: cd
+        COMMIT: local
+    pull_policy: never

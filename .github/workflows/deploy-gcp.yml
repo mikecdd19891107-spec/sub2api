@@ -1,0 +1,26 @@
+name: Deploy GCP (jp-app-01)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-gcp-jp-app-01
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to jp-app-01
+    runs-on: [self-hosted, jp-app-01, linux, x64]
+    timeout-minutes: 90
+    steps:
+      - name: Deploy from /srv/sub2api
+        shell: bash
+        run: |
+          set -euo pipefail
+          export REPO_DIR=/srv/sub2api
+          export BRANCH=main
+          export REMOTE=origin
+          # Runner already on the machine; sync + rebuild local image.
+          /srv/sub2api/deploy/cd-deploy.sh
