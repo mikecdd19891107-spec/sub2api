@@ -132,7 +132,9 @@ func TestOpenAIResponsesOrphanPrecheckLargeEscapedContent(t *testing.T) {
 	if os.Getenv(childEnv) != "1" {
 		// AllocsPerRun counts process-wide allocations, including background
 		// goroutines left by other tests. Measure in an isolated process.
-		cmd := exec.Command(os.Args[0], "-test.run=^TestOpenAIResponsesOrphanPrecheckLargeEscapedContent$", "-test.count=1")
+		executable, err := os.Executable()
+		require.NoError(t, err)
+		cmd := exec.Command(executable, "-test.run=^TestOpenAIResponsesOrphanPrecheckLargeEscapedContent$", "-test.count=1") //nolint:gosec // 测试仅重新运行自身，参数为固定值。
 		cmd.Env = append(os.Environ(), childEnv+"=1")
 		output, err := cmd.CombinedOutput()
 		require.NoError(t, err, "isolated allocation check failed: %s", output)
