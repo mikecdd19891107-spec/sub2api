@@ -48,6 +48,10 @@ func (c *Client) RetrieveUserQuotaSummary(ctx context.Context, accessToken, proj
 	urls := ForwardBaseURLs()
 	for urlIdx, baseURL := range urls {
 		summary, status, err := c.retrieveUserQuotaSummary(ctx, baseURL, accessToken, projectID)
+		// A transient network failure should not send users to a different quota window.
+		if err != nil && ctx.Err() == nil && IsConnectionError(err) {
+			summary, status, err = c.retrieveUserQuotaSummary(ctx, baseURL, accessToken, projectID)
+		}
 		if err == nil {
 			DefaultURLAvailability.MarkSuccess(baseURL)
 			return summary, nil

@@ -214,7 +214,8 @@ type UsageInfo struct {
 	AntigravityQuota map[string]*AntigravityModelQuota `json:"antigravity_quota,omitempty"`
 	// Antigravity per-group 5-hour and weekly windows (retrieveUserQuotaSummary). Within a group
 	// every model shares both windows; fetchAvailableModels cannot tell the two apart.
-	AntigravityQuotaGroups []*AntigravityQuotaGroup `json:"antigravity_quota_groups,omitempty"`
+	AntigravityQuotaGroups   []*AntigravityQuotaGroup `json:"antigravity_quota_groups,omitempty"`
+	antigravitySummaryFailed bool
 
 	// Grok / xAI 被动额度快照
 	GrokRequestQuota       *xai.QuotaWindow `json:"grok_request_quota,omitempty"`
@@ -1344,7 +1345,7 @@ func antigravityCacheTTL(info *UsageInfo) time.Duration {
 	if info.IsForbidden {
 		return apiCacheTTL // 封号/验证状态不会很快变
 	}
-	if info.ErrorCode != "" || info.Error != "" {
+	if info.ErrorCode != "" || info.Error != "" || info.antigravitySummaryFailed {
 		return antigravityErrorTTL
 	}
 	return apiCacheTTL
