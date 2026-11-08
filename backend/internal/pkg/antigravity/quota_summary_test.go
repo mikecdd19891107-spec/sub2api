@@ -5,8 +5,10 @@ package antigravity
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/http/httptest"
+	"strings"
 	"testing"
 )
 
@@ -58,6 +60,35 @@ func TestClient_RetrieveUserQuotaSummaryFromURL(t *testing.T) {
 	}
 	if summary.Groups[1].Buckets[1].ResetTime != "" {
 		t.Fatalf("a bucket without resetTime keeps it empty")
+	}
+}
+
+func TestClient_RetrieveUserQuotaSummaryEndpointOrder(t *testing.T) {
+	for _, fallback := range []bool{false, true} {
+		t.Run(map[bool]string{false: "daily first", true: "fallback after server error"}[fallback], func(t *testing.T) {
+			client := mustNewClient(t, "")
+			var hosts []string
+			client.httpClient = &http.Client{Transport: roundTripperFunc(func(req *http.Request) (*http.Response, error) {
+				hosts = append(hosts, req.URL.Host)
+				status, body := http.StatusOK, quotaSummaryBody
+				if fallback && len(hosts) == 1 {
+					status, body = http.StatusServiceUnavailable, "{}"
+				}
+				return &http.Response{StatusCode: status, Header: make(http.Header), Body: io.NopCloser(strings.NewReader(body)), Request: req}, nil
+			})}
+			if _, err := client.RetrieveUserQuotaSummary(context.Background(), "tok", "proj"); err != nil {
+				t.Fatal(err)
+			}
+			if len(hosts) == 0 || hosts[0] != "daily-cloudcode-pa.googleapis.com" {
+				t.Fatalf("expected daily endpoint first, got %v", hosts)
+			}
+			if fallback && (len(hosts) != 2 || hosts[1] != "cloudcode-pa.googleapis.com") {
+				t.Fatalf("expected prod fallback, got %v", hosts)
+			}
+			if !fallback && len(hosts) != 1 {
+				t.Fatalf("unexpected additional request: %v", hosts)
+			}
+		})
 	}
 }
 

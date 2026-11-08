@@ -42,17 +42,18 @@ type QuotaSummaryResponse struct {
 }
 
 // RetrieveUserQuotaSummary reads the account's per-group 5-hour and weekly quota windows,
-// falling back across BaseURLs like FetchAvailableModels.
+// using the same endpoint order as request forwarding.
 func (c *Client) RetrieveUserQuotaSummary(ctx context.Context, accessToken, projectID string) (*QuotaSummaryResponse, error) {
 	var lastErr error
-	for urlIdx, baseURL := range BaseURLs {
+	urls := ForwardBaseURLs()
+	for urlIdx, baseURL := range urls {
 		summary, status, err := c.retrieveUserQuotaSummary(ctx, baseURL, accessToken, projectID)
 		if err == nil {
 			DefaultURLAvailability.MarkSuccess(baseURL)
 			return summary, nil
 		}
 		lastErr = err
-		if urlIdx < len(BaseURLs)-1 && shouldFallbackToNextURL(nil, status) {
+		if urlIdx < len(urls)-1 && shouldFallbackToNextURL(nil, status) {
 			continue
 		}
 		return nil, err
