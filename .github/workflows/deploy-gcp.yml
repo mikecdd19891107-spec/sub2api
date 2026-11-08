@@ -15,12 +15,16 @@ jobs:
     runs-on: [self-hosted, jp-app-01, linux, x64]
     timeout-minutes: 90
     steps:
-      - name: Deploy from /srv/agentbyte
+      - name: Sync and deploy from /srv/sub2api
         shell: bash
         run: |
           set -euo pipefail
-          export REPO_DIR=/srv/agentbyte
+          export REPO_DIR=/srv/sub2api
           export BRANCH=main
           export REMOTE=origin
-          # Runner already on the machine; sync + rebuild local image.
-          /srv/agentbyte/deploy/cd-deploy.sh
+          cd "$REPO_DIR"
+          test -z "$(git status --porcelain --untracked-files=no)" || { echo 'Tracked server files have local changes; refusing to overwrite them.' >&2; exit 1; }
+          git fetch "$REMOTE" "$BRANCH"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA" || { echo 'main changed since this workflow was queued; a newer run must deploy it.' >&2; exit 1; }
+          git merge --ff-only "$GITHUB_SHA"
+          SKIP_GIT=1 SKIP_BUILD=0 EXPECTED_COMMIT="$GITHUB_SHA" "$REPO_DIR/deploy/cd-deploy.sh"

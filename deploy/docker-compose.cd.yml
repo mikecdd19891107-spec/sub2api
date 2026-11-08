@@ -1,5 +1,5 @@
 # CD override: build & run the fork checkout instead of Hub ghcr.io/mikecdd19891107-spec/agentbyte:latest.
-# Usage (from /srv/agentbyte/deploy):
+# Usage (from /srv/sub2api/deploy):
 #   docker compose -f docker-compose.local.yml -f docker-compose.cd.yml up -d --build
 services:
   agentbyte:
@@ -8,8 +8,8 @@ services:
       context: ..
       dockerfile: Dockerfile
       args:
-        VERSION: cd
-        COMMIT: local
+        VERSION: ${DEPLOY_VERSION:-}
+        COMMIT: ${DEPLOY_COMMIT:-local}
     pull_policy: never
     environment:
       - HTTP_PROXY=${HTTP_PROXY:-}

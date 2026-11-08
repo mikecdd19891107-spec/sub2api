@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Idempotent CD deploy for /srv/agentbyte on jp-app-01.
+# Idempotent CD deploy for /srv/sub2api on jp-app-01.
 # Syncs origin/main, rebuilds from local Dockerfile via compose CD override, health-checks.
 set -euo pipefail
 
-REPO_DIR="${REPO_DIR:-/srv/agentbyte}"
+REPO_DIR="${REPO_DIR:-/srv/sub2api}"
 DEPLOY_DIR="${DEPLOY_DIR:-$REPO_DIR/deploy}"
 BRANCH="${BRANCH:-main}"
 REMOTE="${REMOTE:-origin}"
@@ -34,21 +34,20 @@ cd "$REPO_DIR"
 
 if [ "$SKIP_GIT" != "1" ]; then
   log "fetch $REMOTE"
-  git fetch --prune "$REMOTE"
-  log "reset --hard $REMOTE/$BRANCH"
-  git reset --hard "$REMOTE/$BRANCH"
-  # Keep runtime data + secrets + local drafts
-  git clean -fd \
-    -e 'deploy/data' \
-    -e 'deploy/postgres_data' \
-    -e 'deploy/redis_data' \
-    -e 'deploy/.env' \
-    -e 'deploy/*.draft' \
-    || true
+  [ -z "$(git status --porcelain --untracked-files=no)" ] || die "tracked files have local changes"
+  git fetch "$REMOTE" "$BRANCH"
+  git merge --ff-only FETCH_HEAD
   log "now at $(git rev-parse --short HEAD) $(git log -1 --pretty=%s)"
 else
   log "SKIP_GIT=1 — using working tree as-is at $(git rev-parse --short HEAD)"
 fi
+
+export DEPLOY_COMMIT
+DEPLOY_COMMIT=$(git rev-parse HEAD)
+[ -z "${EXPECTED_COMMIT:-}" ] || [ "$DEPLOY_COMMIT" = "$EXPECTED_COMMIT" ] || die "checkout does not match expected commit"
+export DEPLOY_VERSION
+DEPLOY_VERSION=$(tr -d '\r\n' < backend/cmd/server/VERSION)
+[ -n "$DEPLOY_VERSION" ] || die "empty version"
 
 cd "$DEPLOY_DIR"
 
@@ -62,23 +61,33 @@ compose_base() {
 if [ "$SKIP_BUILD" = "1" ]; then
   log "SKIP_BUILD=1 — restarting without rebuild"
   if "${DOCKER[@]}" image inspect agentbyte:cd >/dev/null 2>&1; then
-    compose up -d --remove-orphans
+    compose up -d --no-deps agentbyte
   else
     log "agentbyte:cd not built yet; using base compose (Hub image ghcr.io/mikecdd19891107-spec/agentbyte)"
-    compose_base up -d --remove-orphans
+    compose_base up -d --no-deps agentbyte
   fi
 else
   [ -f "$COMPOSE_CD" ] || die "missing $COMPOSE_CD — commit/push docker-compose.cd.yml first"
-  log "build + up from local Dockerfile (tag agentbyte:cd)"
+  log "build from local Dockerfile (tag agentbyte:cd)"
   compose build agentbyte
-  compose up -d --remove-orphans
+  # Preserve the live database before starting a version that may run migrations.
+  BACKUP_DIR="${BACKUP_DIR:-$REPO_DIR/backups}"
+  umask 077
+  mkdir -p "$BACKUP_DIR"
+  backup="$BACKUP_DIR/agentbyte-$(date -u +%Y%m%dT%H%M%SZ)-${DEPLOY_COMMIT:0:12}.dump"
+  log "backing up PostgreSQL to $backup"
+  "${DOCKER[@]}" exec agentbyte-postgres sh -c 'exec pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc' > "$backup"
+  [ -s "$backup" ] || die "database backup is empty"
+  "${DOCKER[@]}" exec -i agentbyte-postgres pg_restore --list < "$backup" > /dev/null || die "database backup is invalid"
+  log "starting application with existing database and Redis"
+  compose up -d --no-deps agentbyte
 fi
 
 log "waiting for health: $HEALTH_URL"
 ok=0
 code=""
 for i in $(seq 1 "$MAX_WAIT"); do
-  code=$(curl -sS -o /tmp/agentbyte-health.body -w '%{http_code}' "$HEALTH_URL" || true)
+  code=$(curl --noproxy '*' -sS -o /dev/null -w '%{http_code}' "$HEALTH_URL" || true)
   if [ "$code" = "200" ]; then
     ok=1
     break
@@ -86,6 +95,11 @@ for i in $(seq 1 "$MAX_WAIT"); do
   sleep 1
 done
 [ "$ok" = "1" ] || die "health check failed after ${MAX_WAIT}s (last HTTP ${code:-none})"
-log "health OK: $(cat /tmp/agentbyte-health.body 2>/dev/null || true)"
+log "health OK"
+if [ "$SKIP_BUILD" != "1" ]; then
+  version=$("${DOCKER[@]}" exec agentbyte /app/agentbyte -version 2>&1)
+  [[ "$version" == *"commit: $DEPLOY_COMMIT"* ]] || die "running application does not report expected commit"
+  log "running version verified: $DEPLOY_VERSION ($DEPLOY_COMMIT)"
+fi
 log "containers:"
 "${DOCKER[@]}" ps --filter name=agentbyte --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'
