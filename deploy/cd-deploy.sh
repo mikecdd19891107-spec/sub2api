@@ -74,7 +74,7 @@ else
   BACKUP_DIR="${BACKUP_DIR:-$REPO_DIR/backups}"
   umask 077
   mkdir -p "$BACKUP_DIR"
-  backup="$BACKUP_DIR/agentbyte-$(date -u +%Y%m%dT%H%M%SZ)-${DEPLOY_COMMIT:0:12}.dump"
+  backup=$(mktemp "$BACKUP_DIR/agentbyte-$(date -u +%Y%m%dT%H%M%SZ)-${DEPLOY_COMMIT:0:12}-XXXXXX.dump")
   log "backing up PostgreSQL to $backup"
   "${DOCKER[@]}" exec agentbyte-postgres sh -c 'exec pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc' > "$backup"
   [ -s "$backup" ] || die "database backup is empty"
