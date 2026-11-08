@@ -54,34 +54,26 @@ cd "$DEPLOY_DIR"
 compose() {
   "${DOCKER[@]}" compose -f "$COMPOSE_BASE" -f "$COMPOSE_CD" "$@"
 }
-compose_base() {
-  "${DOCKER[@]}" compose -f "$COMPOSE_BASE" "$@"
-}
-
 if [ "$SKIP_BUILD" = "1" ]; then
-  log "SKIP_BUILD=1 — restarting without rebuild"
-  if "${DOCKER[@]}" image inspect agentbyte:cd >/dev/null 2>&1; then
-    compose up -d --no-deps agentbyte
-  else
-    log "agentbyte:cd not built yet; using base compose (Hub image ghcr.io/mikecdd19891107-spec/agentbyte)"
-    compose_base up -d --no-deps agentbyte
-  fi
+  log "SKIP_BUILD=1 — using prebuilt image"
+  "${DOCKER[@]}" image inspect agentbyte:cd >/dev/null 2>&1 || die "prebuilt agentbyte:cd image is missing"
 else
   [ -f "$COMPOSE_CD" ] || die "missing $COMPOSE_CD — commit/push docker-compose.cd.yml first"
   log "build from local Dockerfile (tag agentbyte:cd)"
   compose build agentbyte
-  # Preserve the live database before starting a version that may run migrations.
-  BACKUP_DIR="${BACKUP_DIR:-$REPO_DIR/backups}"
-  umask 077
-  mkdir -p "$BACKUP_DIR"
-  backup=$(mktemp "$BACKUP_DIR/agentbyte-$(date -u +%Y%m%dT%H%M%SZ)-${DEPLOY_COMMIT:0:12}-XXXXXX.dump")
-  log "backing up PostgreSQL to $backup"
-  "${DOCKER[@]}" exec agentbyte-postgres sh -c 'exec pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc' > "$backup"
-  [ -s "$backup" ] || die "database backup is empty"
-  "${DOCKER[@]}" exec -i agentbyte-postgres pg_restore --list < "$backup" > /dev/null || die "database backup is invalid"
-  log "starting application with existing database and Redis"
-  compose up -d --no-deps agentbyte
 fi
+
+# Preserve the live database before starting a version that may run migrations.
+BACKUP_DIR="${BACKUP_DIR:-$REPO_DIR/backups}"
+umask 077
+mkdir -p "$BACKUP_DIR"
+backup=$(mktemp "$BACKUP_DIR/agentbyte-$(date -u +%Y%m%dT%H%M%SZ)-${DEPLOY_COMMIT:0:12}-XXXXXX.dump")
+log "backing up PostgreSQL to $backup"
+"${DOCKER[@]}" exec agentbyte-postgres sh -c 'exec pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc' > "$backup"
+[ -s "$backup" ] || die "database backup is empty"
+"${DOCKER[@]}" exec -i agentbyte-postgres pg_restore --list < "$backup" > /dev/null || die "database backup is invalid"
+log "starting application with existing database and Redis"
+compose up -d --no-deps agentbyte
 
 log "waiting for health: $HEALTH_URL"
 ok=0
@@ -96,7 +88,7 @@ for i in $(seq 1 "$MAX_WAIT"); do
 done
 [ "$ok" = "1" ] || die "health check failed after ${MAX_WAIT}s (last HTTP ${code:-none})"
 log "health OK"
-if [ "$SKIP_BUILD" != "1" ]; then
+if [ "$SKIP_BUILD" != "1" ] || [ -n "${EXPECTED_COMMIT:-}" ]; then
   version=$("${DOCKER[@]}" exec agentbyte /app/agentbyte -version 2>&1)
   [[ "$version" == *"commit: $DEPLOY_COMMIT"* ]] || die "running application does not report expected commit"
   log "running version verified: $DEPLOY_VERSION ($DEPLOY_COMMIT)"

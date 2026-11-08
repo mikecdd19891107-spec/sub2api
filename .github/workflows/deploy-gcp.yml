@@ -10,12 +10,42 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  build:
+    name: Build deployment image
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build image with exact version
+        shell: bash
+        run: |
+          set -euo pipefail
+          version=$(tr -d '\r\n' < backend/cmd/server/VERSION)
+          test -n "$version"
+          docker build --platform linux/amd64 --tag agentbyte:cd \
+            --build-arg VERSION="$version" --build-arg COMMIT="$GITHUB_SHA" \
+            --build-arg GOPROXY=https://proxy.golang.org,direct \
+            --build-arg GOSUMDB=sum.golang.org .
+          mkdir -p "$RUNNER_TEMP/agentbyte-image"
+          docker save agentbyte:cd | gzip -1 > "$RUNNER_TEMP/agentbyte-image/image.tar.gz"
+          cd "$RUNNER_TEMP/agentbyte-image"
+          sha256sum image.tar.gz > image.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: agentbyte-image-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/agentbyte-image/
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+
   deploy:
     name: Deploy to jp-app-01
+    needs: build
+    if: github.ref == 'refs/heads/main'
     runs-on: [self-hosted, jp-app-01, linux, x64]
     timeout-minutes: 90
     steps:
-      - name: Sync and deploy from /srv/sub2api
+      - name: Sync existing checkout
         shell: bash
         run: |
           set -euo pipefail
@@ -27,4 +57,20 @@ jobs:
           git fetch "$REMOTE" "$BRANCH"
           test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA" || { echo 'main changed since this workflow was queued; a newer run must deploy it.' >&2; exit 1; }
           git merge --ff-only "$GITHUB_SHA"
-          SKIP_GIT=1 SKIP_BUILD=0 EXPECTED_COMMIT="$GITHUB_SHA" "$REPO_DIR/deploy/cd-deploy.sh"
+      - uses: actions/download-artifact@v4
+        with:
+          name: agentbyte-image-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/agentbyte-image-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Load image and deploy with backup
+        shell: bash
+        run: |
+          set -euo pipefail
+          image_dir="$RUNNER_TEMP/agentbyte-image-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          trap 'rm -f -- "$image_dir/image.tar.gz" "$image_dir/image.sha256"; rmdir -- "$image_dir" 2>/dev/null || true' EXIT
+          cd "$image_dir"
+          sha256sum -c image.sha256
+          if docker info >/dev/null 2>&1; then DOCKER=(docker); elif sudo -n docker info >/dev/null 2>&1; then DOCKER=(sudo docker); else echo 'Docker unavailable' >&2; exit 1; fi
+          old_image=$("${DOCKER[@]}" inspect --format '{{.Image}}' agentbyte)
+          "${DOCKER[@]}" tag "$old_image" "agentbyte:pre-deploy-${GITHUB_SHA:0:12}"
+          gzip -dc image.tar.gz | "${DOCKER[@]}" load
+          REPO_DIR=/srv/sub2api SKIP_GIT=1 SKIP_BUILD=1 EXPECTED_COMMIT="$GITHUB_SHA" /srv/sub2api/deploy/cd-deploy.sh
