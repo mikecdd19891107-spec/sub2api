@@ -26,6 +26,11 @@ func quotaSummaryFixture() *antigravity.QuotaSummaryResponse {
 	}}
 }
 
+func TestAntigravitySummaryFailureUsesShortCache(t *testing.T) {
+	require.Equal(t, antigravityErrorTTL, antigravityCacheTTL(&UsageInfo{antigravitySummaryFailed: true}))
+	require.Equal(t, apiCacheTTL, antigravityCacheTTL(&UsageInfo{}))
+}
+
 // fetchAvailableModels reports one fraction per model, whichever window is tighter, so the
 // 5-hour and the weekly limit could not be told apart. The quota summary reports both.
 func TestBuildQuotaGroups_SplitsFiveHourAndWeekly(t *testing.T) {

@@ -92,6 +92,39 @@ func TestClient_RetrieveUserQuotaSummaryEndpointOrder(t *testing.T) {
 	}
 }
 
+func TestClient_RetrieveUserQuotaSummaryRetriesTransientTimeout(t *testing.T) {
+	client := mustNewClient(t, "")
+	var hosts []string
+	client.httpClient = &http.Client{Transport: roundTripperFunc(func(req *http.Request) (*http.Response, error) {
+		hosts = append(hosts, req.URL.Host)
+		if len(hosts) == 1 {
+			return nil, &timeoutError{}
+		}
+		return &http.Response{StatusCode: http.StatusOK, Header: make(http.Header), Body: io.NopCloser(strings.NewReader(quotaSummaryBody)), Request: req}, nil
+	})}
+	if _, err := client.RetrieveUserQuotaSummary(context.Background(), "tok", "proj"); err != nil {
+		t.Fatal(err)
+	}
+	if len(hosts) != 2 || hosts[0] != "daily-cloudcode-pa.googleapis.com" || hosts[1] != hosts[0] {
+		t.Fatalf("expected one retry on daily endpoint, got %v", hosts)
+	}
+}
+
+func TestClient_RetrieveUserQuotaSummaryTimeoutRetryIsBounded(t *testing.T) {
+	client := mustNewClient(t, "")
+	var hosts []string
+	client.httpClient = &http.Client{Transport: roundTripperFunc(func(req *http.Request) (*http.Response, error) {
+		hosts = append(hosts, req.URL.Host)
+		return nil, &timeoutError{}
+	})}
+	if _, err := client.RetrieveUserQuotaSummary(context.Background(), "tok", "proj"); err == nil {
+		t.Fatal("expected timeout")
+	}
+	if len(hosts) != 2 || hosts[0] != "daily-cloudcode-pa.googleapis.com" || hosts[1] != hosts[0] {
+		t.Fatalf("expected at most two daily requests, got %v", hosts)
+	}
+}
+
 func TestClient_RetrieveUserQuotaSummaryFromURL_Errors(t *testing.T) {
 	for _, tc := range []struct {
 		status int

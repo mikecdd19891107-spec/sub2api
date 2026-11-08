@@ -91,6 +91,7 @@ func (f *AntigravityQuotaFetcher) FetchQuota(ctx context.Context, account *Accou
 	// per-model figures above are shown as before.
 	if summary, err := client.RetrieveUserQuotaSummary(ctx, accessToken, projectID); err != nil {
 		slog.Warn("failed to fetch antigravity quota summary", "account_id", account.ID, "error", err)
+		usageInfo.antigravitySummaryFailed = true
 	} else {
 		usageInfo.AntigravityQuotaGroups = buildAntigravityQuotaGroups(summary)
 	}
