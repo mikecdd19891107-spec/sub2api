@@ -12,7 +12,7 @@
       <AppHeader />
 
       <!-- Main Content -->
-      <main class="mx-auto max-w-[1400px] p-4 md:p-6 lg:px-8 lg:py-7">
+      <main class="mx-auto p-4 md:p-6 lg:px-8 lg:py-7" :class="wide ? 'max-w-none' : 'max-w-[1400px]'">
         <slot />
       </main>
     </div>
@@ -28,6 +28,8 @@ import { useOnboardingTour } from '@/composables/useOnboardingTour'
 import { useOnboardingStore } from '@/stores/onboarding'
 import AppSidebar from './AppSidebar.vue'
 import AppHeader from './AppHeader.vue'
+
+defineProps<{ wide?: boolean }>()
 
 const appStore = useAppStore()
 const authStore = useAuthStore()
