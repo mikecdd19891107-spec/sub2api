@@ -1,6 +1,6 @@
 <template>
-  <AppLayout>
-    <TablePageLayout>
+  <AppLayout wide>
+    <TablePageLayout class="accounts-layout">
       <template #filters>
         <div class="flex flex-wrap-reverse items-start justify-between gap-3">
           <AccountTableFilters
@@ -2625,6 +2625,12 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+.accounts-layout :deep(.table-scroll-container th),
+.accounts-layout :deep(.table-scroll-container td) {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .account-tools-menu-item {
   @apply flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-dark-700;
 }
