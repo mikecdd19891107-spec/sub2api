@@ -23,7 +23,7 @@
               </router-link>
             </div>
             <div class="mt-1.5 font-mono text-2xl font-semibold tracking-tight text-gray-950 dark:text-white">
-              ${{ formatBalance(user?.balance || 0) }}
+              ¥{{ formatBalance(user?.balance || 0) }}
             </div>
             <div class="mt-3 flex gap-2">
               <router-link v-if="paymentEnabled" to="/purchase" class="btn btn-primary btn-sm">{{ t('nav.recharge') }}</router-link>
@@ -34,7 +34,7 @@
           <div class="card p-5">
             <span class="text-xs text-gray-600 dark:text-dark-400">{{ t('dashboard.todayCost') }}</span>
             <div class="mt-1.5 font-mono text-2xl font-semibold tracking-tight text-gray-950 dark:text-white">
-              ${{ formatCost(stats.today_actual_cost) }}
+              ¥{{ formatCost(stats.today_actual_cost) }}
             </div>
             <p class="mt-1 text-xs text-gray-500 dark:text-dark-400">
               {{ t('dashboard.kpi.costSub', { total: formatCost(stats.total_actual_cost), standard: formatCost(stats.today_cost) }) }}

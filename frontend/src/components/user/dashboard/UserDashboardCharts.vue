@@ -46,8 +46,8 @@
                 </td>
                 <td class="py-2 text-right font-mono text-gray-700 dark:text-gray-300">{{ formatNumber(model.requests) }}</td>
                 <td class="py-2 text-right font-mono text-gray-700 dark:text-gray-300">{{ formatTokens(model.total_tokens) }}</td>
-                <td class="py-2 text-right font-mono font-medium text-gray-950 dark:text-white">${{ formatCost(model.actual_cost) }}</td>
-                <td class="py-2 text-right font-mono text-gray-500 dark:text-dark-400">${{ formatCost(model.cost) }}</td>
+                <td class="py-2 text-right font-mono font-medium text-gray-950 dark:text-white">¥{{ formatCost(model.actual_cost) }}</td>
+                <td class="py-2 text-right font-mono text-gray-500 dark:text-dark-400">¥{{ formatCost(model.cost) }}</td>
               </tr>
             </tbody>
           </table>

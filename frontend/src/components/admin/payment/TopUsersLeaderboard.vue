@@ -63,6 +63,7 @@ function sortedUsers(usersByCurrency: Record<string, TopUserPaymentStats[]>): [s
 }
 
 function formatMoney(currency: string, amount: number): string {
-  return new Intl.NumberFormat(undefined, { style: 'currency', currency }).format(amount)
+  return new Intl.NumberFormat(undefined, { style: 'currency', currency }).formatToParts(amount)
+    .map(part => part.type === 'currency' ? '¥' : part.value).join('')
 }
 </script>

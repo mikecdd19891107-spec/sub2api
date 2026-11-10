@@ -1,5 +1,5 @@
 <template>
-  <AppLayout wide>
+  <AppLayout>
     <TablePageLayout class="accounts-layout">
       <template #filters>
         <div class="flex flex-wrap-reverse items-start justify-between gap-3">

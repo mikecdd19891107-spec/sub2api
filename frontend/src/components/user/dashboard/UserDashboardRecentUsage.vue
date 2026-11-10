@@ -32,8 +32,8 @@
             </td>
             <td class="whitespace-nowrap px-3 py-2.5 text-right font-mono text-xs text-gray-600 dark:text-dark-400">{{ formatDuration(log.duration_ms) }}</td>
             <td class="whitespace-nowrap px-5 py-2.5 text-right font-mono text-xs">
-              <span class="font-medium text-gray-950 dark:text-white" :title="t('dashboard.actual')">${{ formatCost(log.actual_cost) }}</span>
-              <span v-if="log.total_cost !== log.actual_cost" class="ml-1 text-gray-500 dark:text-dark-400" :title="t('dashboard.standard')">/ ${{ formatCost(log.total_cost) }}</span>
+              <span class="font-medium text-gray-950 dark:text-white" :title="t('dashboard.actual')">¥{{ formatCost(log.actual_cost) }}</span>
+              <span v-if="log.total_cost !== log.actual_cost" class="ml-1 text-gray-500 dark:text-dark-400" :title="t('dashboard.standard')">/ ¥{{ formatCost(log.total_cost) }}</span>
             </td>
           </tr>
         </tbody>
