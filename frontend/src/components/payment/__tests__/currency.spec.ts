@@ -7,14 +7,19 @@ describe('formatPaymentAmount', () => {
     expect(formatPaymentAmount(100, 'KRW', 'en-US')).not.toContain('.00')
     expect(formatPaymentAmount(100, 'HKD', 'en-US')).toContain('.00')
   })
+
+  it('changes only the displayed symbol without converting amounts', () => {
+    expect(formatPaymentAmount(12.34, 'USD', 'en-US')).toBe('¥12.34')
+    expect(formatPaymentAmount(12.34, 'EUR', 'en-US')).toBe('¥12.34')
+  })
 })
 
 describe('currencySymbol', () => {
   it('maps common payment currencies and falls back safely', () => {
-    expect(currencySymbol('USD')).toBe('$')
+    expect(currencySymbol('USD')).toBe('¥')
     expect(currencySymbol('cny')).toBe('¥')
-    expect(currencySymbol('EUR')).toBe('€')
+    expect(currencySymbol('EUR')).toBe('¥')
     expect(currencySymbol('')).toBe('¥')
-    expect(currencySymbol('XYZ')).toBe('XYZ')
+    expect(currencySymbol('XYZ')).toBe('¥')
   })
 })

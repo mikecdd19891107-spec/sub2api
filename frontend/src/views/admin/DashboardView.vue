@@ -54,10 +54,10 @@
                   <div class="rounded-2xl bg-white/[0.05] p-3.5 ring-1 ring-white/[0.08]">
                     <p class="text-[11px] font-medium text-gray-400">{{ t('admin.dashboard.actual') }}</p>
                     <p class="mt-1 text-2xl font-extrabold tracking-tight text-emerald-400">
-                      ${{ formatCost(stats.today_actual_cost) }}
+                      ¥{{ formatCost(stats.today_actual_cost) }}
                     </p>
                     <p class="mt-0.5 text-[11px] text-gray-400">
-                      {{ t('common.total') }} ${{ formatCost(stats.total_actual_cost) }}
+                      {{ t('common.total') }} ¥{{ formatCost(stats.total_actual_cost) }}
                     </p>
                   </div>
                 </div>
@@ -180,7 +180,7 @@
                     {{ formatDuration(stats.average_duration_ms) }}
                   </p>
                   <p class="mt-1.5 text-xs text-gray-500 dark:text-dark-400">
-                    {{ t('admin.dashboard.accountCost') }} ${{ formatCost(stats.today_account_cost) }} · {{ t('admin.dashboard.standard') }} ${{ formatCost(stats.today_cost) }}
+                    {{ t('admin.dashboard.accountCost') }} ¥{{ formatCost(stats.today_account_cost) }} · {{ t('admin.dashboard.standard') }} ¥{{ formatCost(stats.today_cost) }}
                   </p>
                 </div>
               </div>
@@ -503,7 +503,7 @@ const userTrendChartData = computed(() => {
 
 // Format helpers
 const formatUserTrendValue = (value: number): string =>
-  userTrendMetric.value === 'tokens' ? formatTokens(value) : `$${formatCost(value)}`
+  userTrendMetric.value === 'tokens' ? formatTokens(value) : `¥${formatCost(value)}`
 
 const formatTokens = (value: number | undefined): string => {
   if (value === undefined || value === null) return '0'
