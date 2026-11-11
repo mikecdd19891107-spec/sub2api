@@ -64,9 +64,7 @@ func toolImageCompatWire(t *testing.T, raw []byte, model string) []byte {
 }
 
 func TestAntigravityResponsesParallelToolResultImagesKeepFunctionResponsesContiguous(t *testing.T) {
-	// Only test Gemini models: Claude models use a different transformation path
-	// that doesn't produce the functionResponse structure this test expects.
-	for _, model := range []string{"gemini-2.5-flash"} {
+	for _, model := range []string{"claude-opus-5-5-medium", "gemini-2.5-flash"} {
 		t.Run(model, func(t *testing.T) {
 			raw := []byte(`{"model":"client-alias","input":[
  {"type":"function_call","call_id":"call_img_1","name":"view_image","arguments":"{}"},
