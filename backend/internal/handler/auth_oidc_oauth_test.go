@@ -13,7 +13,6 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
@@ -25,6 +24,7 @@ import (
 	servermiddleware "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestOIDCSyntheticEmailStableAndDistinct(t *testing.T) {

@@ -6,8 +6,8 @@ import (
 	"net/url"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // 回归：上游 Transport 必须显式配置建连超时。

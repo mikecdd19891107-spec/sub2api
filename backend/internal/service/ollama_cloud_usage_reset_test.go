@@ -3,8 +3,8 @@ package service
 import (
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func mustT(t time.Time) *time.Time { return &t }

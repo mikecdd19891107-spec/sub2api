@@ -9,9 +9,9 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
+
 )
 
 type groupLifecycleTestCache struct {

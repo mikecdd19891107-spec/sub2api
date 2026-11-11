@@ -4,8 +4,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestGroup_GetImagePrice_1K 测试 1K 尺寸返回正确价格

@@ -3,8 +3,8 @@ package responseheaders
 import (
 	"net/http"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+
 )
 
 func TestFilterHeadersDisabledUsesDefaultAllowlist(t *testing.T) {

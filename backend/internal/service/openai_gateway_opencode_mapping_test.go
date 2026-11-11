@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func openCodeMappedTestAccount() *Account {

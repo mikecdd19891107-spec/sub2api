@@ -6,9 +6,9 @@ import (
 	"context"
 	"database/sql"
 	"testing"
-
 	dbmigrations "github.com/mikecdd19891107-spec/agentbyte/migrations"
 	"github.com/stretchr/testify/require"
+
 )
 
 const groupModelAllowlistRepairMigration = "236_group_model_allowlist_repair.sql"

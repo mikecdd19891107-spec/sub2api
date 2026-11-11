@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 // Scenario: OAuth / setup-token 凭据只能走签发方协议，API Key 与其他凭据类型不受限

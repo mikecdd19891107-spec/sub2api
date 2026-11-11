@@ -7,8 +7,8 @@ import (
 	"encoding/json"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func fullAccessInput(t *testing.T, confirm bool) ScopedAdminKeyInput {

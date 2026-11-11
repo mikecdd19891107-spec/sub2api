@@ -6,13 +6,13 @@ import (
 	"net/http/httptest"
 	"sync/atomic"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/securityaudit"
 	middleware2 "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zaptest/observer"
+
 )
 
 func TestCachesSecurityAuditCompletionSkipsWebSocketStages(t *testing.T) {

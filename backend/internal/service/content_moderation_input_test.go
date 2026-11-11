@@ -2,8 +2,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // 当数组末尾不是用户消息时（典型场景：Agent 工具循环结束于 tool/assistant），

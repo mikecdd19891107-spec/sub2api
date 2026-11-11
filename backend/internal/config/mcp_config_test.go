@@ -2,8 +2,8 @@ package config
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestMCPConfigValidatePublicURL(t *testing.T) {

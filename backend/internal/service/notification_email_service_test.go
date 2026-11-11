@@ -12,8 +12,8 @@ import (
 	"sync"
 	"sync/atomic"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestNotificationEmailPreviewEscapesHTMLAndSanitizesSubject(t *testing.T) {

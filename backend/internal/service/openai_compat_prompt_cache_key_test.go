@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/apicompat"
 	"github.com/stretchr/testify/require"
+
 )
 
 func mustRawJSON(t *testing.T, s string) json.RawMessage {

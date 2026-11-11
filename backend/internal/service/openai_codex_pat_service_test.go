@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestOpenAIOAuthService_ValidateCodexPersonalAccessToken(t *testing.T) {

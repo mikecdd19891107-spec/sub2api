@@ -3,8 +3,8 @@ package handler
 import (
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 var openAIResponsesImageIntentRoutingBenchmarkSink service.OpenAIEndpointCapability

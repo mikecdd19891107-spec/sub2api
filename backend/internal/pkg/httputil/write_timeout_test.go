@@ -11,8 +11,8 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestWriteTimeoutReleasesSlowHTTP1Client(t *testing.T) {

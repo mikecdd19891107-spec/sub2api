@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func collectStreamEvents(t *testing.T, chunks []string) []ResponsesStreamEvent {

@@ -4,8 +4,8 @@ import (
 	"os"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAffiliateUserOverviewSQLIncludesMaturedFrozenQuota(t *testing.T) {

@@ -2,8 +2,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/assert"
+
 )
 
 func TestIsExplicitImageGenerationIntent_IgnoresPassiveNamespace(t *testing.T) {

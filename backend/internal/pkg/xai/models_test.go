@@ -2,8 +2,8 @@ package xai
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestDefaultModelMappingExcludesCrossClientWildcards(t *testing.T) {

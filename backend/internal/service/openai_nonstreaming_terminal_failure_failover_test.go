@@ -6,11 +6,10 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+
 )
 
 // issue #5281：stream=false 时上游仍可能回 SSE（其他 sub2api 实例、部分 OpenAI 兼容

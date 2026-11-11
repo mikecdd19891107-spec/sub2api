@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"net/url"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestConfigureTransportProxy_Nil(t *testing.T) {

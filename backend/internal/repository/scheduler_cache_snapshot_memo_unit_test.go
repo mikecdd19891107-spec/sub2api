@@ -11,11 +11,11 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/alicebob/miniredis/v2"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
+
 )
 
 // schedulerCacheCommandRecorder 记录发往 Redis 的命令（名称 + 首个参数）与每次 pipeline 执行的命令批次，

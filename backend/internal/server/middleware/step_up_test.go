@@ -6,11 +6,10 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 type stubStepUpGrantChecker struct {

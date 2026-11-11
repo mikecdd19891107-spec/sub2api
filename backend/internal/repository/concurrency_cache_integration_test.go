@@ -9,11 +9,11 @@ import (
 	"strconv"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
+
 )
 
 // 测试用 TTL 配置（15 分钟，与默认值一致）

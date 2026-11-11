@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestUpdateSessionWindow_WeeklyUsageWithoutFiveHourHeaders(t *testing.T) {

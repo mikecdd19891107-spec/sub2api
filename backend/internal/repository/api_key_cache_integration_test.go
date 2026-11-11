@@ -7,10 +7,10 @@ import (
 	"fmt"
 	"testing"
 	"time"
-
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
+
 )
 
 type ApiKeyCacheSuite struct {

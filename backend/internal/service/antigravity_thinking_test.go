@@ -4,6 +4,7 @@ package service
 
 import (
 	"testing"
+
 )
 
 func TestApplyThinkingModelSuffix(t *testing.T) {

@@ -5,8 +5,8 @@ package handler
 import (
 	"math"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestValidateAPIKeyCreateRequest(t *testing.T) {

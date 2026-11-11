@@ -4,8 +4,8 @@ package config
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestNormalizeProxyProbeURLs(t *testing.T) {

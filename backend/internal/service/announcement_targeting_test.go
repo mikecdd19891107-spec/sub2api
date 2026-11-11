@@ -2,8 +2,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAnnouncementTargeting_Matches_EmptyMatchesAll(t *testing.T) {

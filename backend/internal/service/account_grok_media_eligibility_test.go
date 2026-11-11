@@ -6,10 +6,10 @@ import (
 	"context"
 	"net/http"
 	"testing"
-
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/xai"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestGrokMediaGenerationEligibility(t *testing.T) {

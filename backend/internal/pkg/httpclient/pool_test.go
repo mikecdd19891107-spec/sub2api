@@ -8,8 +8,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type roundTripFunc func(*http.Request) (*http.Response, error)

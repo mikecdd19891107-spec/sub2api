@@ -6,8 +6,8 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestGrokModelQuotaBlock_FiltersOnlyNamedModel(t *testing.T) {

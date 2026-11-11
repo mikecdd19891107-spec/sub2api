@@ -8,10 +8,10 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
 	"github.com/stretchr/testify/require"
+
 )
 
 var handlerStructuredLogCaptureMu sync.Mutex

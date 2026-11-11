@@ -15,18 +15,40 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/apicompat"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 type countTokensRuntimeStateRepo struct {
 	AccountRepository
 	tempUnschedCalls int
 	setErrorCalls    int
+}
+
+func TestPrepareOpenAIInputTokensCountRequestIgnoresOutputEffort(t *testing.T) {
+	account := &Account{Platform: PlatformOpenAI, Type: AccountTypeAPIKey}
+	for _, preference := range []string{
+		`"thinking":{"type":"disabled"}`,
+		`"output_config":{"effort":"none"}`,
+		`"output_config":{"effort":"minimal"}`,
+	} {
+		t.Run(preference, func(t *testing.T) {
+			body := []byte(`{"model":"gpt-6.1-sol","messages":[{"role":"user","content":"hello"}],` + preference + `}`)
+			prepared, err := prepareOpenAIInputTokensCountRequest(body, account, "")
+			require.NoError(t, err)
+			encoded, err := json.Marshal(prepared.Request)
+			require.NoError(t, err)
+			require.Equal(t, "gpt-6.1-sol", prepared.Request.Model)
+			require.Contains(t, string(prepared.Request.Input), "hello")
+			for _, field := range []string{"reasoning", "reasoning_effort", "output_config", "thinking"} {
+				require.False(t, gjson.GetBytes(encoded, field).Exists(), field)
+			}
+		})
+	}
 }
 
 func (r *countTokensRuntimeStateRepo) SetTempUnschedulable(_ context.Context, _ int64, _ time.Time, _ string) error {

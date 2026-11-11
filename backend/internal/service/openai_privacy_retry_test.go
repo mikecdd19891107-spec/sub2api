@@ -6,10 +6,10 @@ import (
 	"context"
 	"errors"
 	"testing"
-
 	"github.com/imroc/req/v3"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAdminService_EnsureOpenAIPrivacy_RetriesNonSuccessModes(t *testing.T) {

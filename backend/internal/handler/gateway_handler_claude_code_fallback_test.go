@@ -9,13 +9,13 @@ import (
 	"net/http/httptest"
 	"sync"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ctxkey"
 	middleware "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 // groupScopedSchedulerCache 按桶的分组只返回该分组的成员账号，并记录被查询过的分组。

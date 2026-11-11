@@ -13,9 +13,9 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	_ "github.com/lib/pq"
 	"github.com/stretchr/testify/require"
+
 )
 
 const promptAuditPostgresTestEnv = "PROMPT_AUDIT_TEST_POSTGRES_DSN"

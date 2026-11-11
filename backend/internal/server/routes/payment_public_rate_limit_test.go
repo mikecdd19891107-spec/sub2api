@@ -6,7 +6,6 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/alicebob/miniredis/v2"
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/handler"
@@ -14,6 +13,7 @@ import (
 	servermiddleware "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
+
 )
 
 func newPaymentRoutesTestRouter(redisClient *redis.Client) *gin.Engine {

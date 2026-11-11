@@ -10,14 +10,13 @@ import (
 	"regexp"
 	"testing"
 	"time"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	"github.com/DATA-DOG/go-sqlmock"
+
 )
 
 const grokCatalogCASQuery = `UPDATE accounts

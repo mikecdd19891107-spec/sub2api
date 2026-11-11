@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	pkghttputil "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/httputil"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestHTTPUpstreamDrainContinuousPingsCannotExtendBudget(t *testing.T) {

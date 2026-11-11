@@ -315,7 +315,7 @@ export default {
       "category": "监控"
     },
     "system_dread": {
-      "label": "读取系统版本与可更新版本",
+      "label": "读取系统版本",
       "category": "系统"
     }
   },

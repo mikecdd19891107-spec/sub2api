@@ -3,8 +3,8 @@ package websearch
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestTruncateBody_Short(t *testing.T) {

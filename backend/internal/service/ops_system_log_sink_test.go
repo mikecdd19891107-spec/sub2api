@@ -9,8 +9,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+
 )
 
 func TestOpsSystemLogSink_ShouldIndex(t *testing.T) {

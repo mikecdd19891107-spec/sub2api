@@ -5,9 +5,9 @@ package service
 import (
 	"testing"
 	"time"
-
 	appTimezone "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/timezone"
 	"github.com/stretchr/testify/require"
+
 )
 
 func useGroupUsageTestTimezone(t *testing.T, name string) {

@@ -5,8 +5,8 @@ package service
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
+
 )
 
 func TestBuildVerifyCodeEmailBody_EscapesSiteName(t *testing.T) {

@@ -8,11 +8,11 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
+
 )
 
 // TestForward_OAuthWebSearchHistoryDeclaresTool drives the Codex compaction

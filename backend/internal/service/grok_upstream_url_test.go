@@ -4,10 +4,10 @@ package service
 
 import (
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/xai"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestGrokAPIKeyURLPolicyFollowsGlobalSecurityConfig(t *testing.T) {

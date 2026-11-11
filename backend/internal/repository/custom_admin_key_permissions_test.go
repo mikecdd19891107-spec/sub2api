@@ -11,13 +11,13 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/adminaccess"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 	"github.com/stretchr/testify/require"
+
 )
 
 func scopedPermissionsTestDB(t *testing.T, options ...dbent.Option) (*dbent.Client, *sql.DB) {

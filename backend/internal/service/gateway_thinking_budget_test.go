@@ -5,9 +5,9 @@ package service
 import (
 	"fmt"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 const basetenBudgetError = "Error from provider (Console Go): Upstream request failed: [invalid_request_error] must be greater than 1024 to reserve tokens for a final answer when Baseten reasoning is enabled"

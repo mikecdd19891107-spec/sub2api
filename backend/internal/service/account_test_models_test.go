@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"sync/atomic"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestFetchOpenAIAccountModelsOAuthPopulatesPickerFields(t *testing.T) {

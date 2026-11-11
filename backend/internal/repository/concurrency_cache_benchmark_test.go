@@ -6,8 +6,8 @@ import (
 	"os"
 	"testing"
 	"time"
-
 	"github.com/redis/go-redis/v9"
+
 )
 
 // 基准测试用 TTL 配置

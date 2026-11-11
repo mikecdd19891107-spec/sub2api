@@ -2,8 +2,8 @@ package dto
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestRedactCredentials_NilInput(t *testing.T) {

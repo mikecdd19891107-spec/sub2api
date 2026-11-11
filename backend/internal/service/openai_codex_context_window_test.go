@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestCodexContextWindowSyncRoundTrip(t *testing.T) {

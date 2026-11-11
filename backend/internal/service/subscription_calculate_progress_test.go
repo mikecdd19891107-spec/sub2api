@@ -3,9 +3,9 @@ package service
 import (
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 // --- Task 5: 验证 calculateProgress 纯函数行为正确 ---

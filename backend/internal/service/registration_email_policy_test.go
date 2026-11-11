@@ -5,8 +5,8 @@ package service
 import (
 	"context"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestNormalizeRegistrationEmailSuffixWhitelist(t *testing.T) {

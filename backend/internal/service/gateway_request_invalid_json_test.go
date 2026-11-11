@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestDescribeInvalidJSON_TruncatedBody(t *testing.T) {

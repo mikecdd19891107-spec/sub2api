@@ -12,10 +12,10 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/tlsfingerprint"
 	"github.com/stretchr/testify/require"
+
 )
 
 // openCodeGoUsageFixture is the verified upstream 200 response (2026-08-13).

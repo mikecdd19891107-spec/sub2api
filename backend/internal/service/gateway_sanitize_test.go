@@ -3,8 +3,8 @@ package service
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestSanitizeOpenCodeText_RewritesCanonicalSentence(t *testing.T) {

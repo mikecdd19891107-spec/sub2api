@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 // cyber mark 存在时，中间件必须跳过自身落库（由 recordCyberPolicyIfMarked 统一落 403）。

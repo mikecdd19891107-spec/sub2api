@@ -5,10 +5,9 @@ package service
 import (
 	"context"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // composite 分组的公开别名经 BillingModelSource 来源覆盖成为计费模型后有两类错计：

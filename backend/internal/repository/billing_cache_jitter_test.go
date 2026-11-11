@@ -3,9 +3,9 @@ package repository
 import (
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 // --- Task 6.1 验证: math/rand/v2 迁移后 jitteredTTL 行为正确 ---

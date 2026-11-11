@@ -6,9 +6,9 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestUsageLogRepositoryGetAllGroupUsageSummaryUsesRollupTail(t *testing.T) {

@@ -6,9 +6,9 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/stretchr/testify/require"
+
 )
 
 // --- mock: 只实现同步任务用到的读写，其余方法不应被调用 ---

@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"runtime"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"golang.org/x/mod/semver"
+
 )
 
 func TestApplyCLIProxyHeadersMeetsUpstreamMinimumVersion(t *testing.T) {

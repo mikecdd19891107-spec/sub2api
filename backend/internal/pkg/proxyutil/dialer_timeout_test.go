@@ -8,8 +8,8 @@ import (
 	"net/url"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 var errStub = errors.New("stub dial")

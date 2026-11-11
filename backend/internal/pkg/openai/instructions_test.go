@@ -3,6 +3,7 @@ package openai
 import (
 	"strings"
 	"testing"
+
 )
 
 func firstLine(s string) string {

@@ -3,10 +3,10 @@ package repository
 import (
 	"context"
 	"testing"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestGroupEntityToService_PreservesMessagesDispatchModelConfig(t *testing.T) {

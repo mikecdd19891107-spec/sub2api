@@ -6,7 +6,6 @@ import (
 	"context"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/alicebob/miniredis/v2"
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/handler"
@@ -16,6 +15,7 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
+
 )
 
 type scopedPaymentRateSettings struct{ service.SettingRepository }

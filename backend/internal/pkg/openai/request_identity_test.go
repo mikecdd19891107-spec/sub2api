@@ -3,8 +3,8 @@ package openai
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestPairCodexClientIdentity(t *testing.T) {

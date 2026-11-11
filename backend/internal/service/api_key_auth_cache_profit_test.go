@@ -9,9 +9,9 @@ import (
 	"context"
 	"encoding/json"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ctxkey"
 	"github.com/stretchr/testify/require"
+
 )
 
 func profitAuthTestAPIKey() *APIKey {

@@ -5,8 +5,8 @@ package service
 import (
 	"fmt"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestModelMappingSignature_IndependentOfInsertionOrder(t *testing.T) {

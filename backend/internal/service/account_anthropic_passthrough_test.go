@@ -2,8 +2,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAccount_IsAnthropicAPIKeyPassthroughEnabled(t *testing.T) {

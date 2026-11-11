@@ -12,7 +12,6 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/apicompat"
@@ -23,6 +22,7 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/tlsfingerprint"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func f64p(v float64) *float64 { return &v }

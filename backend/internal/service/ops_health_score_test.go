@@ -5,8 +5,8 @@ package service
 import (
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestComputeDashboardHealthScore_IdleReturns100(t *testing.T) {

@@ -2,8 +2,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestIsImageGenerationIntentForPlatform_GrokCodexDeclarations(t *testing.T) {

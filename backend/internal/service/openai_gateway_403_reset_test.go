@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type openAI403CounterResetStub struct {

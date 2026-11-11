@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/tlsfingerprint"
 	"github.com/stretchr/testify/require"
+
 )
 
 type cnBalanceResponseUpstream struct {

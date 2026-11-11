@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestClassifyGrokUpstreamFailure_FreeUsage(t *testing.T) {

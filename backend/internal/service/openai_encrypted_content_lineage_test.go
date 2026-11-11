@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestCollectOpenAIEncryptedContentDigestsRaw(t *testing.T) {

@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/imroc/req/v3"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/oauth"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
+
 )
 
 type ClaudeOAuthServiceSuite struct {

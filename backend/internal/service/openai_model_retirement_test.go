@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestGPT55RetirementModelSupport(t *testing.T) {

@@ -23,8 +23,8 @@ import (
 	"context"
 	"net/url"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/payment"
+
 )
 
 // easyPayPoCProvider returns a provider with a fixed test credential set.

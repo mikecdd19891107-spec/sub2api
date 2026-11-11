@@ -2,8 +2,8 @@ package apicompat
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestRetypedResponsesToolCallItemID(t *testing.T) {

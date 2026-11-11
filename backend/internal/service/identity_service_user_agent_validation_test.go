@@ -6,10 +6,9 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/claude"
+
 )
 
 type stubIdentityCache struct {

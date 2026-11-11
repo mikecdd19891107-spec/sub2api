@@ -4,8 +4,8 @@ import (
 	"errors"
 	"testing"
 	"time"
-
 	"github.com/zeromicro/go-zero/core/collection"
+
 )
 
 func TestProvideTimingWheelService_ReturnsError(t *testing.T) {

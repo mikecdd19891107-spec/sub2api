@@ -3,8 +3,8 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // issue #5601：严格的 Responses 客户端（Rust serde 系，如 Codex / Grok CLI）把

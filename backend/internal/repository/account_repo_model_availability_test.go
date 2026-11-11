@@ -4,15 +4,14 @@ import (
 	"context"
 	"strings"
 	"testing"
-
 	"github.com/DATA-DOG/go-sqlmock"
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	_ "github.com/mikecdd19891107-spec/agentbyte/ent/runtime"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
+
 )
 
 func TestListModelAvailabilityCandidates_GroupQueryIgnoresTransientState(t *testing.T) {

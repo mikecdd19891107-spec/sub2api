@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 	"unsafe"
-
 	"github.com/imroc/req/v3"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/servertiming"
 	"github.com/stretchr/testify/require"
+
 )
 
 func forceHTTPVersion(t *testing.T, client *req.Client) string {

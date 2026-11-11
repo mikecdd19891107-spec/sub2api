@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 	"unicode/utf8"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type duplicateChannelMonitorRepoStub struct {

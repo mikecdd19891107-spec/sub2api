@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 func TestBuildOpsSystemLogsWhere_WithClientRequestIDAndUserID(t *testing.T) {

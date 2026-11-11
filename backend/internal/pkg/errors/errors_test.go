@@ -8,8 +8,8 @@ import (
 	"io"
 	"net/http"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestApplicationError_Basics(t *testing.T) {

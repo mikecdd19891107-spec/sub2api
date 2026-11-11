@@ -6,9 +6,9 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestSystemOperationLockService_AcquireBusyAndRelease(t *testing.T) {

@@ -5,15 +5,14 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/DATA-DOG/go-sqlmock"
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	_ "github.com/mikecdd19891107-spec/agentbyte/ent/runtime"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/usersubscription"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
+
 )
 
 func TestUserSubscriptionGetByIDForUpdateLocksRow(t *testing.T) {

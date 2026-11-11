@@ -9,8 +9,8 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/servertiming"
+
 )
 
 const fakeDriverDelay = 2 * time.Millisecond

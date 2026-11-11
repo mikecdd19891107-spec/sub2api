@@ -4,14 +4,13 @@ import (
 	"context"
 	"errors"
 	"math"
-
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ctxkey"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/timezone"
 	"github.com/stretchr/testify/require"
+
 )
 
 func profitControlTestGroup(id int64, margin, buffer float64) *Group {

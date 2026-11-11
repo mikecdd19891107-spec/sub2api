@@ -4,9 +4,9 @@ package service
 
 import (
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
 	"github.com/stretchr/testify/require"
+
 )
 
 // 以下为重构前各处手写的平台列表 / switch，作为平台清单派生结果的等价基准；

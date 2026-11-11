@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // 固定账号 manifest 配置必须在认证快照 JSON 往返后完整保留，

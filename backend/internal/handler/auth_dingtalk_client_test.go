@@ -6,8 +6,8 @@ import (
 	"net/http/httptest"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestDingTalkClient_ExchangeCodeForUserToken_Success(t *testing.T) {

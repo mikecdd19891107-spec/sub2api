@@ -3,9 +3,9 @@ package handler
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 const automationBootstrapPrompt = "Review the project and report any important changes."

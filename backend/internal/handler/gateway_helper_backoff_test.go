@@ -3,9 +3,9 @@ package handler
 import (
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 // --- Task 6.2 验证: math/rand/v2 迁移后 nextBackoff 行为正确 ---

@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"testing"
 	"time"
-
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/stretchr/testify/require"
+
 )
 
 type bulkActionSubscriptionRepo struct {

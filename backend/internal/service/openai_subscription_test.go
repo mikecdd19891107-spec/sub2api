@@ -7,9 +7,9 @@ import (
 	"net/http/httptest"
 	"testing"
 	"time"
-
 	"github.com/imroc/req/v3"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestFetchChatGPTSubscriptionExpiresAt(t *testing.T) {

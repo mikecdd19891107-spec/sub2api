@@ -6,11 +6,11 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	dbaccount "github.com/mikecdd19891107-spec/agentbyte/ent/account"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func mustCreateUser(t *testing.T, client *dbent.Client, u *service.User) *service.User {

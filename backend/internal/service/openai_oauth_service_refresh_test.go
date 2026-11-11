@@ -8,10 +8,10 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/imroc/req/v3"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/stretchr/testify/require"
+
 )
 
 type openaiOAuthClientRefreshStub struct {

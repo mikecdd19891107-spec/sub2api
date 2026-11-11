@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
+
 )
 
 // sessionWindowMockRepo is a minimal AccountRepository mock that records calls

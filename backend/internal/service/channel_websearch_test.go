@@ -2,8 +2,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestChannel_IsWebSearchEmulationEnabled_Enabled(t *testing.T) {

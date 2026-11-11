@@ -3,9 +3,9 @@ package service
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestOAuthInputInternalMetadata(t *testing.T) {

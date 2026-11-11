@@ -6,9 +6,9 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/dgraph-io/ristretto"
 	"github.com/stretchr/testify/require"
+
 )
 
 type authInvalidationRepoStub struct {

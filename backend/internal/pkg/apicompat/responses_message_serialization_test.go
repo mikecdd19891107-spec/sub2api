@@ -3,9 +3,9 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func marshalMessageWire(t *testing.T, value any) gjson.Result {

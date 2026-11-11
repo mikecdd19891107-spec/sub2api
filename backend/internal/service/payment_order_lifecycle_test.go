@@ -7,16 +7,15 @@ import (
 	"database/sql"
 	"testing"
 	"time"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/enttest"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/payment"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	_ "modernc.org/sqlite"
+
 )
 
 type paymentOrderLifecycleQueryProvider struct {

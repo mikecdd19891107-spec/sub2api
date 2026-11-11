@@ -10,9 +10,9 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/stretchr/testify/require"
+
 )
 
 const redeemTestOrg = "11111111-1111-4111-8111-111111111111"

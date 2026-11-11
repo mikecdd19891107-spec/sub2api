@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func readIssue5302Fixture(t *testing.T, name string, dst any) {

@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
+
 )
 
 type RedeemCacheSuite struct {

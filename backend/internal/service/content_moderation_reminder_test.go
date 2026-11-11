@@ -9,8 +9,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func reminderTestBody(t *testing.T, protocol string, texts []string) []byte {

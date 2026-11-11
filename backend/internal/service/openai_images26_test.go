@@ -13,9 +13,9 @@ import (
 	"net/textproto"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestGPTImage26ComplexityAcrossImageEndpoints(t *testing.T) {

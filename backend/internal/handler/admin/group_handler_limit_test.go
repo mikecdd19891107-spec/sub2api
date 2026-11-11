@@ -3,8 +3,8 @@ package admin
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestUpdateGroupRequestLimitFieldsTriState(t *testing.T) {

@@ -7,8 +7,8 @@ import (
 	"encoding/json"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAdminProxyRejectsOutOfRangeExpiry(t *testing.T) {

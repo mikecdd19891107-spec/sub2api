@@ -3,9 +3,9 @@ package dto
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
 	"github.com/stretchr/testify/require"
+
 )
 
 func localizableGroup() *Group {

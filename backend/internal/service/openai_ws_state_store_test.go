@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestOpenAIWSStateStore_BindGetDeleteResponseAccount(t *testing.T) {

@@ -4,10 +4,10 @@ import (
 	"context"
 	"net/http"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/apicompat"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // codexNamespaceRequestBody 模拟 Codex 多智能体请求：collaboration 命名空间声明 +

@@ -11,11 +11,11 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/alicebob/miniredis/v2"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
+
 )
 
 func newSchedulerCacheUnit(t *testing.T) *schedulerCache {

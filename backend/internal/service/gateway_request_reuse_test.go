@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"sync"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestGatewayRequestBodyReuse_RestoresDerivedStateAndIsolatesAttempts(t *testing.T) {

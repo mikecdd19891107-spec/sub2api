@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 func buildImagesEditMultipartBody(t *testing.T, imageSize int) ([]byte, string, []byte) {

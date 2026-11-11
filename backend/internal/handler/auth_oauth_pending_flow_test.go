@@ -11,7 +11,6 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/authidentity"
@@ -25,10 +24,10 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/pquerna/otp/totp"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	_ "modernc.org/sqlite"
+
 )
 
 func TestApplySuggestedProfileToCompletionResponse(t *testing.T) {
@@ -2879,6 +2878,10 @@ func (s *oauthPendingFlowRefreshTokenCacheStub) DeleteUserRefreshTokens(context.
 
 func (s *oauthPendingFlowRefreshTokenCacheStub) DeleteTokenFamily(context.Context, string) error {
 	return nil
+}
+
+func (s *oauthPendingFlowRefreshTokenCacheStub) ConsumeRefreshToken(context.Context, string) (*service.RefreshTokenData, error) {
+	return nil, service.ErrRefreshTokenNotFound
 }
 
 func (s *oauthPendingFlowRefreshTokenCacheStub) AddToUserTokenSet(context.Context, int64, string, time.Duration) error {

@@ -6,9 +6,9 @@ import (
 	"sync"
 	"sync/atomic"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 // --- Task 7: 验证 generateRandomID 和降级碰撞防护 ---

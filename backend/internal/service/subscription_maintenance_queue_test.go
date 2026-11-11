@@ -7,8 +7,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestSubscriptionMaintenanceQueue_TryEnqueue_QueueFull(t *testing.T) {

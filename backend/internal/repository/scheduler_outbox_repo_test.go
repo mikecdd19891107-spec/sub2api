@@ -5,9 +5,9 @@ import (
 	"regexp"
 	"testing"
 	"time"
-
 	sqlmock "github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestSchedulerOutboxRepositoryFirstCreatedAtAfter(t *testing.T) {

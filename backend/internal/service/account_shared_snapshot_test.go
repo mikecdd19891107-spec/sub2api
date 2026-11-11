@@ -4,8 +4,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // 共享母本的副本命中预解析缓存时不计算签名：此处故意原地改写共享的原始映射，

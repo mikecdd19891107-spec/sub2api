@@ -6,9 +6,9 @@ import (
 	"context"
 	"strconv"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/payment"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestBuildPaymentOrderProviderSnapshot_ExcludesSensitiveConfig(t *testing.T) {

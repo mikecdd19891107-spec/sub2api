@@ -8,11 +8,11 @@ import (
 	"io"
 	"net"
 	"testing"
-
 	coderws "github.com/coder/websocket"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestIsOpenAIWSClientDisconnectError(t *testing.T) {

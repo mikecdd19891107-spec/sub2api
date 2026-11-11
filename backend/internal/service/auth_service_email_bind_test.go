@@ -10,7 +10,6 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/authidentity"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/enttest"
@@ -20,10 +19,10 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/repository"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	_ "modernc.org/sqlite"
+
 )
 
 type emailBindDefaultSubAssignerStub struct {
@@ -917,6 +916,24 @@ func (s *emailBindRefreshTokenCacheStub) DeleteRefreshToken(_ context.Context, t
 		delete(tokenSet, tokenHash)
 	}
 	return nil
+}
+
+func (s *emailBindRefreshTokenCacheStub) ConsumeRefreshToken(_ context.Context, tokenHash string) (*service.RefreshTokenData, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	data, ok := s.tokens[tokenHash]
+	if !ok {
+		return nil, service.ErrRefreshTokenNotFound
+	}
+	delete(s.tokens, tokenHash)
+	for _, tokenSet := range s.userSets {
+		delete(tokenSet, tokenHash)
+	}
+	for _, tokenSet := range s.families {
+		delete(tokenSet, tokenHash)
+	}
+	cloned := *data
+	return &cloned, nil
 }
 
 func (s *emailBindRefreshTokenCacheStub) DeleteUserRefreshTokens(_ context.Context, userID int64) error {

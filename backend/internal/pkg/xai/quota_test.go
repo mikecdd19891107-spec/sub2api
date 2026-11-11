@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestParseQuotaHeaders(t *testing.T) {

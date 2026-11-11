@@ -2,9 +2,9 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestExtractOpenAIUsageFromJSONBytes_MergesHostedImageGenToolUsage(t *testing.T) {

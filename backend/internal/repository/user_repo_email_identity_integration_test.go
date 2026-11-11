@@ -4,9 +4,9 @@ package repository
 
 import (
 	"context"
-
 	"github.com/mikecdd19891107-spec/agentbyte/ent/authidentity"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 func (s *UserRepoSuite) TestCreate_CreatesEmailAuthIdentityForNormalEmail() {

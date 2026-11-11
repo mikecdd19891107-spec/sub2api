@@ -4,9 +4,9 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
-
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+
 )
 
 func TestResolveLogFilePath_Default(t *testing.T) {

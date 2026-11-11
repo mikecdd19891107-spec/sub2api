@@ -3,6 +3,7 @@ package service
 import (
 	"sort"
 	"testing"
+
 )
 
 func buildOpenAISchedulerBenchmarkCandidates(size int) []openAIAccountCandidateScore {

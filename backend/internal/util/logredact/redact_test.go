@@ -3,6 +3,7 @@ package logredact
 import (
 	"strings"
 	"testing"
+
 )
 
 func TestRedactText_JSONLike(t *testing.T) {

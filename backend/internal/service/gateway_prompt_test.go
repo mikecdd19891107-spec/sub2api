@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/claude"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestIsClaudeCodeClient(t *testing.T) {

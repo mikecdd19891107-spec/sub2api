@@ -10,11 +10,11 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/alicebob/miniredis/v2"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
+
 )
 
 func newMiniredisEmailCache(t *testing.T) (service.EmailCache, *miniredis.Miniredis, *redis.Client) {

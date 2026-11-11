@@ -11,8 +11,8 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	utls "github.com/refraction-networking/utls"
+
 )
 
 // CapturedFingerprint 对应 tls-fingerprint-web 返回的 Fingerprint 结构。

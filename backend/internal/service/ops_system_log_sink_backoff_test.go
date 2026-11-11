@@ -6,8 +6,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+
 )
 
 func opsSystemLogBackoffEvent() *logger.LogEvent {

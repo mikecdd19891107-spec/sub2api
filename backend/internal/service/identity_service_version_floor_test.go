@@ -4,10 +4,9 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/claude"
+
 )
 
 // floorClaudeCLIUserAgentVersion 单元测试：版本下限抬升的各种形态。

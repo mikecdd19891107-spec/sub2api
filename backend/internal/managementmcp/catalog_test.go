@@ -6,6 +6,7 @@ import (
 	"slices"
 	"strings"
 	"testing"
+
 )
 
 func TestToolCatalogRouteAndSchemaBoundaries(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestResponsesReasoningContentFallback(t *testing.T) {

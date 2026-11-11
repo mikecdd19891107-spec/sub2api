@@ -2,9 +2,9 @@ package service
 
 import (
 	"testing"
-
 	"github.com/shirou/gopsutil/v4/mem"
 	"github.com/stretchr/testify/require"
+
 )
 
 const (

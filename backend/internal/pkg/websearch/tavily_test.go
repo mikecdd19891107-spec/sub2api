@@ -3,8 +3,8 @@ package websearch
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestTavilyProvider_Name(t *testing.T) {

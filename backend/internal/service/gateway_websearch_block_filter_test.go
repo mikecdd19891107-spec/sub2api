@@ -4,9 +4,9 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // emulatedWebSearchBody is a follow-up /v1/messages request whose history

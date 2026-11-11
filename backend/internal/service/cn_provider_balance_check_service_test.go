@@ -5,9 +5,9 @@ import (
 	"errors"
 	"sync"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
+
 )
 
 // 周期任务对 coding plan 账号的额度探测行为（runOnce 集成路径）：

@@ -2,9 +2,9 @@ package service
 
 import (
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/antigravity"
 	"github.com/stretchr/testify/assert"
+
 )
 
 func TestNormalizeAntigravitySubscription_PaidTierWithIneligible(t *testing.T) {

@@ -5,9 +5,9 @@ import (
 	"errors"
 	"net/url"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/stretchr/testify/require"
+
 )
 
 type openaiOAuthClientAuthURLStub struct{}

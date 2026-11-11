@@ -6,12 +6,12 @@ import (
 	"context"
 	"errors"
 	"testing"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	"github.com/DATA-DOG/go-sqlmock"
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestScopedAdminAfterCommitEffects(t *testing.T) {

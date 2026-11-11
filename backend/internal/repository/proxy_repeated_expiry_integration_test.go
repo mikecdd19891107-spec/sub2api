@@ -5,8 +5,8 @@ package repository
 import (
 	"encoding/json"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 func (s *ProxyExpirySuite) TestSweep_RepeatedExpiryPreservesOriginalProxy() {

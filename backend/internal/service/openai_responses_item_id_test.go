@@ -4,9 +4,9 @@ import (
 	"strconv"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestOpenAIResponsesInputItemIDPrefixUsesObservedOutputContracts(t *testing.T) {

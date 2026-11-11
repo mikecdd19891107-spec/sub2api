@@ -3,9 +3,9 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 func requireObjectInputSchema(t *testing.T, schema json.RawMessage) map[string]json.RawMessage {

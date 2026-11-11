@@ -8,8 +8,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // ollamaCloudProbeUsageBody renders a minimal settings page exposing only the

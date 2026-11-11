@@ -3,8 +3,8 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // #6887：Codex multi_agent_v2 用 agent_message 条目在父线程与子智能体之间传递任务和回复，

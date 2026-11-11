@@ -8,8 +8,8 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // This file unit-tests the Ollama Cloud usage 429 branch added to

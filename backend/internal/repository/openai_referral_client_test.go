@@ -8,11 +8,11 @@ import (
 	"net/http/httptest"
 	"sync/atomic"
 	"testing"
-
 	"github.com/imroc/req/v3"
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func referralTestClient(t *testing.T, handler http.HandlerFunc) *openAIReferralClient {

@@ -7,10 +7,10 @@ import (
 	"errors"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/model"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 // mockErrorPassthroughRepo 用于测试的 mock repository

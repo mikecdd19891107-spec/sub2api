@@ -14,8 +14,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // pngBytes is a minimal payload whose signature makes http.DetectContentType

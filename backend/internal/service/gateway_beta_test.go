@@ -2,10 +2,9 @@ package service
 
 import (
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/claude"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestMergeAnthropicBeta(t *testing.T) {

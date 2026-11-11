@@ -2,8 +2,8 @@ package domain
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // 重构前各处手写的平台列表，作为平台清单派生结果的等价基准；重构后新登记的平台

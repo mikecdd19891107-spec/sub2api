@@ -6,8 +6,8 @@ import (
 	"context"
 	"encoding/json"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+
 )
 
 // makeOverlayService 构造一个没有 cron / db 的 cleanup service，仅用来测试 effective overlay。

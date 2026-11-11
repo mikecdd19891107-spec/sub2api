@@ -3,8 +3,8 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // issue #5528：/v1/messages 客户端(Claude Code 等)打到只会 Chat Completions 的

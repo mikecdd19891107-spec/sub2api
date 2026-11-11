@@ -7,10 +7,10 @@ import (
 	"strings"
 	"sync"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ctxkey"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
+
 )
 
 type testLogSink struct {

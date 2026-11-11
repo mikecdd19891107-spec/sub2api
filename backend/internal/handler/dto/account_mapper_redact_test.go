@@ -3,10 +3,9 @@ package dto
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 func TestAccountFromServiceShallow_RedactsSensitiveCredentials(t *testing.T) {

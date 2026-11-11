@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"sync/atomic"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type fakeLegacyEngine struct {

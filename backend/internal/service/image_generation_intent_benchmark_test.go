@@ -3,6 +3,7 @@ package service
 import (
 	"strings"
 	"testing"
+
 )
 
 var imageGenerationIntentBenchmarkResult bool

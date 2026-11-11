@@ -6,8 +6,8 @@ import (
 	"go/token"
 	"path/filepath"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestOpenAIRecordUsageInputsCarryQuotaPlatform(t *testing.T) {

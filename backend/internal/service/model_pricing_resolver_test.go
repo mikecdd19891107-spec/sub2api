@@ -6,8 +6,8 @@ import (
 	"context"
 	"errors"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func newTestBillingServiceForResolver() *BillingService {

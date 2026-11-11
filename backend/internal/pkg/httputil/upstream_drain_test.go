@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestUpstreamDrainStartsOnlyAfterClientCancellation(t *testing.T) {

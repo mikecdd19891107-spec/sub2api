@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // profitVetoLoopResult 记录一次模拟选号循环的终止方式与步数。

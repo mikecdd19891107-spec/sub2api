@@ -7,10 +7,10 @@ import (
 	"fmt"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestParseGatewayRequest(t *testing.T) {

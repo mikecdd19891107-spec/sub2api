@@ -14,9 +14,9 @@ import (
 	"testing"
 	"testing/iotest"
 	"time"
-
 	"go.uber.org/zap"
 	"go.uber.org/zap/zaptest/observer"
+
 )
 
 func TestReadRequestBodyWithPreallocReportsProgressOnReadError(t *testing.T) {

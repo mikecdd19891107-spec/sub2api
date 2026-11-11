@@ -7,9 +7,9 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestDigestSessionStore_SaveAndFind(t *testing.T) {

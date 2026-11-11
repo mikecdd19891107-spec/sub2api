@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 	"testing"
-
 	coderws "github.com/coder/websocket"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 // issue #6105：入站 Responses WebSocket 的正常结束会被记成账号故障。

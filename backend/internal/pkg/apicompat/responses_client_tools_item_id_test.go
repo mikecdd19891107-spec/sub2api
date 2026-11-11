@@ -2,8 +2,8 @@ package apicompat
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // A function-only upstream answers a lowered custom tool with an fc_ item ID.

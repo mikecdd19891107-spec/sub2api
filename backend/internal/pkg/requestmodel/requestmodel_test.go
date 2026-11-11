@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"strconv"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/httputil"
+
 )
 
 func TestFromBodyJSONModel(t *testing.T) {

@@ -7,15 +7,14 @@ import (
 	"database/sql"
 	"errors"
 	"testing"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	_ "modernc.org/sqlite"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/enttest"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/payment"
 	"github.com/stretchr/testify/require"
+
 )
 
 // newOrderNotFoundTestClient wires an in-memory sqlite-backed ent.Client so

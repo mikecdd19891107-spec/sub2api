@@ -11,11 +11,10 @@ import (
 	"net/http/httptest"
 	"sync/atomic"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 // failingAdminService 嵌入 stubAdminService，可配置 UpdateAccount 在指定 ID 时失败。

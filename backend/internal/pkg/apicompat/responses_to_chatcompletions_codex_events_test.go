@@ -2,9 +2,9 @@ package apicompat
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 // custom_tool_call（custom/freeform 工具，如新版 apply_patch）应像 function_call 一样

@@ -3,8 +3,8 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestResponsesEventToChatChunks_ArgumentsDeltaOmitsEmptyName pins that

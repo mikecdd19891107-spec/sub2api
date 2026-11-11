@@ -5,10 +5,10 @@ package service_test
 import (
 	"context"
 	"testing"
-
 	dbuser "github.com/mikecdd19891107-spec/agentbyte/ent/user"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestLoginOrRegisterVerifiedEmailOAuth_BlacklistedExistingUserCanStillSignIn(t *testing.T) {

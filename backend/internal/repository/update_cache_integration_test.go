@@ -6,10 +6,10 @@ import (
 	"errors"
 	"testing"
 	"time"
-
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
+
 )
 
 type UpdateCacheSuite struct {

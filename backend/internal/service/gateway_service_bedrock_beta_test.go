@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+
 )
 
 type betaPolicySettingRepoStub struct {

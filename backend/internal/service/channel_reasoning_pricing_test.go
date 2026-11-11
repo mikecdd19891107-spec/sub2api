@@ -5,8 +5,8 @@ package service
 import (
 	"math"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestValidatePricingEntries_ReasoningEffortMultipliers(t *testing.T) {

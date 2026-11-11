@@ -11,8 +11,8 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type ssoDeviceFakeClient struct {

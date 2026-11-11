@@ -3,8 +3,8 @@ package dto
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 // profitControlJSONFields 是分组利润控制的三个 JSON 字段。它们与同响应中的

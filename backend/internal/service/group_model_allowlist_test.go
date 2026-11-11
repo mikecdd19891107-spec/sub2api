@@ -3,6 +3,7 @@ package service
 import (
 	"strings"
 	"testing"
+
 )
 
 func TestNormalizeGroupModelAllowlist(t *testing.T) {

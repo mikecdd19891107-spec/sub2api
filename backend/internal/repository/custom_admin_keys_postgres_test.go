@@ -10,10 +10,10 @@ import (
 	"path/filepath"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/adminaccess"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 // 只使用显式指定的隔离测试数据库，每次创建并清理独立 schema。

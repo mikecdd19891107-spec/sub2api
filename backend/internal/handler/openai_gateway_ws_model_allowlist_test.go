@@ -2,8 +2,8 @@ package handler
 
 import (
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 func wsAllowlistGroup(enabled bool, models ...string) *service.Group {

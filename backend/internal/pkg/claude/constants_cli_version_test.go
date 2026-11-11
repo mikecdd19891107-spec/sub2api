@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // fable51MinCLIVersion 是上游对 claude-fable-5-1 的客户端版本闸门下限。

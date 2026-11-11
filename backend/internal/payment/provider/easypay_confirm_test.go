@@ -8,8 +8,8 @@ import (
 	"strings"
 	"sync/atomic"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/payment"
+
 )
 
 func newConfirmTestEasyPay(t *testing.T, body string, status int) (*EasyPay, *atomic.Int32) {

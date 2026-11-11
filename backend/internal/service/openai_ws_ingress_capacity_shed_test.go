@@ -8,11 +8,11 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	coderws "github.com/coder/websocket"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // openAIWSIngressCapacityShedRepo 补齐 SetError，避免非容量类错误（如

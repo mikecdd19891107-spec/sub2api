@@ -8,9 +8,9 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/typesafe"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestContentModerationEngineProfilesPreserveLegacy(t *testing.T) {

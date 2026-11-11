@@ -3,8 +3,8 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // #6653：Codex 把运行时工具放在 input[].additional_tools 里，force_chat_completions

@@ -7,13 +7,13 @@ import (
 	"fmt"
 	"strings"
 	"testing"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	"github.com/DATA-DOG/go-sqlmock"
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestProxySampleSQLRandomizesWholePoolBeforeLimit(t *testing.T) {

@@ -3,8 +3,8 @@ package service
 import (
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestRedeemCodeExpiry(t *testing.T) {

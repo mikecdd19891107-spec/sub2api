@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestDeriveOpenAIContentSessionSeed_EmptyInputs(t *testing.T) {

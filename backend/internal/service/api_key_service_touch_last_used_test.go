@@ -8,8 +8,8 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAPIKeyService_TouchLastUsed_InvalidKeyID(t *testing.T) {

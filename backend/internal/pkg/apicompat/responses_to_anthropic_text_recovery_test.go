@@ -2,9 +2,9 @@ package apicompat
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 // feedResponsesEvents converts a whole event sequence with a single state.

@@ -9,16 +9,15 @@ import (
 	"strings"
 	"sync"
 	"testing"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/enttest"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/securitysecret"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	_ "modernc.org/sqlite"
+
 )
 
 func newSecuritySecretTestClient(t *testing.T) *dbent.Client {

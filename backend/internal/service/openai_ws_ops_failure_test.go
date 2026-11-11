@@ -3,9 +3,9 @@ package service
 import (
 	"net/http"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestMarkOpenAIWSClientVisibleFailure_ResponseFailedNestedError(t *testing.T) {

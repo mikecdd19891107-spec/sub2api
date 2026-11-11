@@ -5,14 +5,13 @@ import (
 	"fmt"
 	"strings"
 	"testing"
-
 	"github.com/DATA-DOG/go-sqlmock"
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	_ "github.com/mikecdd19891107-spec/agentbyte/ent/runtime"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
+
 )
 
 type captureEntQueryMatcher struct {

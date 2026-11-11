@@ -3,8 +3,8 @@ package service
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestClaudeCodeFingerprint_JavaScriptUTF16(t *testing.T) {

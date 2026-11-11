@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestLoadOpenAITransportErrorCooldown(t *testing.T) {
