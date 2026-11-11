@@ -5,8 +5,8 @@ import (
 	"io"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type largeImageBase64Reader struct{}

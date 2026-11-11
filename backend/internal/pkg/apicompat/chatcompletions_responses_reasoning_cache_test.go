@@ -3,8 +3,8 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // Encrypted-only reasoning items (empty summary + opaque encrypted_content,

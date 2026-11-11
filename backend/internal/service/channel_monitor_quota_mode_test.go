@@ -6,9 +6,9 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
 	"github.com/stretchr/testify/require"
+
 )
 
 // --- repo / fetcher 装配 ---

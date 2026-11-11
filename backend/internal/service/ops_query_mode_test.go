@@ -6,8 +6,8 @@ import (
 	"errors"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestShouldFallbackOpsPreagg(t *testing.T) {

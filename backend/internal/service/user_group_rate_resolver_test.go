@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	gocache "github.com/patrickmn/go-cache"
 	"github.com/stretchr/testify/require"
+
 )
 
 type userGroupRateResolverRepoStub struct {

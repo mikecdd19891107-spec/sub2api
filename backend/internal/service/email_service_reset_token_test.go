@@ -7,8 +7,8 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type resetTokenCacheStub struct {

@@ -6,8 +6,8 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestDiagnoseModelAvailabilityForPlatform_NoModel_AlwaysAvailable(t *testing.T) {

@@ -3,9 +3,9 @@ package config
 import (
 	"strings"
 	"testing"
-
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestValidateWebAuthnConfig(t *testing.T) {

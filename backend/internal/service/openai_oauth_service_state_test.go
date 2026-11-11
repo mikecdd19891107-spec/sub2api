@@ -6,9 +6,9 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/stretchr/testify/require"
+
 )
 
 type openaiOAuthClientStateStub struct {

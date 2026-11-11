@@ -5,9 +5,9 @@ package service
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/domain"
 	"github.com/stretchr/testify/require"
+
 )
 
 func mustParseSessionHashRequest(t *testing.T, body string, ctx *SessionContext) *ParsedRequest {

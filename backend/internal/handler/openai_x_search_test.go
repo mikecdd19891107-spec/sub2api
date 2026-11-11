@@ -2,10 +2,10 @@ package handler
 
 import (
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/xai"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestBuildGrokXSearchResponsesBody(t *testing.T) {

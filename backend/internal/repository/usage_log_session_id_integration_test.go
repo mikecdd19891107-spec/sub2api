@@ -6,11 +6,10 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	"github.com/google/uuid"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestUsageLog_SessionIDPersistence proves session_id round-trips from insert to

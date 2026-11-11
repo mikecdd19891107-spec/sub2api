@@ -5,13 +5,13 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/claude"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
+
 )
 
 // withCLIVersionResolverForTest 注入解析器并在用例结束时还原（置 nil），避免用例间污染。

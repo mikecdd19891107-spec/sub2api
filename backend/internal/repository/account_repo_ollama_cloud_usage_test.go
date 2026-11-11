@@ -7,14 +7,13 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/DATA-DOG/go-sqlmock"
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
+
 )
 
 func newOllamaCloudUsageRepositoryTestClient(t *testing.T) (*dbent.Client, sqlmock.Sqlmock) {

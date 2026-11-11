@@ -9,8 +9,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // claudeTokenCacheStub implements ClaudeTokenCache for testing

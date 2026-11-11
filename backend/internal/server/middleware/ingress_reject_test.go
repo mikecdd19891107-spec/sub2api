@@ -5,9 +5,9 @@ import (
 	"net/http/httptest"
 	"sync"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 type ingressRejectRecorderStub struct {

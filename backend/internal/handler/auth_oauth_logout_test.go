@@ -6,10 +6,10 @@ import (
 	"net/http/httptest"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/pendingauthsession"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestLogoutClearsOAuthStateCookiesAndConsumesPendingSession(t *testing.T) {

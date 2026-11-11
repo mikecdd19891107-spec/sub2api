@@ -8,10 +8,10 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/stretchr/testify/require"
+
 )
 
 type settingRepoStub struct {
@@ -147,6 +147,10 @@ func (s *refreshTokenCacheStub) DeleteUserRefreshTokens(context.Context, int64) 
 
 func (s *refreshTokenCacheStub) DeleteTokenFamily(context.Context, string) error {
 	return nil
+}
+
+func (s *refreshTokenCacheStub) ConsumeRefreshToken(context.Context, string) (*RefreshTokenData, error) {
+	return nil, ErrRefreshTokenNotFound
 }
 
 func (s *refreshTokenCacheStub) AddToUserTokenSet(context.Context, int64, string, time.Duration) error {

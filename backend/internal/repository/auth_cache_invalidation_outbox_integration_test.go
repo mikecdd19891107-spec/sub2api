@@ -9,9 +9,9 @@ import (
 	"fmt"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAuthCacheInvalidationTriggers_CoverSecurityMutationsOnly(t *testing.T) {

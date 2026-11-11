@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/klauspost/compress/zstd"
+
 )
 
 const samplePayload = `{"model":"gpt-5.5","input":"hi","stream":false}`

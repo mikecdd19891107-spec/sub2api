@@ -5,11 +5,11 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	hcplugin "github.com/hashicorp/go-plugin"
 	pluginv1 "github.com/mikecdd19891107-spec/agentbyte/pkg/pluginapi/v1"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 // brokerProbePlugin 是仅用于测试的插件传输实现：它实现 HostBrokerReceiver 以拿到

@@ -2,6 +2,7 @@ package service
 
 import (
 	"testing"
+
 )
 
 func TestOpenAIImageOutputCounter_TextOnlyMessage(t *testing.T) {

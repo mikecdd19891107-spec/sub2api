@@ -2,6 +2,7 @@ package googleapi
 
 import (
 	"testing"
+
 )
 
 func TestExtractActivationURL(t *testing.T) {

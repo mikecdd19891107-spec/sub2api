@@ -5,8 +5,8 @@ package service
 import (
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func mkProxy(id int64, mode string, backup *int64, expiresInDays *int, now time.Time) Proxy {

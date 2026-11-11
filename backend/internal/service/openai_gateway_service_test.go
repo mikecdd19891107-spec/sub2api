@@ -12,7 +12,6 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/cespare/xxhash/v2"
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
@@ -20,6 +19,7 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // 编译期接口断言

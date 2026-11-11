@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestGetAccessToken_SparkShadowResolvesToParent 验证对影子账号调用 GetAccessToken

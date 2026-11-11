@@ -5,8 +5,8 @@ package handler
 import (
 	"testing"
 	"time"
-
 	coderws "github.com/coder/websocket"
+
 )
 
 func TestIsExpectedGrokRealtimeClose(t *testing.T) {

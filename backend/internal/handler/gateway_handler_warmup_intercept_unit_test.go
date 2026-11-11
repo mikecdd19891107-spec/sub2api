@@ -10,15 +10,14 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ctxkey"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 	middleware "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 // 目标：严格验证“antigravity 账号通过 /v1/messages 提供 Claude 服务时”，

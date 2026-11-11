@@ -4,8 +4,8 @@ import (
 	"context"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type identityCacheStub struct {

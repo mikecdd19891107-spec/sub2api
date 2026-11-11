@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+
 )
 
 func TestInit_DualOutput(t *testing.T) {

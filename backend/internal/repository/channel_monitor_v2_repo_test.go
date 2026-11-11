@@ -5,11 +5,11 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/lib/pq"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestChannelMonitorV2DateBinOriginIsUTC(t *testing.T) {

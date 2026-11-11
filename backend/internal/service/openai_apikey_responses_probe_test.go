@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai_compat"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestProbeOpenAIAPIKeyResponsesSupportUsesCodexProbeHeaders(t *testing.T) {

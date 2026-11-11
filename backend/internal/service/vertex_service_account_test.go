@@ -12,10 +12,10 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/servertiming"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestBuildVertexGeminiURL(t *testing.T) {

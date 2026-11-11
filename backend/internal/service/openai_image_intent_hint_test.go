@@ -9,10 +9,10 @@ import (
 	"sync"
 	"sync/atomic"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func newOpenAIImageIntentHintTestContext(transport OpenAIClientTransport) *gin.Context {

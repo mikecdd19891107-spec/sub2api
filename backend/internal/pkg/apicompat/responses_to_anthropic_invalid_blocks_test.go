@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // anthropicInboundBlockTypes 是 Anthropic Messages 请求体里合法的 content block

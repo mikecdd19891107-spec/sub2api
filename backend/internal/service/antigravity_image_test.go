@@ -4,8 +4,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestIsImageGenerationModel_GeminiProImage 测试 gemini-3-pro-image 识别

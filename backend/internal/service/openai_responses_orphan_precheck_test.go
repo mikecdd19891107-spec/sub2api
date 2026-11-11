@@ -140,6 +140,7 @@ func TestOpenAIResponsesOrphanPrecheckLargeEscapedContent(t *testing.T) {
 		require.NoError(t, err, "isolated allocation check failed: %s", output)
 		return
 	}
+
 	body := []byte(`{"vendor":"` + strings.Repeat(`\n\"`, 1<<16) + `","input":[{"content":"` + strings.Repeat(`\n\"`, 1<<16) + `","type":"message"}]}`)
 	require.False(t, openAIResponsesInputMayNeedOrphanCleanup(body))
 	allocations := testing.AllocsPerRun(5, func() {

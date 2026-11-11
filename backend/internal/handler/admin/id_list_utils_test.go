@@ -4,8 +4,8 @@ package admin
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestNormalizeInt64IDList(t *testing.T) {

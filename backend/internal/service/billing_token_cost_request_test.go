@@ -5,9 +5,9 @@ package service
 import (
 	"context"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
+
 )
 
 // newTokenCostTestEnv 构造带渠道定价的计费环境：group 100 挂一个渠道，定价由 pricing 指定。

@@ -5,10 +5,9 @@ package admin
 import (
 	"net/http"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // Saving settings is a whole-document PUT. A client that sends only the field it

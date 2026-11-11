@@ -9,8 +9,8 @@ import (
 	"net/http/httptest"
 	"os"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestS3BackupStore_UploadFile(t *testing.T) {

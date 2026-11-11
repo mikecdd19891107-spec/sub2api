@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/geminicli"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestCreateGeminiTestPayload_ImageModel(t *testing.T) {

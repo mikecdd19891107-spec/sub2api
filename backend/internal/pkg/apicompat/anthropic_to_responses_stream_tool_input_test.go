@@ -3,9 +3,9 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 // collectToolCallStreamEvents drives a tool_use block through the Anthropic →

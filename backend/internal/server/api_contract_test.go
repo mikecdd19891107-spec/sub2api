@@ -13,7 +13,6 @@ import (
 	"sort"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/handler"
 	adminhandler "github.com/mikecdd19891107-spec/agentbyte/internal/handler/admin"
@@ -21,9 +20,9 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/usagestats"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAPIContracts(t *testing.T) {
@@ -602,6 +601,8 @@ func TestAPIContracts(t *testing.T) {
 							"cache_read_tokens": 2,
 							"cache_creation_5m_tokens": 0,
 							"cache_creation_1h_tokens": 0,
+							"cache_creation_30m_tokens": 0,
+							"cache_creation_12h_tokens": 0,
 							"input_cost": 0,
 							"output_cost": 0,
 							"cache_creation_cost": 0,

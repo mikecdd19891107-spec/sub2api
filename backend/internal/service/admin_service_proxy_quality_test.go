@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestFinalizeProxyQualityResult_ScoreAndGrade(t *testing.T) {

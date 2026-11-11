@@ -12,8 +12,8 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/klauspost/compress/zstd"
+
 )
 
 func TestRequestBodyMemoryBudgetSharedUntilRelease(t *testing.T) {

@@ -8,9 +8,9 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 // issue #5601：严格的 Responses 客户端把 created_at 当必填字段，缺失即

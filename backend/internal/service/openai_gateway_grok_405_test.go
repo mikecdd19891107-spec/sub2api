@@ -3,8 +3,8 @@ package service
 import (
 	"net/http"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
+
 )
 
 func TestShouldFailoverUpstreamError_405IsFailoverEligible(t *testing.T) {

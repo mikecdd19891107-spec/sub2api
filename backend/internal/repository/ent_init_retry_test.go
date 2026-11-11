@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"testing"
 	"time"
-
 	"github.com/lib/pq"
 	"github.com/stretchr/testify/require"
+
 )
 
 func transientDatabaseError(code string) error {

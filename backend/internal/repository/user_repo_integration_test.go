@@ -9,13 +9,13 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/authidentity"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/authidentitychannel"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/suite"
+
 )
 
 type UserRepoSuite struct {

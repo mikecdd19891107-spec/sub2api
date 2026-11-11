@@ -11,10 +11,10 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestGrokResponseAuditNativeJSON(t *testing.T) {

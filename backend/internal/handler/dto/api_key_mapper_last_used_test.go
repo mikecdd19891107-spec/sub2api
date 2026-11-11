@@ -3,9 +3,9 @@ package dto
 import (
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAPIKeyFromService_MapsLastUsedAt(t *testing.T) {

@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestBraveProvider_Name(t *testing.T) {

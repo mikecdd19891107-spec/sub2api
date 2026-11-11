@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 const userSuppliedCodexFingerprintSeed = "22222222-2222-4222-8222-222222222222"

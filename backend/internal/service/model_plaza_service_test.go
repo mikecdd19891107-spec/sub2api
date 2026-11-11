@@ -6,9 +6,9 @@ import (
 	"context"
 	"errors"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
+
 )
 
 // newPlazaService 构造 ListGroups 测试用的 ModelPlazaService（不接计费服务：展示定价原样透传）。

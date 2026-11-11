@@ -4,8 +4,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func intPtrHelper(v int) *int { return &v }

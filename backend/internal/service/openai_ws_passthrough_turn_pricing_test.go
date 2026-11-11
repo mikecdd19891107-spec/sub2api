@@ -8,11 +8,11 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	coderws "github.com/coder/websocket"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // startPassthroughHookRecordingServer 与 startPassthroughLifecycleServer 相同，

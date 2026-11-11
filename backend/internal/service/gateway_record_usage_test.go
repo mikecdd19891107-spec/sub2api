@@ -8,10 +8,10 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ctxkey"
 	"github.com/stretchr/testify/require"
+
 )
 
 func newGatewayRecordUsageServiceForTest(usageRepo UsageLogRepository, userRepo UserRepository, subRepo UserSubscriptionRepository) *GatewayService {

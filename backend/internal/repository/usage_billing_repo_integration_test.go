@@ -9,12 +9,11 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/google/uuid"
 	"github.com/lib/pq"
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 func TestUsageBillingRepositoryApply_DeduplicatesBalanceBilling(t *testing.T) {

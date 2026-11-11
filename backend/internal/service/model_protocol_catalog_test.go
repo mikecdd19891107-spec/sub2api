@@ -13,9 +13,9 @@ import (
 	"testing"
 	"testing/synctest"
 	"time"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // 取自 https://api.commandcode.ai/provider/v1/models 的片段（2026-09-26）。

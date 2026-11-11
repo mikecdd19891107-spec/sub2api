@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/claude"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestSonnet55ToolsetDropsLegacyStreamingBeta(t *testing.T) {

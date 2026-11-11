@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestUpstreamRequestIDFromHeaders_UnconfiguredAccountRecordsNothing(t *testing.T) {

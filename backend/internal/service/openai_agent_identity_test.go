@@ -15,10 +15,10 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
 	"golang.org/x/crypto/curve25519"
 	"golang.org/x/crypto/nacl/box"
+
 )
 
 func newTestAgentIdentityKey(t *testing.T) (agentIdentityKey, string) {

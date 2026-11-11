@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
+
 )
 
 // response.incomplete（生成超时/截断）应被识别为可重试的 502 上游错误，触发 failover。

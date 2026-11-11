@@ -7,8 +7,8 @@ import (
 	"math"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestResolveRebateRatePercent_PerUserOverride verifies that per-inviter

@@ -7,8 +7,8 @@ import (
 	"errors"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type scopedGroupModelsRepo struct {

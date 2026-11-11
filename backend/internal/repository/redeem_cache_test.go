@@ -5,8 +5,8 @@ package repository
 import (
 	"math"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestRedeemRateLimitKey(t *testing.T) {

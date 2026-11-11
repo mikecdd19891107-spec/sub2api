@@ -5,9 +5,9 @@ package service
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func openCodeGoTestAccount(id int64) *Account {

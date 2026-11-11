@@ -3,9 +3,9 @@ package service
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestOpenAIStreamEventIsTerminalWithTypeMatchesExistingSemantics(t *testing.T) {

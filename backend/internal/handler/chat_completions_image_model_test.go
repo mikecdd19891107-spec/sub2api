@@ -8,12 +8,12 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	middleware "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestChatCompletionsRejectsGPTImageModelsBeforeScheduling(t *testing.T) {

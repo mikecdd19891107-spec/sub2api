@@ -8,11 +8,10 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/httputil"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
-
 	"github.com/gin-gonic/gin"
+
 )
 
 func newGroupModelAllowlistTestRouter(apiKey *service.APIKey, pathPrefix string) (*gin.Engine, *[]string) {

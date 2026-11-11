@@ -5,8 +5,8 @@ package service
 import (
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // ============ shuffleWithinSortGroups 测试 ============

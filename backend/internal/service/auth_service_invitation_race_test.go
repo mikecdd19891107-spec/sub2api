@@ -9,8 +9,8 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // raceSafeUserRepo 是仅覆盖注册路径的并发安全用户仓储桩。

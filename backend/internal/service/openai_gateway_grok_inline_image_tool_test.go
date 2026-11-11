@@ -10,11 +10,11 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/xai"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestForwardGrokChatViaResponsesDropsRedundantViewImage(t *testing.T) {

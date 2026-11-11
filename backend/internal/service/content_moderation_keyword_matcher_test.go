@@ -4,8 +4,8 @@ import (
 	"math/rand"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestContentModerationKeywordMatcherMatchesLegacyBehavior(t *testing.T) {

@@ -2,8 +2,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestNormalizeKnownOpenAICodexModelGPT6Astra(t *testing.T) {

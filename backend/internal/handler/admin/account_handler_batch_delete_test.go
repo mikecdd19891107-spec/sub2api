@@ -10,11 +10,10 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 type batchDeleteAdminService struct {

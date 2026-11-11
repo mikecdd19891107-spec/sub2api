@@ -6,12 +6,11 @@ import (
 	"net/http/httptest"
 	"testing"
 	"time"
-
 	ippkg "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ip"
-
 	"github.com/gin-gonic/gin"
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestWindowTTLMillis(t *testing.T) {

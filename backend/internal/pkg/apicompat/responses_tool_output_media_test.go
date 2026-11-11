@@ -3,8 +3,8 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestLiftResponsesToolOutputMedia(t *testing.T) {

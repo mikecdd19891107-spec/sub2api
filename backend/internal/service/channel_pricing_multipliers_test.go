@@ -2,8 +2,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func pricingMultiplier(value float64) *float64 { return &value }

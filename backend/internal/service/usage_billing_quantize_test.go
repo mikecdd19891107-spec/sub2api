@@ -3,9 +3,9 @@ package service
 import (
 	"math"
 	"testing"
-
 	"github.com/shopspring/decimal"
 	"github.com/stretchr/testify/require"
+
 )
 
 // decimalPlaces 返回 float64 最短十进制表示的小数位数，

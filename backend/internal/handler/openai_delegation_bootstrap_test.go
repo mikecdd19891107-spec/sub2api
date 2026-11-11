@@ -3,9 +3,9 @@ package handler
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 const delegationEnvelope = `<codex_delegation><source_thread_id>thread-1</source_thread_id><input>do the work</input></codex_delegation>`

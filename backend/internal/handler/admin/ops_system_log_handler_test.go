@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 type responseEnvelope struct {

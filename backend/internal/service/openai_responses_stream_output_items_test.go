@@ -2,9 +2,9 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // A terminal event that arrives with an empty output must be rebuilt from the

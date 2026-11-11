@@ -8,10 +8,10 @@ import (
 	"net/url"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestGatewayService_AcceptEncodingOnWire(t *testing.T) {

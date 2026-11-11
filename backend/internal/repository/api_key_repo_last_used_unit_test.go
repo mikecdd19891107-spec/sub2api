@@ -6,16 +6,15 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/enttest"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	_ "modernc.org/sqlite"
+
 )
 
 func newAPIKeyRepoSQLite(t *testing.T) (*apiKeyRepository, *dbent.Client) {

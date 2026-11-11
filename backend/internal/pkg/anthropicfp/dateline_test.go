@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"strings"
 	"testing"
+
 )
 
 func TestNormalizeText_ASCIIHyphenIsIdentity(t *testing.T) {

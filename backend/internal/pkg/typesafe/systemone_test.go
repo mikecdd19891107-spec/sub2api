@@ -4,8 +4,8 @@ import (
 	"errors"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestValidateSystemOneRequestValidQuestionTypes(t *testing.T) {

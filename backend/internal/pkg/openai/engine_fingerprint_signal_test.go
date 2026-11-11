@@ -3,8 +3,8 @@ package openai
 import (
 	"net/http"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // hdr 构造一个 http.Header(键值对)。

@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestCoderOpenAIWSClientDialer_ProxyHTTPClientReuse(t *testing.T) {

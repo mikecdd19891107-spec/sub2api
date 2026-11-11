@@ -12,9 +12,9 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 const mcpIntegrationResource = "https://platform.example/api/v1/mcp"

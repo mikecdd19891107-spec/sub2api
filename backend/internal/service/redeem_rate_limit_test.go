@@ -7,8 +7,8 @@ import (
 	"errors"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // redeemRateLimitCacheStub 实现 RedeemCache，记录各方法调用次数并允许注入错误。

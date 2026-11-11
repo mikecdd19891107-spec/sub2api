@@ -8,9 +8,9 @@ package service
 import (
 	"context"
 	"testing"
-
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/stretchr/testify/require"
+
 )
 
 func codingAccount(platform string) *Account {

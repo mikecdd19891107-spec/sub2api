@@ -15,11 +15,10 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/imroc/req/v3"
 	"github.com/stretchr/testify/require"
-
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+
 )
 
 // ── stub helpers ─────────────────────────────────────────────────────────────

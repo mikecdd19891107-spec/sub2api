@@ -12,10 +12,10 @@ import (
 	"testing"
 	"testing/synctest"
 	"time"
-
 	"github.com/stretchr/testify/require"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/hpack"
+
 )
 
 // 使用真实传输构建器和 HTTP/2 帧验证保活行为；虚拟时间保持生产超时值且无需实际等待。

@@ -8,10 +8,10 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestSchedulerCacheUpdateLastUsedUsesSideKeyWithoutRewritingPayloads(t *testing.T) {

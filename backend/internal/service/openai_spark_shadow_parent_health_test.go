@@ -5,8 +5,8 @@ package service
 import (
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestParentHealthyForShadow covers the pure helper function used across

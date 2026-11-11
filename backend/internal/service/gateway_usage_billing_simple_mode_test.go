@@ -5,8 +5,8 @@ import (
 	"errors"
 	"strconv"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestBuildUsageBillingCommandSimpleModeOnlyChargesAPIKeyWindows(t *testing.T) {

@@ -5,8 +5,8 @@ import (
 	"net/http/httptest"
 	"net/url"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func buildEncodedOAuthBindUserCookie(t *testing.T, userID int64, secret string) string {

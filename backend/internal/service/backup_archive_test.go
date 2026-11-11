@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"os"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestSplitBackupFile_ReassemblesExactBytes(t *testing.T) {

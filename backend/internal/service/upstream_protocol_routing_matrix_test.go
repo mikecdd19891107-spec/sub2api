@@ -15,11 +15,11 @@ import (
 	"reflect"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai_compat"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // The fixture is captured through the real gateway entry points on this main

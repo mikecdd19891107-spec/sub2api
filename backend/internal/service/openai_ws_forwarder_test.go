@@ -6,10 +6,10 @@ import (
 	"net/http/httptest"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestIsOpenAIWSTokenEvent_TerminalEventsExcluded 覆盖 isOpenAIWSTokenEvent 的回归用例。

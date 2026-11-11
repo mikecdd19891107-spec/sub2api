@@ -5,8 +5,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestUsageNotificationsBoundWorkAndCancelOnStop(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"testing"
-
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
+
 )
 
 type stubOpsRepoForUserErr struct {

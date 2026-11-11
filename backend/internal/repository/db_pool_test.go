@@ -4,11 +4,10 @@ import (
 	"database/sql"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
-
 	_ "github.com/lib/pq"
+
 )
 
 func TestClampDBPoolSettings(t *testing.T) {

@@ -11,8 +11,8 @@ package service
 import (
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestShouldClearStickySession tests sticky session clearing via IsSchedulable() delegation

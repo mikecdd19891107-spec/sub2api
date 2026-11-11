@@ -3,8 +3,8 @@ package service
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAccount_BillingRateMultiplier_DefaultsToOneWhenNil(t *testing.T) {

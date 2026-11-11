@@ -5,8 +5,8 @@ package service
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // issue #7919：claude-haiku-5-5 请求校验（官方 migration guide 口径）。

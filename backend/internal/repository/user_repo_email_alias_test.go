@@ -3,9 +3,9 @@ package repository
 import (
 	"context"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func seedUserForAliasTest(t *testing.T, repo *userRepository, email string) {

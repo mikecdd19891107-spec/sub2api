@@ -10,9 +10,9 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/require"
+
 )
 
 func archiveSchedule(days ...int) *BackupScheduleConfig {

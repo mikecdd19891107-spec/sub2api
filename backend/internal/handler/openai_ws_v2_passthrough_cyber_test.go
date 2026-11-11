@@ -7,7 +7,6 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	coderws "github.com/coder/websocket"
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
@@ -16,6 +15,7 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/testutil"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 type openAIWSPassthroughHandlerHarness struct {

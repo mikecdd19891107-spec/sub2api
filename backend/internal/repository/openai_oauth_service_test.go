@@ -7,12 +7,12 @@ import (
 	"net/http/httptest"
 	"net/url"
 	"testing"
-
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
+
 )
 
 type OpenAIOAuthServiceSuite struct {

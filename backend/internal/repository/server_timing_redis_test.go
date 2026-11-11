@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/servertiming"
 	"github.com/redis/go-redis/v9"
+
 )
 
 func TestServerTimingRedisHookRecordsCommands(t *testing.T) {

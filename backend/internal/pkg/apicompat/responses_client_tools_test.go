@@ -3,9 +3,9 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestAdaptResponsesClientTools_LowersDeclarationsHistoryChoiceAndNamespaces(t *testing.T) {

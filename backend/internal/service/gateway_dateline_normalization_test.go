@@ -3,10 +3,10 @@ package service
 import (
 	"context"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/anthropicfp"
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestGatewayClientDatelineNormalization_Scope covers the account/switch matrix

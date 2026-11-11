@@ -9,11 +9,10 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 func TestCreateShadow_ReturnsCreatedShadow(t *testing.T) {

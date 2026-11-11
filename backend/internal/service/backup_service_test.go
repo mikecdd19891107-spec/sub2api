@@ -15,10 +15,9 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+
 )
 
 // ─── Mocks ───

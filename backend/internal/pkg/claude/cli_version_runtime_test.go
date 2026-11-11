@@ -3,6 +3,7 @@ package claude
 import (
 	"strings"
 	"testing"
+
 )
 
 // withCLIVersionResolver 注入测试解析器并在用例结束时还原，避免用例间污染。

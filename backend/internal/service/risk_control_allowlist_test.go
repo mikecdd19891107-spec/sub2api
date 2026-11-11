@@ -8,8 +8,8 @@ import (
 	"net/http/httptest"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type failingAllowlistRepo struct {

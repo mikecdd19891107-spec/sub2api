@@ -6,11 +6,11 @@ import (
 	"encoding/json"
 	"testing"
 	"time"
-
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func newSQLMock(t *testing.T) (*sql.DB, sqlmock.Sqlmock) {

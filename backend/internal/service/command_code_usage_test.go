@@ -12,10 +12,10 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/tlsfingerprint"
 	"github.com/stretchr/testify/require"
+
 )
 
 // commandCodeAlphaUpstream 按路径返回 /alpha 接口响应，并记录请求。

@@ -5,8 +5,8 @@ package service
 import (
 	"context"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestPropagateAccountProxyToShadows 外审第8轮:CRS/AdminService 改母账号 proxy 后,

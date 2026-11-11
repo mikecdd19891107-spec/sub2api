@@ -5,9 +5,9 @@ package service
 import (
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/xai"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestEvaluateAccountSchedulingThreshold_OpenAIChoosesLatestResetWindow(t *testing.T) {

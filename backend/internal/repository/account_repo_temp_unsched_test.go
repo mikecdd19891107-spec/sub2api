@@ -8,10 +8,10 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	sqlmock "github.com/DATA-DOG/go-sqlmock"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAccountRepository_SetTempUnschedulable_NoRowsAffectedDoesNotWriteOutbox(t *testing.T) {

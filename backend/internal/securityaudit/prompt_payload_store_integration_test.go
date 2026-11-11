@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestRedisPayloadStoreRoundTripTTLNamespaceAndDelete(t *testing.T) {

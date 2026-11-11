@@ -5,10 +5,10 @@ package repository
 import (
 	"context"
 	"testing"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/suite"
+
 )
 
 // GatewayRoutingSuite 测试网关路由相关的数据库查询

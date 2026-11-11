@@ -3,9 +3,9 @@ package service
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/antigravity"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestCleanGeminiNativeThoughtSignatures_ReplacesNestedThoughtSignatures(t *testing.T) {

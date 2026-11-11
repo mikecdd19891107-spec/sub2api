@@ -8,8 +8,8 @@ import (
 	"net/http/httptest"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // sparkShadowUsageTestRepo is a minimal AccountRepository stub for spark shadow

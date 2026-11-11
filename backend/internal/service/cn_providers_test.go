@@ -6,11 +6,10 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+
 )
 
 // TestCNExtraKey 验证 provider 维度的 Extra 快照键由前缀 + 后缀拼接。

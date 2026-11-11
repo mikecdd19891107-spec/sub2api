@@ -5,8 +5,8 @@ package service
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestCanTransitionBatchImageJob(t *testing.T) {

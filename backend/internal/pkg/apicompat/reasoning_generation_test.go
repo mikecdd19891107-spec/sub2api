@@ -3,8 +3,8 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // GPT-5 and every later generation are reasoning-only: forwarding temperature or

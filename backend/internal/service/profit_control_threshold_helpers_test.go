@@ -3,8 +3,8 @@ package service
 import (
 	"math"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestClampProfitControlThreshold 钉死阈值清洗口径：非有限或为负一律按 0

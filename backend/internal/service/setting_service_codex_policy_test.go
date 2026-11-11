@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"reflect"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestGetCodexRestrictionPolicy(t *testing.T) {

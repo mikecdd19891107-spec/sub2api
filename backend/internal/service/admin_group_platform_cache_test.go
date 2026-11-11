@@ -5,8 +5,8 @@ package service
 import (
 	"context"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // groupPlatformRepoStub 只实现 UpdateGroup 走到的两个方法，其余靠内嵌接口占位。

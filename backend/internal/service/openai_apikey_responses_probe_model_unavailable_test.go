@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
+
 )
 
 // A 400/404 that only says the probe model does not exist says nothing about

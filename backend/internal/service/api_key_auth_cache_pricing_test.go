@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAPIKeyAuthSnapshotGroupPricingRoundtrip(t *testing.T) {

@@ -7,8 +7,8 @@ import (
 	"sort"
 	"strings"
 	"testing"
-
 	"github.com/spf13/viper"
+
 )
 
 // collectMapstructureKeys walks a config struct and returns every dotted key

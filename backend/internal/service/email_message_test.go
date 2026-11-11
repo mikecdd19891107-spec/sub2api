@@ -11,8 +11,8 @@ import (
 	"regexp"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestBuildSMTPMessageProducesStandardsCompliantMIME(t *testing.T) {

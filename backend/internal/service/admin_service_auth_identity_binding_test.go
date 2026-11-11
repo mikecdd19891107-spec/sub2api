@@ -6,17 +6,16 @@ import (
 	"context"
 	"database/sql"
 	"testing"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/authidentity"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/authidentitychannel"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/enttest"
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	_ "modernc.org/sqlite"
+
 )
 
 func newAdminServiceAuthIdentityBindingTestClient(t *testing.T) *dbent.Client {

@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestClaudeUsageResponse_FableWindowDecoding(t *testing.T) {

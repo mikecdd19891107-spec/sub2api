@@ -5,8 +5,8 @@ package service
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // These tests guard against fmt.Sprintf arg-count mismatches in the email

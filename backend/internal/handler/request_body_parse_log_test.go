@@ -5,10 +5,10 @@ package handler
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zaptest/observer"
+
 )
 
 func newObservedLogger(t *testing.T) (*zap.Logger, *observer.ObservedLogs) {

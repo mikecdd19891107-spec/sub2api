@@ -10,13 +10,13 @@ import (
 	"net/http/httptest"
 	"sync"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	middleware2 "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // openAIResponsesFailoverCancelUpstream 固定返回 HTTP 520，可在首次上游调用时

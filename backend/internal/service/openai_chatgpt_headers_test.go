@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // stubChatGPTHeadersRepo 是最小化 AccountRepository stub，仅实现 GetByID，

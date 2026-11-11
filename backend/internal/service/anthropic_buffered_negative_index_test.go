@@ -7,10 +7,10 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/apicompat"
 	"github.com/stretchr/testify/require"
+
 )
 
 // anthropicSSEWithNegativeBlockIndex is a buffered Anthropic stream in which a

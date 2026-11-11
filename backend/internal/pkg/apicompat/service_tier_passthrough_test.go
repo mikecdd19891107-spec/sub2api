@@ -3,8 +3,8 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // 上游响应中的 service_tier 必须如实回传，不被重写/丢弃：

@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 func setupRedeemExportRouter() (*gin.Engine, *stubAdminService) {

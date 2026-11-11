@@ -5,9 +5,9 @@ package handler
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAuthRequestsBindTencentCaptchaProof(t *testing.T) {

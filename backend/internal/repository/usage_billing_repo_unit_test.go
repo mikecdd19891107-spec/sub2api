@@ -7,11 +7,10 @@ import (
 	"database/sql"
 	"strings"
 	"testing"
-
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 const (

@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func adaptiveCNAccountTestAccount(id int64, platform string) *Account {

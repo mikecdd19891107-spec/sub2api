@@ -6,8 +6,8 @@ import (
 	"runtime"
 	"strings"
 	"testing"
-
 	"github.com/tidwall/gjson"
+
 )
 
 func BenchmarkStripOpenAIResponsesInputNamespaces(b *testing.B) {

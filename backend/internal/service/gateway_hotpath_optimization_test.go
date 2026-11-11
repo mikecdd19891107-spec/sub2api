@@ -7,13 +7,13 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ctxkey"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/usagestats"
 	gocache "github.com/patrickmn/go-cache"
 	"github.com/stretchr/testify/require"
+
 )
 
 type userGroupRateRepoHotpathStub struct {

@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	coderws "github.com/coder/websocket"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestReadOpenAIWSClientMessage_ControlCloseFrames(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestBuildBillingURL(t *testing.T) {

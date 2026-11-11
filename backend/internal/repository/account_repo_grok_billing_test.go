@@ -2,8 +2,8 @@ package repository
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestGrokBillingSnapshotIsSchedulerNeutral(t *testing.T) {

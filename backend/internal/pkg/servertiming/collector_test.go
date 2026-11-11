@@ -7,6 +7,7 @@ import (
 	"sync"
 	"testing"
 	"time"
+
 )
 
 func TestCollectorHeaderValueAggregatesIntervals(t *testing.T) {

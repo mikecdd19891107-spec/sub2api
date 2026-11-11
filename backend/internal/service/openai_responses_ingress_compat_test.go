@@ -2,9 +2,9 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestNormalizeOpenAIResponsesLegacyIngressMessagesOnly(t *testing.T) {

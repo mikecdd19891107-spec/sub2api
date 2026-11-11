@@ -2,8 +2,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // openAILadderCatalogJSON 镜像真实同步目录的形态：长上下文用 above_272k 绝对价字段表达，

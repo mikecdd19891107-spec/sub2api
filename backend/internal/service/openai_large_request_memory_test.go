@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"runtime"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func largeNativeResponsesBody(imageBytes int) []byte {

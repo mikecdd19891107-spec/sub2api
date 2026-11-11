@@ -6,8 +6,8 @@ import (
 	"context"
 	"errors"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // totpVMUserRepoStub 仅实现 TOTP 验证方式测试所需方法；未桩方法调用即 panic（嵌入 nil 接口）。

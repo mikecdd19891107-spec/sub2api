@@ -10,7 +10,6 @@ import (
 	"net/http/httptest"
 	"sync"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/logger"
@@ -20,6 +19,7 @@ import (
 	"github.com/tidwall/gjson"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zaptest/observer"
+
 )
 
 type openAIImagesFailoverAccountRepo struct {

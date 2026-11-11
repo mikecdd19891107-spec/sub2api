@@ -7,9 +7,9 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestProxyHandlerUpdateCredentialPresence(t *testing.T) {

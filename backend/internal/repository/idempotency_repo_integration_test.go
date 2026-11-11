@@ -8,9 +8,9 @@ import (
 	"encoding/hex"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 // hashedTestValue returns a unique SHA-256 hex string (64 chars) that fits VARCHAR(64) columns.

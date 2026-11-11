@@ -3,8 +3,8 @@ package service
 import (
 	"bytes"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // 第三方 Claude 兼容上游 (DeepSeek/Kimi/GLM 等) 要求历史 thinking block 原样回传，

@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/imroc/req/v3"
 	"github.com/stretchr/testify/require"
+
 )
 
 // shadowSkipTestRepo 是满足 AccountRepository 接口的最小 stub（只实现 GetByID）。

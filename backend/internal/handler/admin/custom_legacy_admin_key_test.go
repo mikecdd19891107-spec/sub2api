@@ -11,7 +11,6 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	"github.com/gin-gonic/gin"
@@ -21,6 +20,7 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/repository"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 // 在轮换读取旧值后暂停，让删除在恢复轮换之前完整提交。

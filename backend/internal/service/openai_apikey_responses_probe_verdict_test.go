@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai_compat"
 	"github.com/stretchr/testify/require"
+
 )
 
 func newResponsesProbeAccount(id int64) Account {

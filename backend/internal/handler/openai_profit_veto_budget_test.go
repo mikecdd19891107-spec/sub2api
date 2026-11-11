@@ -2,8 +2,8 @@ package handler
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestRecordOpenAIProfitVetoBounded 钉死 OpenAI 侧选号循环的利润否决预算：

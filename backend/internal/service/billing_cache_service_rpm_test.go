@@ -8,9 +8,9 @@ import (
 	"errors"
 	"sync/atomic"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
+
 )
 
 // userRPMCacheStub 记录每种计数器被调用的次数，并可注入返回值与错误。

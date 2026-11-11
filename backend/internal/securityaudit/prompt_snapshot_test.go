@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 	"unicode/utf8"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestExtractPromptSnapshotProtocols(t *testing.T) {

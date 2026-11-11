@@ -5,8 +5,8 @@ package service
 import (
 	"context"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // rpmUserRepoStub 复用 admin_service_update_balance_test.go 的基础 stub 结构，

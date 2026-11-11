@@ -6,11 +6,10 @@ import (
 	"errors"
 	"net/http"
 	"testing"
-
 	"github.com/imroc/req/v3"
-
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/stretchr/testify/require"
+
 )
 
 type referralClientStub struct {

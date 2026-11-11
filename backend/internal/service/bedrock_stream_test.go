@@ -7,10 +7,10 @@ import (
 	"hash/crc32"
 	"io"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestExtractBedrockChunkData(t *testing.T) {

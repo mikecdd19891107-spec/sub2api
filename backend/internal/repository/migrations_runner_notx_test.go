@@ -5,9 +5,9 @@ import (
 	"database/sql"
 	"testing"
 	"testing/fstest"
-
 	sqlmock "github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestValidateMigrationExecutionMode(t *testing.T) {

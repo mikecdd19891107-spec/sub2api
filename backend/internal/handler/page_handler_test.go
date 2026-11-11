@@ -4,6 +4,7 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
+
 )
 
 func TestCleanPageImageRelativePath(t *testing.T) {

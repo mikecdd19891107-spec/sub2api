@@ -16,13 +16,13 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/tlsfingerprint"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/net/http2"
+
 )
 
 type codexModelsHTTPUpstreamStub struct {

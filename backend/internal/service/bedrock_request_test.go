@@ -2,10 +2,10 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestPrepareBedrockRequestBody_BasicFields(t *testing.T) {

@@ -5,12 +5,12 @@ package repository
 import (
 	"context"
 	"testing"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/redeemcode"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/user"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestCreateWithEmailAliasGuardJoinsOuterTransaction 验证用户创建会加入调用方开启的

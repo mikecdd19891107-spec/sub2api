@@ -5,6 +5,7 @@ package payment
 import (
 	"math"
 	"testing"
+
 )
 
 func TestYuanToFen(t *testing.T) {

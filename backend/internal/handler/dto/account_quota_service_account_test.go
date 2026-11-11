@@ -3,10 +3,9 @@ package dto
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 // service_account 与 apikey 同语义：设了总额度才输出 quota_limit / quota_used。

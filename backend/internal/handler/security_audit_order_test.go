@@ -8,8 +8,8 @@ import (
 	"regexp"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type promptAuditOrderCase struct {

@@ -8,11 +8,11 @@ import (
 	"log/slog"
 	"net/http"
 	"testing"
-
 	"github.com/andybalholm/brotli"
 	"github.com/klauspost/compress/zstd"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestDecompressResponseBodyZstdUsage(t *testing.T) {

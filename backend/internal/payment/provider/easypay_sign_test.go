@@ -2,6 +2,7 @@ package provider
 
 import (
 	"testing"
+
 )
 
 func TestEasyPaySignConsistentOutput(t *testing.T) {

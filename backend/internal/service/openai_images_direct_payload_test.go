@@ -12,9 +12,9 @@ import (
 	"os"
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestCodexDirectImagesMultipartEdit(t *testing.T) {

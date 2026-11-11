@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+
 )
 
 func TestOpsErrorLogInsertDoesNotPersistRequestReplayFields(t *testing.T) {

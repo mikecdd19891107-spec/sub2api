@@ -10,11 +10,10 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	coderws "github.com/coder/websocket"
 	"github.com/stretchr/testify/require"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+
 )
 
 // openAIWSReaderLoopFakeConn 模拟 coder/websocket 的契约：

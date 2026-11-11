@@ -2,8 +2,8 @@ package claude
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestEffortLevelsForModel(t *testing.T) {

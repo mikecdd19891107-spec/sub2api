@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAnnouncementServiceRejectsOutOfRangeDates(t *testing.T) {

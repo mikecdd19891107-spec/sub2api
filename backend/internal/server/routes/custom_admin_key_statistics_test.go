@@ -11,7 +11,6 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/imroc/req/v3"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/handler"
@@ -22,6 +21,7 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 type scopedRouteStatisticsAccounts struct{ scopedRouteAccounts }

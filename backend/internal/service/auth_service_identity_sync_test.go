@@ -8,7 +8,6 @@ import (
 	"errors"
 	"testing"
 	"time"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/authidentity"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/enttest"
@@ -16,10 +15,10 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/repository"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	_ "modernc.org/sqlite"
+
 )
 
 type authIdentityDefaultSubAssignerStub struct {

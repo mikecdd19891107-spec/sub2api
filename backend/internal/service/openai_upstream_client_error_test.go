@@ -8,12 +8,12 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/model"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // issue #5479 上游返回的原始错误体：Codex Desktop 的 automation_update 工具定义沉进

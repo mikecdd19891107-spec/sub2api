@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestClaudeTokenRefresher_NeedsRefresh(t *testing.T) {

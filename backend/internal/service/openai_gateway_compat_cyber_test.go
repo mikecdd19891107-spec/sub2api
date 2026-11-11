@@ -9,9 +9,9 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 // compatCyberOAuthAccount 是 compat cyber 测试共用的 OAuth 账号。

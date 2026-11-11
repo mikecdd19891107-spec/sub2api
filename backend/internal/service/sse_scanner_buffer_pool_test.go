@@ -2,8 +2,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestSSEScannerBuf64KPool_GetPutDoesNotPanic(t *testing.T) {

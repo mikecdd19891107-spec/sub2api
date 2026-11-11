@@ -3,8 +3,8 @@ package service
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // ensureCodexReasoningInclude：带 reasoning 时补齐 include，幂等且保留既有项。

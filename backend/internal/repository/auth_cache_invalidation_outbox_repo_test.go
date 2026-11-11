@@ -7,10 +7,10 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	sqlmock "github.com/DATA-DOG/go-sqlmock"
 	"github.com/mikecdd19891107-spec/agentbyte/migrations"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAuthCacheInvalidationOutboxRepository_ClaimUsesLeaseAndSkipLocked(t *testing.T) {

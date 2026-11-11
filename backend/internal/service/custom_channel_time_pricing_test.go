@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func timeConfig(periods ...ChannelTimePricingPeriod) *ChannelTimePricing {

@@ -6,13 +6,13 @@ import (
 	"context"
 	"encoding/json"
 	"testing"
-
 	"entgo.io/ent/dialect"
 	entsql "entgo.io/ent/dialect/sql"
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/adminaccess"
 	infraerrors "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/errors"
 	"github.com/stretchr/testify/require"
+
 )
 
 type scopedSelectionProxyRepo struct {

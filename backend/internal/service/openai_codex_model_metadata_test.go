@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestCodexCatalogUsesAntigravityCapabilitiesInGeminiMixedGroup(t *testing.T) {

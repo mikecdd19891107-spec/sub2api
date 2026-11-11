@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // sessionLimitReleaseCacheStub 记录 UnregisterSession 调用，用于验证释放逻辑

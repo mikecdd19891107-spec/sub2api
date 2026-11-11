@@ -3,8 +3,8 @@ package service
 import (
 	"regexp"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestBuildOAuthMetadataUserID_FallbackWithoutAccountUUID(t *testing.T) {

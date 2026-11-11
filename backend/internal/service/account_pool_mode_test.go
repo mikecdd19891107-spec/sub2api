@@ -5,8 +5,8 @@ package service
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestGetPoolModeRetryCount(t *testing.T) {

@@ -7,8 +7,8 @@ import (
 	"errors"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 type recordingBatchImageQueue struct {

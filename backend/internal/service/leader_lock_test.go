@@ -5,8 +5,8 @@ import (
 	"sync"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // fakeLeaderLockCache is an in-memory LeaderLockCache for unit tests. It models the

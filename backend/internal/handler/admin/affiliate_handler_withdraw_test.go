@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 const testWithdrawIdempotencyKey = "affiliate-withdraw-1-5d0c7a2e"

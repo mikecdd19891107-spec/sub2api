@@ -3,8 +3,8 @@ package apicompat
 import (
 	"encoding/json"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // marshalEvent marshals through the custom MarshalJSON and returns the decoded

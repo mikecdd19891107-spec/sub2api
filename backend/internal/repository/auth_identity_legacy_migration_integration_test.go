@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"strconv"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAuthIdentityLegacyExternalBackfillMigration(t *testing.T) {

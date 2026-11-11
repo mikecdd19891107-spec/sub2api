@@ -2,8 +2,8 @@ package openai
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestPairCodexClientIdentityRejectsInvalidHeaderBytes(t *testing.T) {

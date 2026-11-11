@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/apicompat"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestApplyAnthropicCompatFullReplayGuard_TrimsOldMessages(t *testing.T) {

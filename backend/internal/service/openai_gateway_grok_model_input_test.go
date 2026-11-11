@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestSanitizeGrokResponsesModelInputAgentMessage(t *testing.T) {

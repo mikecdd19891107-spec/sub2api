@@ -4,8 +4,8 @@ package service
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestCalculateImageCost_DefaultPricing 测试无分组配置时使用默认价格

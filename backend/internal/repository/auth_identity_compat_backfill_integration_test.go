@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"strconv"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAuthIdentityCompatBackfillMigration_AllowsLongReportTypes(t *testing.T) {

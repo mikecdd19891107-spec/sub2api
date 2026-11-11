@@ -5,8 +5,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/zeromicro/go-zero/core/collection"
+
 )
 
 func TestNewTimingWheelService_InitFail_NoPanicAndReturnError(t *testing.T) {

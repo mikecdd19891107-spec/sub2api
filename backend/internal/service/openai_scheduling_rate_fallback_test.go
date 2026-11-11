@@ -5,8 +5,8 @@ import (
 	"math"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestOpenAISchedulingRateFallback(t *testing.T) {

@@ -9,12 +9,12 @@ import (
 	"sync"
 	"testing"
 	"time"
-
-	"github.com/gin-gonic/gin"
 	pkghttputil "github.com/mikecdd19891107-spec/agentbyte/internal/pkg/httputil"
 	middleware2 "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
+	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 type asyncImageMemoryStore struct {

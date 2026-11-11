@@ -5,10 +5,10 @@ package repository
 import (
 	"context"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
 	capcha "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/captcha/v20190722"
+
 )
 
 type tencentCaptchaAPIStub struct {

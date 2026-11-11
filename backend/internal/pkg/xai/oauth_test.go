@@ -5,9 +5,9 @@ package xai
 import (
 	"net/url"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/util/urlvalidator"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestParseAuthorizationInput(t *testing.T) {

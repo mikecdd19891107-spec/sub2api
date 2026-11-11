@@ -7,10 +7,10 @@ import (
 	"encoding/hex"
 	"strings"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
 )
 
 // ── 测试辅助 ─────────────────────────────────────────────────────────────────

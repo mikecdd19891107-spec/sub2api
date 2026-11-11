@@ -2,8 +2,8 @@ package model
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestAllPlatformsIncludesEveryConcretePlatform(t *testing.T) {

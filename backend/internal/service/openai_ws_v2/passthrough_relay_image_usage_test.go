@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 	"time"
-
 	coderws "github.com/coder/websocket"
 	"github.com/stretchr/testify/require"
+
 )
 
 // WS passthrough must account image tokens the way the HTTP Responses path

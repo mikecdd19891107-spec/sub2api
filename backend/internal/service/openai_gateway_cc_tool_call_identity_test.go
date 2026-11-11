@@ -5,9 +5,9 @@ package service
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 // TestStripEmptyChatToolCallIdentity_FirstChunkIdentityUntouched 首包带合法

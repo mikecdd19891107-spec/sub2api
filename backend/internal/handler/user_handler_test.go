@@ -11,13 +11,13 @@ import (
 	"net/http/httptest"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 	middleware2 "github.com/mikecdd19891107-spec/agentbyte/internal/server/middleware"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
+
 )
 
 type userHandlerRepoStub struct {
@@ -438,6 +438,10 @@ func (s *userHandlerRefreshTokenCacheStub) DeleteUserRefreshTokens(_ context.Con
 
 func (s *userHandlerRefreshTokenCacheStub) DeleteTokenFamily(context.Context, string) error {
 	return nil
+}
+
+func (s *userHandlerRefreshTokenCacheStub) ConsumeRefreshToken(context.Context, string) (*service.RefreshTokenData, error) {
+	return nil, service.ErrRefreshTokenNotFound
 }
 
 func (s *userHandlerRefreshTokenCacheStub) AddToUserTokenSet(context.Context, int64, string, time.Duration) error {

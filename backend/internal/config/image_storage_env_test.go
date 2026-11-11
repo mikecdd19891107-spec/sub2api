@@ -4,8 +4,8 @@ package config
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 // TestLoadImageStorageFromEnv guards against a viper trap that silently disabled

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 	"testing"
-
 	"github.com/tidwall/gjson"
+
 )
 
 // These measure only the orphan-cleanup stage, not the complete gateway. B/op

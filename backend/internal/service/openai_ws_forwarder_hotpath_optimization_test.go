@@ -3,8 +3,8 @@ package service
 import (
 	"net/http"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestParseOpenAIWSEventEnvelope(t *testing.T) {

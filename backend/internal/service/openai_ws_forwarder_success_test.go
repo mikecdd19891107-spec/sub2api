@@ -13,7 +13,6 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	coderws "github.com/coder/websocket"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
@@ -21,6 +20,7 @@ import (
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/openai"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+
 )
 
 func TestOpenAIGatewayService_Forward_WSv2_SuccessAndBindSticky(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+
 )
 
 func BenchmarkOpenAIWSPoolAcquire(b *testing.B) {

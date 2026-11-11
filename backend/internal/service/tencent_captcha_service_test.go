@@ -6,9 +6,9 @@ import (
 	"context"
 	"errors"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/stretchr/testify/require"
+
 )
 
 type tencentCaptchaVerifierStub struct {

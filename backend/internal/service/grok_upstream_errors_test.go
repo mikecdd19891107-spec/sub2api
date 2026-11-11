@@ -11,9 +11,9 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestIsGrokContentPolicyRejection(t *testing.T) {

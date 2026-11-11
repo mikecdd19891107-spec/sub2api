@@ -7,8 +7,8 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestSnapshotCache_SetAndGet(t *testing.T) {

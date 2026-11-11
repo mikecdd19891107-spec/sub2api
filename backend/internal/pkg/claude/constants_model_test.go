@@ -2,8 +2,8 @@ package claude
 
 import (
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestDefaultModelsContainsClaudeFable51(t *testing.T) {

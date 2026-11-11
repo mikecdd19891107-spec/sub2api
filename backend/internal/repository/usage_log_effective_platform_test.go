@@ -3,8 +3,8 @@ package repository
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestUsageLogEffectivePlatformExprUsesAccountPlatformForCompositeGroups(t *testing.T) {

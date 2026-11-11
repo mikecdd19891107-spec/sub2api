@@ -3,8 +3,8 @@ package service
 import (
 	"strings"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestIsImageGenerationIntent(t *testing.T) {

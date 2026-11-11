@@ -3,8 +3,8 @@ package middleware
 import (
 	"net/http"
 	"testing"
-
 	"github.com/stretchr/testify/require"
+
 )
 
 func TestIsAsyncImageTaskRead(t *testing.T) {

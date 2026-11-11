@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+
 )
 
 // 回归分组平台枚举:kimi/zhipu/deepseek/opencode_go 必须能通过 Create/Update 的

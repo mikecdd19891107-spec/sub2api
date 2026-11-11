@@ -5,6 +5,7 @@ import (
 	"sync"
 	"testing"
 	"time"
+
 )
 
 func TestSessionStore_Stop_Idempotent(t *testing.T) {

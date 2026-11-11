@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"net/url"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
+
 )
 
 // httpClientSink 用于防止编译器优化掉基准测试中的赋值操作

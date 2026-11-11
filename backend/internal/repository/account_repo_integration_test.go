@@ -8,13 +8,13 @@ import (
 	"strings"
 	"testing"
 	"time"
-
 	dbent "github.com/mikecdd19891107-spec/agentbyte/ent"
 	"github.com/mikecdd19891107-spec/agentbyte/ent/accountgroup"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/pagination"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
+
 )
 
 type AccountRepoSuite struct {

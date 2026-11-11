@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/payment"
+
 )
 
 // issue #6292: mapi.php 上游若回相对形式的 payurl/payurl2/qrcode，网关原样

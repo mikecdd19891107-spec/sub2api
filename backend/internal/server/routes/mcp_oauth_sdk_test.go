@@ -11,12 +11,12 @@ import (
 	"sync/atomic"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/service"
 	"github.com/modelcontextprotocol/go-sdk/auth"
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 	"github.com/modelcontextprotocol/go-sdk/oauthex"
 	"github.com/stretchr/testify/require"
+
 )
 
 // The SDK drives discovery, dynamic registration, PKCE generation, code

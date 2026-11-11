@@ -12,10 +12,10 @@ import (
 	"errors"
 	"testing"
 	"time"
-
 	"github.com/mikecdd19891107-spec/agentbyte/internal/config"
 	"github.com/mikecdd19891107-spec/agentbyte/internal/pkg/ctxkey"
 	"github.com/stretchr/testify/require"
+
 )
 
 func profitControlWSAccount(id int64, rate float64, now time.Time) Account {
